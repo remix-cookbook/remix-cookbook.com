@@ -3,6 +3,7 @@ import { Link } from '~/components';
 import { BlogTypes } from '~/features/Blog';
 import { DateTimeUtils } from '~/util';
 import classNames from 'classnames';
+import { Credits } from './Credits';
 
 export interface CardProps {
   /* Post data to display */
@@ -30,17 +31,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
           'card-image-box-highlight': !small,
         })}
       >
-        <span className="absolute z-10 right-4 top-2">
-          <Link.External
-            href={user.portfolio_url ?? 'https://unsplash.com'}
-            externalIndicator={false}
-            title={`Photo by ${user.name} on Unsplash`}
-          >
-            <span className="text-xs text-light-snow-storm3 shadowed-text">
-              Photo by {user.name} on Unsplash
-            </span>
-          </Link.External>
-        </span>
+        <Credits user={user} />
         <img
           src={small ? pictureSM : pictureRG}
           className="object-cover w-full h-full rounded-t-xl"

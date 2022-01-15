@@ -6,6 +6,7 @@ import m2r from 'minutes-to-read';
 import { ContentUtils } from '../Content';
 import pictures from '~/features/Blog/components/Posts/pictures-space.json';
 import shuffle from 'lodash/shuffle';
+import { Credits } from '../Card/Credits';
 
 export interface PostProps {
   post: Post;
@@ -16,9 +17,11 @@ export function Post({ post, preview = false }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
   const [picture] = shuffle(pictures);
+
   return (
     <>
-      <div className="w-full h-48 md:h-72">
+      <div className="relative w-full h-48 md:h-72">
+        <Credits user={picture.user} />
         <img
           src={picture.regular}
           className="object-cover w-full h-full"

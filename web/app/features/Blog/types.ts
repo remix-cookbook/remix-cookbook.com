@@ -11,12 +11,14 @@ export interface Post {
   };
 }
 
+export interface UnsplashUser {
+  name: string;
+  portfolio_url?: string;
+}
+
 export interface Picture {
   regular: string;
   small: string;
   alt_description: string;
-  user: {
-    name: string;
-    portfolio_url?: string;
-  };
+  user: UnsplashUser;
 }
