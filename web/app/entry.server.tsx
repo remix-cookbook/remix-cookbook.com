@@ -4,7 +4,7 @@ import { RemixServer } from 'remix';
 import type { EntryContext } from 'remix';
 import { getGeoInformation } from '~/service/geo';
 import { languageCookie, parseCookie } from '~/cookies';
-import { portugueseSpeakingCountries } from './config';
+import { availableLanguages, portugueseSpeakingCountries } from './config';
 
 export default async function handleRequest(
   request: Request,
@@ -16,7 +16,9 @@ export default async function handleRequest(
 
   const cookie = await parseCookie(request, languageCookie);
   const country = (await getGeoInformation()).data.country.toLowerCase();
-  cookie.language = portugueseSpeakingCountries.includes(country) ? 'pt' : 'en';
+  cookie.language = portugueseSpeakingCountries.includes(country)
+    ? availableLanguages.pt
+    : availableLanguages.en;
   responseHeaders.set(
     'Set-Cookie',
     await languageCookie.serialize(cookie, {
