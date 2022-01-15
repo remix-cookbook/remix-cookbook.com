@@ -31,8 +31,13 @@ export default {
     {
       name: "type",
       title: "Type",
-      type: "reference",
-      to: [{ type: "postType" }],
+      type: "string",
+      options: {
+        list: [
+          { title: "Post", value: "post" },
+          { title: "Job", value: "job" },
+        ],
+      },
     },
     {
       name: "language",

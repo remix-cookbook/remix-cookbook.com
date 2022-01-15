@@ -13,7 +13,6 @@ import screening from "./screening";
 import plotSummary from "./plotSummary";
 import plotSummaries from "./plotSummaries";
 import post from "./post";
-import type from "./postType";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,6 +34,5 @@ export default createSchema({
     castMember,
     crewMember,
     post,
-    type,
   ]),
 });
