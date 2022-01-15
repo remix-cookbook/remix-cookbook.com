@@ -15,10 +15,12 @@ export default async function handleRequest(
   dotenv.config();
 
   const cookie = await parseCookie(request, languageCookie);
-  const country = (await getGeoInformation({ cookie })).data.country.toLowerCase();
+  const country = (await getGeoInformation({ cookie })).data.country;
+
   cookie.language = portugueseSpeakingCountries.includes(country)
     ? availableLanguages.pt
     : availableLanguages.en;
+
   responseHeaders.set(
     'Set-Cookie',
     await languageCookie.serialize(cookie, {
