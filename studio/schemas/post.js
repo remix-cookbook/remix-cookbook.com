@@ -35,6 +35,17 @@ export default {
       to: [{ type: "postType" }],
     },
     {
+      name: "language",
+      title: "Language",
+      type: "string",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Portuguese", value: "pt" },
+        ],
+      },
+    },
+    {
       name: "content",
       title: "Content",
       type: "array",
