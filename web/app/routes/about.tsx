@@ -1,4 +1,5 @@
 import { Headings, Icon, Icons, Link, Prose } from '~/components';
+import { domain } from '~/config';
 
 export default function () {
   return (
@@ -20,8 +21,8 @@ export default function () {
         <Headings.Separator>Site Stats</Headings.Separator>
         <p>
           Our site stats are public and can be accessed on Plausible.io:{' '}
-          <Link.External href={`https://plausible.io/remix-cookbook.com`}>
-            {`plausible.io/remix-cookbook.com`}
+          <Link.External href={`https://plausible.io/${domain}`}>
+            {`plausible.io/${domain}`}
           </Link.External>
         </p>
         <Headings.Separator>Social Media</Headings.Separator>

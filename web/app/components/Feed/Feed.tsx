@@ -2,8 +2,7 @@ import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import { RssIcon } from '@heroicons/react/solid';
-
-const domain = 'remix-cookbook.com';
+import { domain } from '~/config';
 
 export function Feed() {
   return (

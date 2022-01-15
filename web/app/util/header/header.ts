@@ -3,8 +3,7 @@ import { BlogTypes, ContentUtils } from '~/features/Blog';
 import tailwindcss from '~/styles/tailwind.css';
 import background from '~/styles/background.css';
 import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
-
-const domain = 'remix-cookbook.com';
+import { domain } from '~/config';
 
 export function description(content: string): string {
   return truncate(content, { length: 150 });

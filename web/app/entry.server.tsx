@@ -5,7 +5,6 @@ import type { EntryContext } from 'remix';
 import { getGeoInformation } from '~/service/geo';
 import { languageCookie, parseCookie } from '~/cookies';
 
-export const domain = 'remix-cookbook.com';
 export const PORTUGUESE = ['brazil', 'portugal', 'angola'];
 
 export default async function handleRequest(

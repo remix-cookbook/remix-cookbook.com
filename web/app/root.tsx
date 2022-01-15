@@ -7,10 +7,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  MetaFunction,
 } from 'remix';
 import { Header, Footer, Glow } from './components';
-import type { MetaFunction } from 'remix';
 import { globalMeta, globalLinks } from './util/header/header';
+import { domain } from '~/config';
+
+console.log(domain);
 
 export const links: LinksFunction = globalLinks;
 
@@ -30,7 +33,7 @@ export default function App() {
         <Links />
         {/* /js/analytics.js doesn't exist. It is a Netlify redirect to the plausible CDN served file */}
         {/* See /public/_redirects */}
-        <script defer data-domain="remix-cookbook.com" src="/js/analytics.js"></script>
+        <script defer data-domain={`domain`} src="/js/analytics.js"></script>
       </head>
       <body className=" bg-dark-polar-night4">
         <div className="min-h-screen">
