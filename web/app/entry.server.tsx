@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { RemixServer } from 'remix';
 import type { EntryContext } from 'remix';
 import { getGeoInformation } from '~/service/geo';
-import { languageCookie, parseCookie } from '~/cookies';
+import { languageCookie, parseCookie, Cookies } from '~/cookies';
 import { availableLanguages, portugueseSpeakingCountries } from './config';
 
 export default async function handleRequest(
@@ -15,7 +15,7 @@ export default async function handleRequest(
   dotenv.config();
 
   const cookie = await parseCookie(request, languageCookie);
-  const country = (await getGeoInformation()).data.country.toLowerCase();
+  const country = (await getGeoInformation({ cookie })).data.country.toLowerCase();
   cookie.language = portugueseSpeakingCountries.includes(country)
     ? availableLanguages.pt
     : availableLanguages.en;
