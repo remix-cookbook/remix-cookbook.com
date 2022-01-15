@@ -2,8 +2,8 @@ import { getClient } from '~/lib/sanity/getClient';
 import { BlogTypes } from '.';
 
 export async function getPosts({ language }: { language: string }): Promise<BlogTypes.Post[]> {
-  const query = `*[_type=="postType" && name == "Post" && language == ${language}]{
-    "posts": *[_type=='post' && references(^._id)] | order(_createdAt desc)
+  const query = `*[_type=="postType" && name == "Post"]{
+    "posts": *[_type=='post' && language == '${language}' && references(^._id)] | order(_createdAt desc)
   }`;
   const [{ posts }] = await getClient().fetch(query);
 
