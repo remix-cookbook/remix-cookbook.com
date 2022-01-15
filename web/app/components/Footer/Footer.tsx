@@ -5,13 +5,15 @@ const links = [
   { title: 'Tailwind CSS', href: 'https://tailwindcss.com' },
   { title: 'Sanity.io', href: 'https://sanity.io' },
   { title: 'Netlify', href: 'https://netlify.com' },
+  { title: 'Nord Theme', href: 'https://www.nordtheme.com' },
+  { title: 'Unsplash API', href: 'https://unsplash.com/developers' },
 ];
 
 export function Footer() {
   return (
     <footer className="mt-8 mb-12 text-sm text-center text-gray-400 md:flex md:justify-center">
       <div className="mb-2 md:mr-4 md:mb-auto">Happily built with</div>
-      <nav className="flex justify-center">
+      <nav className="flex flex-wrap justify-center">
         {links.map(({ title, href }) => (
           <div
             key={href}
