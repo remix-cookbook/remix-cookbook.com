@@ -18,7 +18,7 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@netlify/functions": "^0.10.0",
     "@remix-run/netlify": "^1.1.1",
@@ -30,7 +30,7 @@
     "autoprefixer": "^10.4.1",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
-    "dotenv": "^10.0.0",
+    "dotenv": "^12.0.3",
     "feed": "^4.2.2",
     "lodash": "^4.17.21",
     "minutes-to-read": "^1.1.0",
@@ -46,7 +46,7 @@
     "remix": "^1.1.1",
     "remix-utils": "^2.4.0",
     "routes-gen": "^0.2.5",
-    "tailwindcss": "^3.0.10",
+    "tailwindcss": "^3.0.15",
     "viewport-js": "^1.0.0"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.6.0",
-    "eslint-config-kentcdodds": "^19.2.0",
+    "eslint-config-kentcdodds": "^20.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
