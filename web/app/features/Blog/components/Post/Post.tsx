@@ -18,7 +18,7 @@ export function Post({ post, preview = false }: PostProps) {
   const [picture] = shuffle(pictures);
   return (
     <>
-      <div className="w-full h-40 md:h-60">
+      <div className="w-full h-48 md:h-72">
         <img
           src={picture.regular}
           className="object-cover w-full h-full"
