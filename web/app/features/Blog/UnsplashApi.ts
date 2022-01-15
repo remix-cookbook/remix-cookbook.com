@@ -11,7 +11,7 @@ export async function getPictures(): Promise<BlogTypes.Picture[]> {
     alt_description,
     user: {
       name: user.name,
-      portfolio_url: user.portfolio_url,
+      portfolio_url: user.links.html,
     },
   }));
 

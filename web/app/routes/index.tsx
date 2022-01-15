@@ -16,9 +16,8 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: card }];
 export const loader: LoaderFunction = async ({ request }) => {
   const { language } = await parseCookie(request, languageCookie);
   const posts = (await BlogApi.getPosts({ language })) ?? [];
-  // const tempPictures = (await UnsplashApi.getPictures()) ?? [];
 
-  // console.log(JSON.stringify(tempPictures));
+  // console.log(JSON.stringify(await UnsplashApi.getPictures()));
 
   return { posts, pictures: shuffle(pictures) };
 };
