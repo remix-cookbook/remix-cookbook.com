@@ -1,0 +1,13 @@
+.card-image-box,
+.card-image-box-highlight {
+  @apply relative;
+  @apply h-[250px];
+}
+
+.card-image-box-highlight {
+  @apply md:h-[550px];
+}
+
+.shadowed-text {
+  text-shadow: 1px 1px 1px black;
+}

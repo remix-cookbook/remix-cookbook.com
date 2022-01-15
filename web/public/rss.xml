@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Remix Cookbook</title>
+        <link>https://remix-cookbook.com/</link>
+        <description>Easy to follow recipes for the Remix.run framework</description>
+        <lastBuildDate>Sat, 15 Jan 2022 06:17:04 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>Remix Cookbook</title>
+            <url>https://remix-cookbook.com/img/social-banner.jpg</url>
+            <link>https://remix-cookbook.com/</link>
+        </image>
+        <copyright>Some right reserved</copyright>
+        <item>
+            <title><![CDATA[Does Remix impose a project structure I have to follow?]]></title>
+            <link>https://remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow</link>
+            <guid>56ff3546-93ed-43ee-b249-464d7f7f69a3</guid>
+            <pubDate>Fri, 14 Jan 2022 14:57:32 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>Aside from a few conventions you have to follow, Remix won’t stay in your way in terms of project organization. That’s nice but, at the same time, a double-sided knife.</p>
+<p>If you are experienced building server-side applications with Node.js, you’re probable used to structure your project, and maybe you even have an excellent organization method in place. We suggest you keep your organization and fit Remix within it.</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow">remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/does-remix-impose-a-project-structure-i-have-to-follow.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[Form and data validation with ZOD]]></title>
+            <link>https://remix-cookbook.com/form-and-data-validation-with-zod</link>
+            <guid>9dc48f3a-b500-4a82-a408-a561e4800ad8</guid>
+            <pubDate>Fri, 14 Jan 2022 11:51:31 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>Remix brings us back to the olden days of web development by relying on web fundamentals. In practice, this means leaving it to the browser to do the job we’ve grown accustomed to do ourselves.</p>
+<p>Form handling is a big part of web development and, while building single page applications, the developer has to keep track of user inputted data, sending it over to the server when it is in a good shape. Typically, data validation occurs while the user is interacting with the form.</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/form-and-data-validation-with-zod">remix-cookbook.com/form-and-data-validation-with-zod</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/form-and-data-validation-with-zod.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[Dark mode toggle with Remix Resource Routes and Dynamic CSS]]></title>
+            <link>https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css</link>
+            <guid>6c983cba-2692-4029-b502-5851f8e8533c</guid>
+            <pubDate>Fri, 14 Jan 2022 11:51:19 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>This article will show you how to leverage Remix Resource Routes to deliver a dark mode toggle:</p>
+<p>In a hurry?</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css">remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[Quick start a Remix project with Tailwind CSS]]></title>
+            <link>https://remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css</link>
+            <guid>5356a6dd-95b9-4ad2-8858-91f7842e1d2d</guid>
+            <pubDate>Fri, 14 Jan 2022 11:48:26 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>Written by Guilherme - https://twitter.com/GuiDiego</p>
+<p>⚠️ This article assumes you are building your app with Typescript</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css">remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/quick-start-a-remix-project-with-tailwind-css.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[If Remix delivers HTML and doesn't need JS, why do we need React in the first place?]]></title>
+            <link>https://remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place</link>
+            <guid>0151df24-782b-4afa-9b5e-1995f394b4ba</guid>
+            <pubDate>Fri, 14 Jan 2022 14:29:47 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>One of the biggest Remix's selling points is progressive enhancement. It is notable you can build your application and delivery it to the browser without shipping any JavaScript. And still, it works as expected.</p>
+<p>Of course, one cannot expect great interactive features, but the bare-bones functionality is there.</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place">remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[Ensure loader is returning expected data to the React component]]></title>
+            <link>https://remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component</link>
+            <guid>aed93a1f-39fb-4fec-98b3-dba326faa939</guid>
+            <pubDate>Fri, 14 Jan 2022 11:48:17 GMT</pubDate>
+            <content:encoded><![CDATA[
+<p>⚠️ This article assumes you are building your app with Typescript</p>
+<p>So we usually get data fetching started from our loader function, which is the very first piece of code that runs when a route is accessed.</p>
+<p><strong>Read the full article here</strong>: <a href="https://remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component">remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component</a></p>
+      ]]></content:encoded>
+            <enclosure url="https://remix-cookbook.com/img/ensure-loader-is-returning-expected-data-to-the-react-component.jpeg" length="0" type="image/jpeg"/>
+        </item>
+    </channel>
+</rss>

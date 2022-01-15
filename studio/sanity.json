@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "api": {
+    "projectId": "4njl7vlm",
+    "dataset": "production"
+  },
+  "project": {
+    "name": "vedovelli.com.br-2021"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/google-maps-input",
+    "@sanity/code-input",
+    "plausible-iframe",
+    "@sanity/dashboard"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
+    }
+  ]
+}

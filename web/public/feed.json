@@ -1,0 +1,62 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Remix Cookbook",
+    "home_page_url": "https://remix-cookbook.com/",
+    "feed_url": "https://remix-cookbook.com/feed.json",
+    "description": "Easy to follow recipes for the Remix.run framework",
+    "icon": "https://remix-cookbook.com/img/social-banner.jpg",
+    "author": {
+        "name": "Fabio Vedovelli",
+        "url": "https://twitter.com/vedovelli74"
+    },
+    "items": [
+        {
+            "id": "56ff3546-93ed-43ee-b249-464d7f7f69a3",
+            "content_html": "\n<p>Aside from a few conventions you have to follow, Remix won’t stay in your way in terms of project organization. That’s nice but, at the same time, a double-sided knife.</p>\n<p>If you are experienced building server-side applications with Node.js, you’re probable used to structure your project, and maybe you even have an excellent organization method in place. We suggest you keep your organization and fit Remix within it.</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow\">remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow</a></p>\n      ",
+            "url": "https://remix-cookbook.com/does-remix-impose-a-project-structure-i-have-to-follow",
+            "title": "Does Remix impose a project structure I have to follow?",
+            "image": "https://remix-cookbook.com/img/does-remix-impose-a-project-structure-i-have-to-follow.jpeg",
+            "date_modified": "2022-01-14T14:57:32.000Z"
+        },
+        {
+            "id": "9dc48f3a-b500-4a82-a408-a561e4800ad8",
+            "content_html": "\n<p>Remix brings us back to the olden days of web development by relying on web fundamentals. In practice, this means leaving it to the browser to do the job we’ve grown accustomed to do ourselves.</p>\n<p>Form handling is a big part of web development and, while building single page applications, the developer has to keep track of user inputted data, sending it over to the server when it is in a good shape. Typically, data validation occurs while the user is interacting with the form.</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/form-and-data-validation-with-zod\">remix-cookbook.com/form-and-data-validation-with-zod</a></p>\n      ",
+            "url": "https://remix-cookbook.com/form-and-data-validation-with-zod",
+            "title": "Form and data validation with ZOD",
+            "image": "https://remix-cookbook.com/img/form-and-data-validation-with-zod.jpeg",
+            "date_modified": "2022-01-14T11:51:31.000Z"
+        },
+        {
+            "id": "6c983cba-2692-4029-b502-5851f8e8533c",
+            "content_html": "\n<p>This article will show you how to leverage Remix Resource Routes to deliver a dark mode toggle:</p>\n<p>In a hurry?</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css\">remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css</a></p>\n      ",
+            "url": "https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css",
+            "title": "Dark mode toggle with Remix Resource Routes and Dynamic CSS",
+            "image": "https://remix-cookbook.com/img/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css.jpeg",
+            "date_modified": "2022-01-14T11:51:19.000Z"
+        },
+        {
+            "id": "5356a6dd-95b9-4ad2-8858-91f7842e1d2d",
+            "content_html": "\n<p>Written by Guilherme - https://twitter.com/GuiDiego</p>\n<p>⚠️ This article assumes you are building your app with Typescript</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css\">remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css</a></p>\n      ",
+            "url": "https://remix-cookbook.com/quick-start-a-remix-project-with-tailwind-css",
+            "title": "Quick start a Remix project with Tailwind CSS",
+            "image": "https://remix-cookbook.com/img/quick-start-a-remix-project-with-tailwind-css.jpeg",
+            "date_modified": "2022-01-14T11:48:26.000Z"
+        },
+        {
+            "id": "0151df24-782b-4afa-9b5e-1995f394b4ba",
+            "content_html": "\n<p>One of the biggest Remix's selling points is progressive enhancement. It is notable you can build your application and delivery it to the browser without shipping any JavaScript. And still, it works as expected.</p>\n<p>Of course, one cannot expect great interactive features, but the bare-bones functionality is there.</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place\">remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place</a></p>\n      ",
+            "url": "https://remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place",
+            "title": "If Remix delivers HTML and doesn't need JS, why do we need React in the first place?",
+            "image": "https://remix-cookbook.com/img/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place.jpeg",
+            "date_modified": "2022-01-14T14:29:47.000Z"
+        },
+        {
+            "id": "aed93a1f-39fb-4fec-98b3-dba326faa939",
+            "content_html": "\n<p>⚠️ This article assumes you are building your app with Typescript</p>\n<p>So we usually get data fetching started from our loader function, which is the very first piece of code that runs when a route is accessed.</p>\n<p><strong>Read the full article here</strong>: <a href=\"https://remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component\">remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component</a></p>\n      ",
+            "url": "https://remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component",
+            "title": "Ensure loader is returning expected data to the React component",
+            "image": "https://remix-cookbook.com/img/ensure-loader-is-returning-expected-data-to-the-react-component.jpeg",
+            "date_modified": "2022-01-14T11:48:17.000Z"
+        }
+    ]
+}

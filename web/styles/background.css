@@ -1,0 +1,26 @@
+.glow {
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  position: fixed;
+  z-index: -1;
+  @apply rounded-full;
+}
+
+.glow.glow-tr {
+  @apply md:-top-36 md:-right-28 md:opacity-100 opacity-70 -top-48 -right-48;
+  box-shadow: -70px 80px 400px 300px rgba(56, 189, 248, 0.15);
+}
+
+.glow.glow-tl {
+  @apply opacity-0 md:opacity-100;
+  left: -160px;
+  top: 400px;
+  box-shadow: -70px 80px 400px 300px rgba(56, 189, 248, 0.15);
+}
+
+.glow.glow-bl {
+  @apply opacity-80 md:opacity-0;
+  @apply -bottom-32 -left-32;
+  box-shadow: -70px 80px 400px 300px rgba(56, 189, 248, 0.15);
+}
