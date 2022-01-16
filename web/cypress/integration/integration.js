@@ -8,7 +8,7 @@ describe('Home', () => {
   });
 
   describe('Site-wide', () => {
-    it.only('should display main heading with image and link', () => {
+    it('should display main heading with image and link', () => {
       cy.get('h1[data-testid="site-name"]').within(() => {
         cy.contains('Remix.run Cookbook');
         cy.get('img')
