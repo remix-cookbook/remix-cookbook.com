@@ -16,12 +16,12 @@
     <loc>https://remix-cookbook.com/form-and-data-validation-with-zod</loc>
   </url>
   <url>
+    <loc>https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css</loc>
+  </url>
+  <url>
     <loc>https://remix-cookbook.com/if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place</loc>
   </url>
   <url>
     <loc>https://remix-cookbook.com/ensure-loader-is-returning-expected-data-to-the-react-component</loc>
-  </url>
-  <url>
-    <loc>https://remix-cookbook.com/dark-mode-toggle-with-remix-resource-routes-and-dynamic-css</loc>
   </url>
 </urlset>

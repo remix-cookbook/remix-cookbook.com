@@ -2,8 +2,9 @@
 module.exports = {
   ignorePatterns: ['node_modues'],
   env: {
-    browser: true,
-    es2021: true,
+    'browser': true,
+    'es2021': true,
+    'cypress/globals': true,
   },
   extends: ['eslint-config-kentcdodds', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
@@ -14,7 +15,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'tailwindcss'],
+  plugins: ['react', '@typescript-eslint', 'tailwindcss', 'cypress'],
   rules: {
     'react/react-in-jsx-scope': 'off',
   },

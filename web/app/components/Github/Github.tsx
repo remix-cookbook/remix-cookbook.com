@@ -10,6 +10,7 @@ export function Github() {
       <div>
         <Menu.Button
           title="RSS"
+          data-testid="github-icon"
           className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
         >
           <span className="sr-only">Open user menu</span>
@@ -25,7 +26,10 @@ export function Github() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-20 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items
+          data-testid="github-overlay"
+          className="absolute right-0 z-20 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-60 ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
           <Menu.Item>
             {({ active }) => (
               <a
