@@ -5,3 +5,7 @@ node_modules
 /.netlify
 /app/styles
 .env
+/public/sitemap.xml
+/public/rss.xml
+/public/atom.xml
+/public/feed.json
