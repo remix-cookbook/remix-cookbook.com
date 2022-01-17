@@ -9,7 +9,6 @@ describe('Home', () => {
 
   describe('Site-wide', () => {
     it('should not display scroll to top button on big screens', () => {
-      // cy.viewport(400, 1200)
       cy.scrollTo(0, 1000);
       cy.get('[data-testid="scroll-to-top"]').should('not.be.visible');
     });
