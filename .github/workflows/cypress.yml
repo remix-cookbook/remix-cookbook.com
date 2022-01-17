@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: Integration tests
 on: [push]
 defaults:
   run:
@@ -16,5 +16,5 @@ jobs:
           working-directory: web
           browser: chrome
           headless: true
-          start: npm run dev
+          start: yarn dev
           wait-on: http://localhost:3000
