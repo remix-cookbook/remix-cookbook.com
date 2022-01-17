@@ -6,3 +6,4 @@ export * from './components/Posts';
 export * from './components/Comments';
 export * from './components/Content';
 export * from './components/Card';
+export * from './components/ScrollToTop';

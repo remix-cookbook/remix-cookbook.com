@@ -1,5 +1,5 @@
 import { Headings, Link, Prose } from '~/components';
-import { Comments, Content } from '~/features/Blog';
+import { Comments, Content, ScrollToTop } from '~/features/Blog';
 import { DateTimeUtils } from '~/util';
 import { Post } from '../../types';
 import m2r from 'minutes-to-read';
@@ -57,6 +57,7 @@ export function Post({ post, preview = false }: PostProps) {
           <Comments />
         </>
       </Prose>
+      <ScrollToTop />
     </>
   );
 }
