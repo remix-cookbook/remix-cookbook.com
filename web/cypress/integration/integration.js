@@ -8,6 +8,24 @@ describe('Home', () => {
   });
 
   describe('Site-wide', () => {
+    it('should not display scroll to top button on big screens', () => {
+      cy.scrollTo(0, 1000);
+      cy.get('[data-testid="scroll-to-top"]').should('not.be.visible');
+    });
+
+    it('should display scroll to top button on small screens', () => {
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.get('[data-testid="scroll-to-top"]').should('not.be.visible');
+    });
+
+    it('should scroll to top on button click', () => {
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.get('[data-testid="scroll-to-top"]').click();
+      cy.window().its('scrollY').should('eq', 0);
+    });
+
     it('should display main heading with image and link', () => {
       cy.get('h1[data-testid="site-name"]').within(() => {
         cy.contains('Remix.run Cookbook');
