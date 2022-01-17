@@ -7,8 +7,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - run: cd web/
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        run: cd web
         with:
+          browser: chrome
+          headless: true
           start: npm dev
