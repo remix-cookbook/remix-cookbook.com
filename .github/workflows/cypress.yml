@@ -9,6 +9,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      # - name: npm install & test
+      #   working-directory: ./web
+      #   run: |
+      #     npm install
+      #     npm run dev
+      #     npm run test
 
       - name: Install Dependencies
         run: npm install
@@ -16,6 +22,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          working-directory: web
           browser: chrome
           headless: true
           start: npm run dev
+          wait-on: http://localhost:8000
