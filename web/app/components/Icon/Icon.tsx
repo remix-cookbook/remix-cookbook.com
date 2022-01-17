@@ -1,4 +1,4 @@
-import { FaTwitter, FaGithub, FaCaretUp, FaAngleDoubleUp } from 'react-icons/fa';
+import { FaTwitter, FaGithub, FaAngleDoubleUp } from 'react-icons/fa';
 import { RssIcon } from '@heroicons/react/solid';
 
 export enum Icons {
