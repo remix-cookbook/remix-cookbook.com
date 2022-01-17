@@ -10,6 +10,7 @@ import {
 } from 'remix';
 import { Header, Footer, Glow } from './components';
 import { domain } from './config';
+import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
 
 export const links: LinksFunction = globalLinks;
@@ -33,6 +34,7 @@ export default function App() {
           <Header />
           <Outlet />
           <Footer />
+          <ScrollToTop />
         </div>
         <Glow />
         <ScrollRestoration />

@@ -23,7 +23,7 @@ export function ScrollToTop() {
   return (
     <Transition
       show={displayScrollToTop}
-      enter="transition-opacity durantion-500"
+      enter="transition-opacity durantion-1000"
       enterFrom="opacity-0"
       enterTo="opacity-100"
       leave="transition-opacity duration-150"
