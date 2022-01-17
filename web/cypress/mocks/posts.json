@@ -1,0 +1,2218 @@
+[
+  {
+    "_createdAt": "2022-01-13T08:51:47Z",
+    "_id": "56ff3546-93ed-43ee-b249-464d7f7f69a3",
+    "_rev": "LAcMV9aFr5nT7OvxOafzL6",
+    "_type": "post",
+    "_updatedAt": "2022-01-15T07:12:17Z",
+    "author": "Fabio Vedovelli",
+    "author_url": "github.com/vedovelli",
+    "content": [
+      {
+        "_key": "7e295cb4689f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe7f493c841a0",
+            "_type": "span",
+            "marks": [],
+            "text": "Aside from a few conventions you have to follow, Remix won’t stay in your way in terms of project organization. That’s nice but, at the same time, a double-sided knife."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dab1dac848ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d43e6a8bedaf0",
+            "_type": "span",
+            "marks": [],
+            "text": "If you are experienced building server-side applications with Node.js, you’re probable used to structure your project, and maybe you even have an excellent organization method in place. We suggest you keep your organization and fit Remix within it."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "270f5e2feedd",
+        "_type": "block",
+        "children": [
+          { "_key": "d735e4817ec10", "_type": "span", "marks": [], "text": "Remix conventions" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "b96356489691",
+        "_type": "block",
+        "children": [
+          { "_key": "250c4b14813a0", "_type": "span", "marks": [], "text": "Remix is small." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0fe49a97145d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "acd12f6ab2760",
+            "_type": "span",
+            "marks": [],
+            "text": "Tiny and powerful, but within its boundaries it is indeed opinionated. Here is a list of conventions Remix expects you to follow:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "40160b867a21",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "430450fe63930",
+            "_type": "span",
+            "marks": [],
+            "text": "— You will do all your work in the /app folder, although it is configurable;"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d689813b1cd7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7bb4e9496b0e0",
+            "_type": "span",
+            "marks": [],
+            "text": "— Everything in the /routes folder will become a route;"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "00f6bb1d1692",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d82b98fd9dd50",
+            "_type": "span",
+            "marks": [],
+            "text": "— Folders within the /routes folder "
+          },
+          {
+            "_key": "cdc2e6b4dfbc",
+            "_type": "span",
+            "marks": ["3f85f36b5c6e"],
+            "text": "have a special purpose"
+          },
+          { "_key": "cdd7f716d663", "_type": "span", "marks": [], "text": ";" }
+        ],
+        "markDefs": [
+          {
+            "_key": "3f85f36b5c6e",
+            "_type": "link",
+            "href": "https://remix.run/docs/en/v1/guides/routing#what-are-nested-routes"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "333df97aa361",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe77d4f24cff0",
+            "_type": "span",
+            "marks": [],
+            "text": "— A route file can contain everything, but specially methods (links, loader, action, meta and so on) that allow you to instruct Remix on how to deliver your app;"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ab8df07f98e6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd75622205910",
+            "_type": "span",
+            "marks": [],
+            "text": "— Everything in the /public folder will be web-accessible."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c77b8ca6391",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "45f86f0dfec90",
+            "_type": "span",
+            "marks": [],
+            "text": "These are the folders Remix deeply care about:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d11c0b7217e6",
+        "_type": "code",
+        "code": "Your shinny Remix app/\n├─ app/\n│ ├─ routes/\n├─ public/",
+        "language": "text"
+      },
+      {
+        "_key": "9c76b375e603",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fcdd369507d50",
+            "_type": "span",
+            "marks": [],
+            "text": "Keep that in mind and get creative with the rest."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2c2dd5404cb",
+        "_type": "block",
+        "children": [
+          { "_key": "07c385a5cb1a0", "_type": "span", "marks": [], "text": "Our project structure" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "5f9447a6a644",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5f261630484b0",
+            "_type": "span",
+            "marks": [],
+            "text": "This blog is built with Remix, and we have our project structure in place. We aim to keep our routes as small as possible (an article on the subject will soon be published) and thus we create several files and folders in the app/ directory."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3336bd534585",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e0f8081c1b3a",
+            "_type": "span",
+            "marks": [],
+            "text": "A streamlined version of our organization is:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4137801b8b3f",
+        "_type": "code",
+        "code": "Our glowing Remix app/\n├─ app/\n│  ├─ components/\n│  │  ├─ Header/\n│  │  │  ├─ index.ts\n│  │  │  ├─ Header.tsx\n│  │  ├─ index.ts\n│  ├─ features/\n│  │  ├─ Blog/\n│  │  │  ├─ components/\n│  │  │  │  ├─ index.ts\n│  │  │  │  ├─ Posts/\n│  │  │  │  │  ├─ index.ts\n│  │  │  │  │  ├─ Posts.tsx\n│  │  │  ├─ Blog.api.ts\n│  │  │  ├─ Blog.types.ts\n│  │  │  ├─ index.ts\n│  │  ├─ index.ts\n│  ├─ lib/\n│  │  ├─ sanity.io/\n│  │  │  ├─ client.ts\n│  ├─ routes/\n│  │  ├─ blog.index.tsx\n│  ├─ styles/\n│  │  ├─ tailwind.css\n│  ├─ util/\n│  │  ├─ datetime.ts\n├─ public/",
+        "language": "text"
+      },
+      {
+        "_key": "dde214fbb96f",
+        "_type": "block",
+        "children": [
+          { "_key": "e14516184a7c0", "_type": "span", "marks": [], "text": "Here’s a breakdown:" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "15c93295f66e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7a634591ba431",
+            "_type": "span",
+            "marks": ["strong"],
+            "text": "routes/blog.index.tsx"
+          },
+          {
+            "_key": "7a634591ba432",
+            "_type": "span",
+            "marks": [],
+            "text": ": this is the only Remix related file in the whole list"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "44d82e80bea3",
+        "_type": "block",
+        "children": [
+          { "_key": "0f880a8982111", "_type": "span", "marks": ["strong"], "text": "features" },
+          {
+            "_key": "0f880a8982112",
+            "_type": "span",
+            "marks": [],
+            "text": ": holds the React components directly attached to routes. Moreover, it also contains everything such feature needs to properly do its job: API calls, types, utilities, and components. If a component is related to the feature and only the feature, then it sits in the inner components/ folder."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "218456c8e2b3",
+        "_type": "block",
+        "children": [
+          { "_key": "42bac2007b271", "_type": "span", "marks": ["strong"], "text": "components" },
+          {
+            "_key": "42bac2007b272",
+            "_type": "span",
+            "marks": [],
+            "text": ": holds components that are used by the app layout and that are shared among more than one feature. We could expand it further by creating a layouts/ folder in the app/ if that’s necessary."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "57d9ba0e5f0e",
+        "_type": "block",
+        "children": [
+          { "_key": "b81fb48704c51", "_type": "span", "marks": ["strong"], "text": "styles" },
+          {
+            "_key": "b81fb48704c52",
+            "_type": "span",
+            "marks": [],
+            "text": ": holds any stylesheet ready to be imports in the routes. This folder is git ignored, as the stylesheets are generated on-the-fly by the dev server and the build process."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "037e15edc319",
+        "_type": "block",
+        "children": [
+          { "_key": "98ac4340a1d01", "_type": "span", "marks": ["strong"], "text": "util" },
+          {
+            "_key": "98ac4340a1d02",
+            "_type": "span",
+            "marks": [],
+            "text": ": app-wide utilities not related to a particular feature."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f65de26a4021",
+        "_type": "block",
+        "children": [
+          { "_key": "102650e69d381", "_type": "span", "marks": ["strong"], "text": "lib" },
+          {
+            "_key": "102650e69d382",
+            "_type": "span",
+            "marks": [],
+            "text": ": configuration files for third-party libraries. In this case, the Sanity.io client."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5848f33b24a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6b8a0cdec60e",
+            "_type": "span",
+            "marks": [],
+            "text": "💡 Note that for most of the folders, we have an "
+          },
+          { "_key": "4fcb15fd72ee", "_type": "span", "marks": ["em"], "text": "index.ts" },
+          {
+            "_key": "4fba89b2e8d7",
+            "_type": "span",
+            "marks": [],
+            "text": " file, which exports everything from that particular folder. This helps us keep our imports tidy. See below:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "31322b67e0f6",
+        "_type": "code",
+        "code": "// /app/features/Blog/index.ts\nexport * as BlogApi from './BlogApi';\nexport * as BlogTypes from './types';\nexport * from './components/Post';\nexport * from './components/Posts';\nexport * from './components/Comments';\nexport * from './components/Content';\nexport * from './components/PostCard';\n\n// /app/routes/$slug.tsx\nimport { BlogApi, BlogTypes, Post } from '~/features/Blog';",
+        "highlightedLines": [11],
+        "language": "typescript"
+      },
+      {
+        "_key": "25be606e806e",
+        "_type": "block",
+        "children": [
+          { "_key": "f09e57e44fd60", "_type": "span", "marks": [], "text": "Conclusion" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "4078fb592efd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "177bc7795e8a0",
+            "_type": "span",
+            "marks": [],
+            "text": "If you respect Remix's rules and conventions, which are few, you will be good with your project’s structure. "
+          },
+          {
+            "_key": "007993730811",
+            "_type": "span",
+            "marks": ["strong"],
+            "text": "A piece of advice"
+          },
+          {
+            "_key": "9f48e92ff4d6",
+            "_type": "span",
+            "marks": [],
+            "text": ": be strict and mindful with your files and folders. It is uncomfortable and a source of bugs to find yourself lost in your own — or lack thereof — organization."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "language": "en",
+    "slug": {
+      "_type": "slug",
+      "current": "does-remix-impose-a-project-structure-i-have-to-follow"
+    },
+    "title": "Does Remix impose a project structure I have to follow?",
+    "type": "post"
+  },
+  {
+    "_createdAt": "2022-01-11T08:41:43Z",
+    "_id": "9dc48f3a-b500-4a82-a408-a561e4800ad8",
+    "_rev": "Rcx1IIbIy5cMZicW0ZM9Du",
+    "_type": "post",
+    "_updatedAt": "2022-01-15T07:12:06Z",
+    "author": "Fabio Vedovelli",
+    "author_url": "github.com/vedovelli",
+    "content": [
+      {
+        "_key": "6f15224648ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6625edabb8130",
+            "_type": "span",
+            "marks": [],
+            "text": "Remix brings us back to the olden days of web development by relying on web fundamentals. In practice, this means leaving it to the browser to do the job we’ve grown accustomed to do ourselves."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8d4dc8a9bec3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a8a7a50ddcf0",
+            "_type": "span",
+            "marks": [],
+            "text": "Form handling is a big part of web development and, while building single page applications, the developer has to keep track of user inputted data, sending it over to the server when it is in a good shape. Typically, data validation occurs while the user is interacting with the form."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f39e9575ef9d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "627280287c9d0",
+            "_type": "span",
+            "marks": [],
+            "text": "But this kind of validation, although good for user experience, is not reliable because a tech-savvy user can find ways to circumvent it. That’s why a solid application must validate data on the server, primarily. Client-side validation is a plus, but not the main one."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "11421c977672",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "947b0df03aca0",
+            "_type": "span",
+            "marks": [],
+            "text": "In this article, you will get in touch with one method to validate user input in the route, before data gets saved, regardless of where you choose to store the data."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8b1c614d3521",
+        "_type": "block",
+        "children": [
+          { "_key": "3664a61e4b48", "_type": "span", "marks": ["em"], "text": "In a hurry?" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e5d6fd193358",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae97fa8fae58",
+            "_type": "span",
+            "marks": [],
+            "text": "Go straight to the source code on Github: "
+          },
+          {
+            "_key": "b25187a4453c",
+            "_type": "span",
+            "marks": ["1dc4b2689985"],
+            "text": "https://github.com/remix-cookbook/articles-form-validation-with-zod"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "1dc4b2689985",
+            "_type": "link",
+            "href": "https://github.com/remix-cookbook/articles-form-validation-with-zod"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "cfcf04e3f379",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ecb23f3d79df",
+            "_type": "span",
+            "marks": [],
+            "text": "⚠️ This article assumes you are building your app with Typescript"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "254f1c7f0e50",
+        "_type": "block",
+        "children": [
+          { "_key": "4e49d75d758e", "_type": "span", "marks": [], "text": "Starting with a form" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "b1cd839d3f84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "892ce516fedf",
+            "_type": "span",
+            "marks": [],
+            "text": "In the code snippet below, there is a basic form, with only two fields. This is intentional, as we want to avoid cluttering the article with repeated code. "
+          },
+          {
+            "_key": "a152234efef0",
+            "_type": "span",
+            "marks": ["6232c6e54040"],
+            "text": "K.I.S.S. also applies to documentation"
+          },
+          { "_key": "cfed94b7c553", "_type": "span", "marks": [], "text": ". 💡" }
+        ],
+        "markDefs": [
+          {
+            "_key": "6232c6e54040",
+            "_type": "link",
+            "href": "https://en.wikipedia.org/wiki/KISS_principle"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "782d809122cd",
+        "_type": "code",
+        "code": "// /app/routes/form.tsx\nexport default function() {\n  return (\n    <div className=\"wrapper\">\n      <form className=\"form\" method=\"post\">\n        <fieldset>\n          <label htmlFor=\"name\">Name</label>\n          <input type=\"text\" name=\"name\" id=\"name\" />\n        </fieldset>\n        <fieldset>\n          <label htmlFor=\"email\">Email</label>\n          <input type=\"email\" name=\"email\" id=\"email\" />\n        </fieldset>\n        <div>\n          <button type=\"submit\">Submit</button>\n        </div>\n      </form>\n    </div>\n  );\n}",
+        "highlightedLines": [12, 5, 8],
+        "language": "jsx"
+      },
+      {
+        "_key": "1f8d1c01af29",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f4414b86dca20",
+            "_type": "span",
+            "marks": [],
+            "text": "When the user clicks the submit button, the action function that lives in the same route will be executed and the data will be available in the request."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc9570e84baa",
+        "_type": "block",
+        "children": [{ "_key": "27bfb46d16fb", "_type": "span", "marks": [], "text": "" }],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eef334c2f98d",
+        "_type": "image",
+        "alt": "Form as it is displayed in the page",
+        "asset": {
+          "_ref": "image-d014d3892a1472190e046ebb980fb4ac8abf3c7f-898x364-png",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "eecddac67a5f",
+        "_type": "code",
+        "code": "// /app/routes/form.tsx\nexport const action: ActionFunction = async ({ request }) => {\n  const formPayload = Object.fromEntries(await request.formData());\n\n  console.log(formPayload); // outputs { name: 'Fabio Vedovelli', email: 'vedovelli@gmail.com' }\n\n  return {};\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "8558357797a9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f88b6378381a0",
+            "_type": "span",
+            "marks": [],
+            "text": "That’s the right place to introduce the data validation."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b81449609b3e",
+        "_type": "block",
+        "children": [
+          { "_key": "29210a8c0aa0", "_type": "span", "marks": [], "text": "Introducing ZOD" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "42fdedbf2e36",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1af70615b7030",
+            "_type": "span",
+            "marks": [],
+            "text": "ZOD is a library built with Typescript which allows you to describe the data and the format it should be."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fbaabf4a867a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "302dd9ff9d78",
+            "_type": "span",
+            "marks": [],
+            "text": "Project's Github repository: "
+          },
+          {
+            "_key": "d257073aaf80",
+            "_type": "span",
+            "marks": ["f21be84bc3ed"],
+            "text": "https://github.com/colinhacks/zod"
+          }
+        ],
+        "markDefs": [
+          { "_key": "f21be84bc3ed", "_type": "link", "href": "https://github.com/colinhacks/zod" }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "3794dd9c054a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "705df0e3c843",
+            "_type": "span",
+            "marks": [],
+            "text": "Start by installing the library:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b421d86ef827",
+        "_type": "code",
+        "code": "$ yarn add zod\n// or npm install zod",
+        "language": "javascript"
+      },
+      {
+        "_key": "b08f456820c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e726f98dadf00",
+            "_type": "span",
+            "marks": [],
+            "text": "And then create the validator and use it to parse user provided data:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ae9af07d7050",
+        "_type": "code",
+        "code": "// /app/routes/form.tsx\n\nimport { z } from 'zod';\n\nexport const action: ActionFunction = async ({ request }) => {\n  const formPayload = Object.fromEntries(await request.formData());\n\n  const Validator = z.object({\n    name: z.string().min(6),\n    email: z.string().email(),\n  });\n\n  try {\n    const validated = Validator.parse(formPayload);\n    console.log(validated);\n  } catch (error) {\n    console.log(error);\n  }\n\n  return {};\n};",
+        "highlightedLines": [11, 14, 3, 8, 9, 10],
+        "language": "typescript"
+      },
+      {
+        "_key": "38613a5038eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a0ec2ebc000",
+            "_type": "span",
+            "marks": [],
+            "text": "So in our particular case, we describe the expected shape and type in the following way:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fd3bc2e8a072",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4b082a5088df",
+            "_type": "span",
+            "marks": [],
+            "text": "z.object() - Validator.parse() expects an object;"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "112b6a75235d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c8a7bbfcf49a",
+            "_type": "span",
+            "marks": [],
+            "text": "name: z.string().min(6) - expects a string with minimum 6 characters;"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9ecd48317968",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d6c687e53f45",
+            "_type": "span",
+            "marks": [],
+            "text": "email: z.string().email() - expects a valid e-mail."
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c6e88f8bd57e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f6d2523be34",
+            "_type": "span",
+            "marks": [],
+            "text": "The proper way to go about the validation is to pass the received data straight to the method "
+          },
+          { "_key": "a6989ab9bf9e", "_type": "span", "marks": ["em"], "text": "parse()" },
+          {
+            "_key": "b5e0d7142ead",
+            "_type": "span",
+            "marks": [],
+            "text": " of the validator. If the validation passes, the data will be returned. If not, a "
+          },
+          { "_key": "1fd456bd680c", "_type": "span", "marks": ["em"], "text": "ZodError" },
+          {
+            "_key": "e4abad448aad",
+            "_type": "span",
+            "marks": [],
+            "text": " will be thrown. In such case, we have to wrap our logic within a "
+          },
+          { "_key": "244637bc0164", "_type": "span", "marks": ["em"], "text": "try/catch" },
+          { "_key": "6709487e778e", "_type": "span", "marks": [], "text": " block." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aa9ad2cd0ce5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ee65f48d09e2",
+            "_type": "span",
+            "marks": [],
+            "text": "The 2 possible outputs from the validation process above are:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09638185f3fb",
+        "_type": "code",
+        "code": "// Successful validation\n{ name: 'Fabio Vedovelli', email: 'vedovelli@gmail.com' }\n\n// Failed validation\nZodError: [\n  {\n    \"code\": \"too_small\",\n    \"minimum\": 6,\n    \"type\": \"string\",\n    \"inclusive\": true,\n    \"message\": \"Should be at least 6 characters\",\n    \"path\": [\n      \"name\" // the name of the field\n    ]\n  },\n  {\n    \"validation\": \"email\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid email\",\n    \"path\": [\n      \"email\" // the name of the field\n    ]\n  }\n]",
+        "language": "typescript"
+      },
+      {
+        "_key": "92bfcb635e9f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2282700927fd0",
+            "_type": "span",
+            "marks": [],
+            "text": "Note that the returned data upon positive validation is fully typed, thanks to Typescript!"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5167d5aa080d",
+        "_type": "image",
+        "alt": "Fully typed data returned by validator's parse method",
+        "asset": {
+          "_ref": "image-c36f1daf95be1426b8e242ca5cd727c5a0dd45e0-556x396-png",
+          "_type": "reference"
+        },
+        "crop": { "_type": "sanity.imageCrop", "bottom": 0, "left": 0, "right": 0, "top": 0 },
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "height": 0.6010101010101007,
+          "width": 0.6510791366906488,
+          "x": 0.3758992805755398,
+          "y": 0.3358585858585859
+        }
+      },
+      {
+        "_key": "75de82e4e53f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2298faf4e6990",
+            "_type": "span",
+            "marks": [],
+            "text": "Based on what is returned by the validation process, we can decide on how to proceed."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3cab1fc4562e",
+        "_type": "code",
+        "code": "// /app/routes/form.tsx\nexport const action: ActionFunction = async ({ request }) => {\n  const formPayload = Object.fromEntries(await request.formData());\n\n  const Validator = z.object({\n    name: z.string().min(6),\n    email: z.string().email(),\n  });\n\n  try {\n    const validated = Validator.parse(formPayload);\n    console.log(validated, \"Data is valid. Send it to your persistence layer\");\n  } catch (error) {\n    return {\n      formPayload,\n      error,\n    };\n  }\n\n  return {};\n};",
+        "highlightedLines": [12, 14, 15, 16, 17],
+        "language": "typescript"
+      },
+      {
+        "_key": "8b9eaebcc052",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1222468a5cea0",
+            "_type": "span",
+            "marks": [],
+            "text": "Now back to the form, we use the returned data to provide visual feedback to the user:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "99580931d3e5",
+        "_type": "code",
+        "code": "// /app/routes/form.tsx\nexport default function () {\n  const actionData = useActionData();\n\n  return (\n    <div className=\"wrapper\">\n      <form className=\"form\" method=\"post\">\n        <fieldset>\n          <label htmlFor=\"name\">Name</label>\n          <div>\n            <input\n              type=\"text\"\n              name=\"name\"\n              id=\"name\"\n              defaultValue={actionData?.formPayload?.name}\n              key={actionData?.formPayload?.name}\n            />\n            <span className=\"text-sm text-red-500\">\n              {actionData?.error?.issues[0].message}\n            </span>\n          </div>\n        </fieldset>\n        <fieldset>\n          <label htmlFor=\"email\">Email</label>\n          <div>\n            <input\n              type=\"text\"\n              name=\"email\"\n              id=\"email\"\n              defaultValue={actionData?.formPayload?.email}\n              key={actionData?.formPayload?.email}\n            />\n            <span className=\"text-sm text-red-500\">\n              {actionData?.error?.issues[1].message}\n            </span>\n          </div>\n        </fieldset>\n        <button type=\"submit\">Submit</button>\n      </form>\n    </div>\n  );",
+        "highlightedLines": [15, 16, 18, 19, 20, 3, 30, 31, 33, 34, 35],
+        "language": "typescript"
+      },
+      {
+        "_key": "74a09e0c826f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38eddba5bc500",
+            "_type": "span",
+            "marks": [],
+            "text": "💡 Note that we are using "
+          },
+          { "_key": "cf1ccad3b8ec", "_type": "span", "marks": ["em"], "text": "key={}" },
+          {
+            "_key": "16613b9b1e36",
+            "_type": "span",
+            "marks": [],
+            "text": " in the form fields. This is a gotcha to force React to re-render the component. Otherwise, your data might not be updated. This happens because when "
+          },
+          { "_key": "e56fcba2eeb5", "_type": "span", "marks": ["em"], "text": "defaultValue={}" },
+          {
+            "_key": "49d6d8290945",
+            "_type": "span",
+            "marks": [],
+            "text": " is used, creating an "
+          },
+          {
+            "_key": "28cf82665348",
+            "_type": "span",
+            "marks": ["7fe8a12ca19d"],
+            "text": "uncontrolled component"
+          },
+          {
+            "_key": "c1faf1a7e5c4",
+            "_type": "span",
+            "marks": [],
+            "text": ", React will assume that data is immutable and will not re-render the component when the value changes programmatically."
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "7fe8a12ca19d",
+            "_type": "link",
+            "href": "https://reactjs.org/docs/uncontrolled-components.html#default-values"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "263a8e42241e",
+        "_type": "block",
+        "children": [
+          { "_key": "9cd622572694", "_type": "span", "marks": [], "text": "❗" },
+          { "_key": "f2dd69297a3e", "_type": "span", "marks": [], "text": " " },
+          {
+            "_key": "4b9e664d5d85",
+            "_type": "span",
+            "marks": [],
+            "text": "The documentation instructs you to use "
+          },
+          {
+            "_key": "55e98348a22c",
+            "_type": "span",
+            "marks": ["em"],
+            "text": "Object.fromEntries()"
+          },
+          {
+            "_key": "d1d80fd893bb",
+            "_type": "span",
+            "marks": [],
+            "text": ", but it is not recommended for all use cases. Sometimes your form structure is too complex and some data might be lost. To cover most of the cases we recommend you to check out Kiliman's "
+          },
+          {
+            "_key": "c584eba410e0",
+            "_type": "span",
+            "marks": ["strong"],
+            "text": "remix-params-helper"
+          },
+          { "_key": "1e163891e915", "_type": "span", "marks": [], "text": ": " },
+          {
+            "_key": "f0cd242f7d00",
+            "_type": "span",
+            "marks": ["afde834bed75"],
+            "text": "https://github.com/kiliman/remix-params-helper"
+          },
+          { "_key": "254b59843ca1", "_type": "span", "marks": [], "text": "." }
+        ],
+        "markDefs": [
+          {
+            "_key": "afde834bed75",
+            "_type": "link",
+            "href": "https://github.com/kiliman/remix-params-helper"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "e0322817ef32",
+        "_type": "block",
+        "children": [
+          { "_key": "d6ffe05e38770", "_type": "span", "marks": [], "text": "Conclusion" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "d3ab7a998461",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "07a3c2b54d6b0",
+            "_type": "span",
+            "marks": [],
+            "text": "Does this mean we don’t need client-side validation? "
+          },
+          { "_key": "07a3c2b54d6b1", "_type": "span", "marks": ["strong"], "text": "No!" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1aec5b49fdd2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9fc5b5e791540",
+            "_type": "span",
+            "marks": [],
+            "text": "Does this mean we cannot implement client-side validation? "
+          },
+          { "_key": "9fc5b5e791541", "_type": "span", "marks": ["strong"], "text": "No!" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cfa96883fd72",
+        "_type": "block",
+        "children": [
+          { "_key": "08437b6cc5d50", "_type": "span", "marks": [], "text": "This means we " },
+          {
+            "_key": "08437b6cc5d51",
+            "_type": "span",
+            "marks": ["strong"],
+            "text": "must always validate"
+          },
+          {
+            "_key": "08437b6cc5d52",
+            "_type": "span",
+            "marks": [],
+            "text": " user input on the server, and we can — additionally — provide client-side validation for a better user experience. This also falls into progressive enhancement technique."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37ee0fbe9c12",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9a066cb3b0b80",
+            "_type": "span",
+            "marks": [],
+            "text": "One last tip is that you can also use ZOD to validate data provided to the React component by the loader function. But this is a subject for a new article."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8850cf2fae27",
+        "_type": "block",
+        "children": [
+          { "_key": "03a391f3c4520", "_type": "span", "marks": [], "text": "See you soon!" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "language": "en",
+    "slug": { "_type": "slug", "current": "form-and-data-validation-with-zod" },
+    "title": "Form and data validation with ZOD",
+    "type": "post"
+  },
+  {
+    "_createdAt": "2022-01-09T10:17:31Z",
+    "_id": "6c983cba-2692-4029-b502-5851f8e8533c",
+    "_rev": "Rcx1IIbIy5cMZicW0ZM7l3",
+    "_type": "post",
+    "_updatedAt": "2022-01-15T07:11:59Z",
+    "author": "Lucas Simão",
+    "author_url": "twitter.com/siimaoo_",
+    "content": [
+      {
+        "_key": "c774473ed884",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "693b0810a6ae",
+            "_type": "span",
+            "marks": [],
+            "text": "This article will show you how to leverage "
+          },
+          {
+            "_key": "a7f4885ba34f",
+            "_type": "span",
+            "marks": ["88328af1a8fb"],
+            "text": "Remix Resource Routes"
+          },
+          {
+            "_key": "b35d71f88390",
+            "_type": "span",
+            "marks": [],
+            "text": " to deliver a dark mode toggle:"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "88328af1a8fb",
+            "_type": "link",
+            "href": "https://remix.run/docs/en/v1/guides/resource-routes#resource-routes"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "fa920f3a3e6a",
+        "_type": "image",
+        "asset": {
+          "_ref": "image-1d2df4a0e1385289be0238a976a6a0b14714a82e-498x298-gif",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "077764e23a4b",
+        "_type": "block",
+        "children": [
+          { "_key": "c4af527532d3", "_type": "span", "marks": ["em"], "text": "In a hurry?" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "803f91cf03e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "818d2d4a9d70",
+            "_type": "span",
+            "marks": [],
+            "text": "Go directly to the source-code on Github: "
+          },
+          {
+            "_key": "ed3d61a54026",
+            "_type": "span",
+            "marks": ["76ee049fc90c"],
+            "text": "https://github.com/remix-cookbook/article-dark-mode-toggle"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "76ee049fc90c",
+            "_type": "link",
+            "href": "https://github.com/remix-cookbook/article-dark-mode-toggle"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "34f9609b8595",
+        "_type": "block",
+        "children": [{ "_key": "567b774cfc21", "_type": "span", "marks": [], "text": "" }],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6fd5b524a584",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4f9bc76977a5",
+            "_type": "span",
+            "marks": [],
+            "text": "Remix contains a feature named "
+          },
+          {
+            "_key": "7c6fff6b885a",
+            "_type": "span",
+            "marks": ["4ff8d718578f"],
+            "text": "Resource Routes"
+          },
+          {
+            "_key": "a509427e3e10",
+            "_type": "span",
+            "marks": [],
+            "text": " which allows us to deliver, from a route, something different than a React Component. The docs provide some examples and one of them is "
+          },
+          {
+            "_key": "1f6ae2e1f63d",
+            "_type": "span",
+            "marks": ["em"],
+            "text": "“a CSS file that dynamically renders custom properties for a user's preferred theme”."
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "4ff8d718578f",
+            "_type": "link",
+            "href": "https://remix.run/docs/en/v1/guides/resource-routes#resource-routes"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "f530b2c95b2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f3cc2bebf0f0",
+            "_type": "span",
+            "marks": [],
+            "text": "This article assumes you are familiar to how to create a remix project."
+          }
+        ],
+        "markDefs": [],
+        "style": "blockquote"
+      },
+      {
+        "_key": "448a406dac74",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "383baf8d897f0",
+            "_type": "span",
+            "marks": [],
+            "text": "To start things of, we’ll create a dynamic css file that returns some "
+          },
+          { "_key": "aa48d69dfc79", "_type": "span", "marks": ["em"], "text": "btn" },
+          { "_key": "12ba0a0000d9", "_type": "span", "marks": [], "text": " classes." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "df032605b2a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8017235247ee0",
+            "_type": "span",
+            "marks": [],
+            "text": "Since we are dealing with visual content, let's first create a preview page so we can see how it is coming along."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a5643ab931bc",
+        "_type": "code",
+        "code": "// /app/routes/index.tsx\nexport default function Index() {\n  const commonStyle = {\n    width: \"100%\",\n    justifyContent: \"center\",\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: \"1rem\",\n  };\n\n  return (\n    <div\n      style={{\n        ...commonStyle,\n        height: \"100vh\",\n        flexDirection: \"column\",\n      }}\n    >\n      <h1>Hello, World!</h1>\n\n      <div style={{ ...commonStyle }}>\n        <button className=\"btn-primary\">Primary</button>\n        <button className=\"btn-secondary\">Secondary</button>\n        <button className=\"btn-dark\">Dark</button>\n        <button className=\"btn-light\">Light</button>\n      </div>\n    </div>\n  );\n}",
+        "language": "tsx"
+      },
+      {
+        "_key": "167a9cddd07e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac30718c7e9e",
+            "_type": "span",
+            "marks": [],
+            "text": "In the browser, the page should look like this:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "20f73b4a4da8",
+        "_type": "image",
+        "alt": "Dynamic CSS first example",
+        "asset": {
+          "_ref": "image-64dc2584bb5b10138bd6d68310ffb4a02a272487-2560x974-png",
+          "_type": "reference"
+        },
+        "crop": {
+          "_type": "sanity.imageCrop",
+          "bottom": 0.18925739005046838,
+          "left": 0.3424657534246577,
+          "right": 0.34417808219178103,
+          "top": 0.20277577505407346
+        },
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "height": 0.6079668348954581,
+          "width": 0.3133561643835613,
+          "x": 0.4991438356164383,
+          "y": 0.5067591925018025
+        }
+      },
+      {
+        "_key": "975f37498b95",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ca246a0f48d7",
+            "_type": "span",
+            "marks": [],
+            "text": "Now, let’s create our dynamic css file."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3943639730e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d99ef053ca850",
+            "_type": "span",
+            "marks": [],
+            "text": "To create a route that will not render a component and keeps the file extension, we need to use “[.]” to escape it, telling Remix it is not a regular route and that the extension should be included in the url. In this case we are creating a file named "
+          },
+          { "_key": "cd3e6001ccf4", "_type": "span", "marks": ["em"], "text": "“theme[.]css.ts”." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6ed551e39ff9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f3991a08558c0",
+            "_type": "span",
+            "marks": [],
+            "text": "To start things off, we create a constant named colors:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "470b3787781a",
+        "_type": "code",
+        "code": "// /app/routes/theme[.]css.ts\n\nconst colors = {\n  primary: {\n    color: \"#9333ea\",\n    text: \"#fff\",\n  },\n  secondary: {\n    color: \"#4f46e5\",\n    text: \"#fff\",\n  },\n  dark: {\n    color: \"#262626\",\n    text: \"#fff\",\n  },\n  light: {\n    color: \"#ffffff\",\n    text: \"#262626\",\n  },\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "1d902b651464",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f765597f2351",
+            "_type": "span",
+            "marks": [],
+            "text": "According to the docs "
+          },
+          {
+            "_key": "e66419433c40",
+            "_type": "span",
+            "marks": ["em"],
+            "text": "“Each route can define a "
+          },
+          { "_key": "64e35981fe36", "_type": "span", "marks": ["em", "strong"], "text": "loader" },
+          { "_key": "867148c42faf", "_type": "span", "marks": ["em"], "text": " " },
+          {
+            "_key": "70f2f10ebf2c",
+            "_type": "span",
+            "marks": ["em", "strong"],
+            "text": "function"
+          },
+          {
+            "_key": "60acddcf0969",
+            "_type": "span",
+            "marks": ["em"],
+            "text": " that will be called on the server before rendering to provide data to the route.”"
+          },
+          {
+            "_key": "29969a591ab8",
+            "_type": "span",
+            "marks": [],
+            "text": " so let’s add a loader function to our "
+          },
+          { "_key": "f94689a232d9", "_type": "span", "marks": ["em"], "text": "theme[.]css.ts" },
+          { "_key": "ed214116a775", "_type": "span", "marks": [], "text": "." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6016a87f64c1",
+        "_type": "code",
+        "code": "// /app/routes/theme[.]css.ts\n\nexport const loader: LoaderFunction = () => {\n  const css = \"\";\n\t\n\treturn new Response(css, {\n    headers: {\n      \"Content-Type\": \"text/css\",\n    },\n  });\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "3943407fc883",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52b2714d2317",
+            "_type": "span",
+            "marks": [],
+            "text": "At this point it is not doing much: just returning an empty response of type text/css. Let add some styles by looping over our colors object:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bdd4d9e06f09",
+        "_type": "code",
+        "code": "// /app/routes/theme[.]css.ts\n\nexport const loader: LoaderFunction = () => {\n  const css = Object.entries(colors).reduce((acc, [key, value]) => {\n    return acc.concat(\n      `.btn-${key} { color: ${value.text}; background-color: ${value.color}; }`\n    );\n  }, \"\");\n\n  return new Response(css, {\n    headers: {\n      \"Content-Type\": \"text/css\",\n    },\n  });\n};",
+        "highlightedLines": [4, 5, 6, 7, 8],
+        "language": "tsx"
+      },
+      {
+        "_key": "e03d6ff88d2a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d5e6b534faa",
+            "_type": "span",
+            "marks": [],
+            "text": "Now, our theme[.]css.ts looks like this:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "672a12a71f12",
+        "_type": "code",
+        "code": "// /app/routes/theme[.]css.ts\n\nimport { LoaderFunction } from \"remix\";\n\nconst colors = {\n  primary: {\n    color: \"#9333ea\",\n    text: \"#fff\",\n  },\n  secondary: {\n    color: \"#4f46e5\",\n    text: \"#fff\",\n  },\n  dark: {\n    color: \"#262626\",\n    text: \"#fff\",\n  },\n  light: {\n    color: \"#ffffff\",\n    text: \"#262626\",\n  },\n};\n\nexport const loader: LoaderFunction = () => {\n  const css = Object.entries(colors).reduce((acc, [key, value]) => {\n    return acc.concat(\n      `.btn-${key} { color: ${value.text}; background-color: ${value.color}; }`\n    );\n  }, \"\");\n\n  return new Response(css, {\n    headers: {\n      \"Content-Type\": \"text/css\",\n    },\n  });\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "9d8ba19e7e2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd2ad2194eee",
+            "_type": "span",
+            "marks": [],
+            "text": "Don’t forget to add theme.css to links function on your root.tsx:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d80ad2348029",
+        "_type": "code",
+        "code": "// /app/root.tsx\n// ...\nexport const links: LinksFunction = () => {\n  return [\n    {\n      rel: \"stylesheet\",\n      // This is a route: no need to import a file!\n      href: \"theme.css\",\n    },\n  ];\n};\n// ...",
+        "highlightedLines": [7, 8],
+        "language": "typescript"
+      },
+      {
+        "_key": "6f4d54cb14ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bbc82a3a9906",
+            "_type": "span",
+            "marks": [],
+            "text": "And back to the browser, you will see something like this:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8e4a36351d87",
+        "_type": "image",
+        "alt": "Dynamic CSS second example",
+        "asset": {
+          "_ref": "image-d37a1a17632a90130ae3ef8166fe7345e36a02ee-2560x974-png",
+          "_type": "reference"
+        },
+        "crop": {
+          "_type": "sanity.imageCrop",
+          "bottom": 0.22530641672674823,
+          "left": 0.3253424657534251,
+          "right": 0.3390410958904113,
+          "top": 0.2613554434030278
+        },
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "height": 0.5133381398702239,
+          "width": 0.3202054794520539,
+          "x": 0.48544520547945214,
+          "y": 0.5180245133381398
+        }
+      },
+      {
+        "_key": "a74a1f25de37",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "976755eecdcf",
+            "_type": "span",
+            "marks": ["em"],
+            "text": "Ok, but is that it?"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa59071abf06",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c3596fb318800",
+            "_type": "span",
+            "marks": [],
+            "text": "No! You can make a lot of things using this cool feature."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8573a7d09cfb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "091ce98553e3",
+            "_type": "span",
+            "marks": [],
+            "text": "We’ll create a dark/light mode theme toggle using dynamic css."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f79a0c1029d0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "69a55a4bb80c",
+            "_type": "span",
+            "marks": [],
+            "text": "Let's change our index route to contain a form and only one button:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e37f6bcdeaea",
+        "_type": "code",
+        "code": "// /app/routes/index.tsx\n\nconst commonStyle = {\n  width: \"100%\",\n  justifyContent: \"center\",\n  display: \"flex\",\n  alignItems: \"center\",\n  gap: \"1rem\",\n};\n\nexport default function Index() {\n  const mode = \"light\";\n  const changeModeTo = mode === \"light\" ? \"dark\" : \"light\";\n\n  return (\n    <div\n      style={{\n        ...commonStyle,\n        height: \"100vh\",\n        flexDirection: \"column\",\n      }}\n    >\n      <h1>Hello, World!</h1>\n\n      <div style={{ ...commonStyle }}>\n        <form method=\"post\">\n          <input\n            type=\"hidden\"\n            name=\"mode\"\n            value={changeModeTo}\n          />\n          <button className={`btn-${mode}`}>\n            Set {changeModeTo} mode\n          </button>\n        </form>\n      </div>\n    </div>\n  );\n}",
+        "highlightedLines": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
+        "language": "tsx"
+      },
+      {
+        "_key": "a8e662bada36",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f5c61e4492d",
+            "_type": "span",
+            "marks": [],
+            "text": "We need a cookie to store the selected theme. Go ahead and create a "
+          },
+          { "_key": "8244faa6a433", "_type": "span", "marks": ["em"], "text": "cookies.ts" },
+          { "_key": "76496665e9c5", "_type": "span", "marks": [], "text": " inside app:" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "01a0e85790dd",
+        "_type": "code",
+        "code": "// /app/cookie.ts\n\nimport { createCookie } from \"remix\";\n\nexport const theme = createCookie(\"theme\");",
+        "language": "typescript"
+      },
+      {
+        "_key": "24a492656541",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5150efb80b2e",
+            "_type": "span",
+            "marks": [],
+            "text": "As you can see, it’s a simple file that uses Remix "
+          },
+          { "_key": "b52cf053404f", "_type": "span", "marks": ["em"], "text": "createCookie" },
+          {
+            "_key": "b77be83e8b23",
+            "_type": "span",
+            "marks": [],
+            "text": " to create a cookie named "
+          },
+          { "_key": "690f50064c5f", "_type": "span", "marks": ["em"], "text": "theme" },
+          { "_key": "8720167172f2", "_type": "span", "marks": [], "text": "." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "63a3010eb7aa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d1269c893b7a0",
+            "_type": "span",
+            "marks": [],
+            "text": "Let’s create a function to get and parse cookies:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3950310bf6f6",
+        "_type": "code",
+        "code": "// /app/utils/parseCookie.ts\n\nimport { Cookie } from \"remix\";\n\nexport const parseCookie = async (request: Request, cookie: Cookie) => {\n  const cookieHeader = request.headers.get(\"Cookie\");\n  const parsedCookie = (await cookie.parse(cookieHeader)) || {};\n  return parsedCookie;\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "c8fec7d95c1f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff8a195cae6c",
+            "_type": "span",
+            "marks": [],
+            "text": "Back on root.tsx, create a loader and an action:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "342949951c2d",
+        "_type": "code",
+        "code": "// /app/root.tsx\n\nexport const loader: LoaderFunction = async ({ request }) => {\n  const cookie = await parseCookie(request, theme);\n  if (!cookie.mode) cookie.mode = \"light\";\n\n  return { mode: cookie.mode };\n};\n\nexport const action: ActionFunction = async ({ request }) => {\n  const cookie = await parseCookie(request, theme);\n  const formData = await request.formData();\n\n  cookie.mode = formData.get(\"mode\") || cookie.mode || \"light\";\n\n  return redirect(\"/\", {\n    headers: {\n      \"Set-Cookie\": await theme.serialize(cookie),\n    },\n  });\n};",
+        "language": "tsx"
+      },
+      {
+        "_key": "be9ee5c9a3f7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c8440edee73d",
+            "_type": "span",
+            "marks": [],
+            "text": "As you can see both functions use the cookie ("
+          },
+          { "_key": "1f09156dffc8", "_type": "span", "marks": ["em"], "text": "theme" },
+          {
+            "_key": "256a218decf0",
+            "_type": "span",
+            "marks": [],
+            "text": ") that we created and the "
+          },
+          { "_key": "99b711c04bf5", "_type": "span", "marks": ["em"], "text": "parseCookie" },
+          { "_key": "e7cc55b5fbb9", "_type": "span", "marks": [], "text": " function." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5e27c9b9cf17",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "07c44dda67a10",
+            "_type": "span",
+            "marks": [],
+            "text": "Still in the root.tsx use the "
+          },
+          { "_key": "540206a8f453", "_type": "span", "marks": ["em"], "text": "useLoaderData" },
+          {
+            "_key": "a13f5530d9c6",
+            "_type": "span",
+            "marks": [],
+            "text": " hook to get the returned object and pass its "
+          },
+          { "_key": "d4715e86cc68", "_type": "span", "marks": ["em"], "text": "mode " },
+          {
+            "_key": "48e6e1532374",
+            "_type": "span",
+            "marks": [],
+            "text": "as a prop to the Outlet component:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "38a691ae820a",
+        "_type": "code",
+        "code": "// /app/root.tsx\n\nexport default function App() {\n  const { mode } = useLoaderData();\n\n  return (\n    <html lang=\"en\">\n      <head>\n        <meta charSet=\"utf-8\" />\n        <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n        <Meta />\n        <Links />\n      </head>\n      <body>\n        <Outlet context={{ mode }} />\n        <ScrollRestoration />\n        <Scripts />\n        {process.env.NODE_ENV === \"development\" && <LiveReload />}\n      </body>\n    </html>\n  );\n}",
+        "highlightedLines": [15, 4],
+        "language": "typescript"
+      },
+      {
+        "_key": "7c9f06f3908d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7dd77bcbbe85",
+            "_type": "span",
+            "marks": [],
+            "text": "Now, let’s change our "
+          },
+          { "_key": "f11a18962c27", "_type": "span", "marks": ["em"], "text": "index.tsx" },
+          {
+            "_key": "b186553bf5c8",
+            "_type": "span",
+            "marks": [],
+            "text": " route to use the outlet context:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a6b16d4985e",
+        "_type": "code",
+        "code": "// /app/routes/index.tsx\n\nimport { useOutletContext } from \"remix\";\n\ntype OutletContext = {\n  mode: \"light\" | \"dark\";\n}\n\nconst commonStyle = {\n  width: \"100%\",\n  justifyContent: \"center\",\n  display: \"flex\",\n  alignItems: \"center\",\n  gap: \"1rem\",\n};\n\nexport default function Index() {\n  const { mode } = useOutletContext<OutletContext>();\n  const changeModeTo = mode === \"light\" ? \"dark\" : \"light\";\n\n  return (\n    <div\n      style={{\n        ...commonStyle,\n        height: \"100vh\",\n        flexDirection: \"column\",\n      }}\n    >\n      <h1>Hello, World!</h1>\n\n      <div style={{ ...commonStyle }}>\n        <form method=\"post\">\n          <input\n            type=\"hidden\"\n            name=\"mode\"\n            value={changeModeTo}\n          />\n          <button className={`btn-${mode}`}>\n            Set {changeModeTo} mode\n          </button>\n        </form>\n      </div>\n    </div>\n  );\n}",
+        "highlightedLines": [18],
+        "language": "tsx"
+      },
+      {
+        "_key": "388210a03647",
+        "_type": "block",
+        "children": [
+          { "_key": "7dd49d725494", "_type": "span", "marks": [], "text": "Change " },
+          { "_key": "db3b0e5f67d5", "_type": "span", "marks": ["em"], "text": "theme[.]css.ts" },
+          {
+            "_key": "15fee03405c4",
+            "_type": "span",
+            "marks": [],
+            "text": " to use cookie to create styles:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3563108f1218",
+        "_type": "code",
+        "code": "// /app/routes/theme[.]css.ts\n\nimport { LoaderFunction } from \"remix\";\nimport { theme } from \"~/cookies\";\nimport { parseCookie } from \"~/utils/parseCookie\";\n\nconst colors = {\n  primary: {\n    color: \"#9333ea\",\n    text: \"#fff\",\n  },\n  secondary: {\n    color: \"#4f46e5\",\n    text: \"#fff\",\n  },\n  dark: {\n    color: \"#262626\",\n    text: \"#fff\",\n  },\n  light: {\n    color: \"#ffffff\",\n    text: \"#262626\",\n  },\n};\n\nexport const loader: LoaderFunction = async ({ request }) => {\n  const cookie = await parseCookie(request, theme);\n  if (!cookie.mode) cookie.mode = \"light\";\n\n  let css = Object.entries(colors).reduce((acc, [key, value]) => {\n    return acc.concat(\n      `.btn-${key} { color: ${value.text}; background-color: ${value.color}; }`\n    );\n  }, \"\");\n\n  css += ` \n    h1 { \n      color: ${cookie.mode === \"light\" ? \"#000\" : \"#fff\"}\n    } \n    \n    body {\n      background-color: ${cookie.mode === \"light\" ? \"#fff\" : \"#000\"}\n    }\n  `;\n\n  return new Response(css, {\n    headers: {\n      \"Content-Type\": \"text/css\",\n    },\n  });\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "2207abc3e571",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ca6b2182801",
+            "_type": "span",
+            "marks": [],
+            "text": "Finally, going back to the browser, you will see the magic happening:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "35cbb111c36d",
+        "_type": "image",
+        "asset": {
+          "_ref": "image-1d2df4a0e1385289be0238a976a6a0b14714a82e-498x298-gif",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "b0e099141132",
+        "_type": "block",
+        "children": [
+          { "_key": "46dd8a44f02a", "_type": "span", "marks": [], "text": "That’s all folks!" }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cee0987a94f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5bbbd5240040",
+            "_type": "span",
+            "marks": [],
+            "text": "Don't forget to check the source-code on Github: "
+          },
+          {
+            "_key": "c029a5eac299",
+            "_type": "span",
+            "marks": ["083c64304802"],
+            "text": "https://github.com/remix-cookbook/article-dark-mode-toggle"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "083c64304802",
+            "_type": "link",
+            "href": "https://github.com/remix-cookbook/article-dark-mode-toggle"
+          }
+        ],
+        "style": "normal"
+      }
+    ],
+    "language": "en",
+    "slug": {
+      "_type": "slug",
+      "current": "dark-mode-toggle-with-remix-resource-routes-and-dynamic-css"
+    },
+    "title": "Dark mode toggle with Remix Resource Routes and Dynamic CSS",
+    "type": "post"
+  },
+  {
+    "_createdAt": "2022-01-06T18:01:00Z",
+    "_id": "0151df24-782b-4afa-9b5e-1995f394b4ba",
+    "_rev": "sfl3uFOT7ag2SK3DsGRAoy",
+    "_type": "post",
+    "_updatedAt": "2022-01-15T07:14:39Z",
+    "author": "Fabio Vedovelli",
+    "author_url": "github.com/vedovelli",
+    "content": [
+      {
+        "_key": "16d8cc20eaaa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a2224b326b28",
+            "_type": "span",
+            "marks": [],
+            "text": "One of the biggest Remix's selling points is progressive enhancement. It is notable you can build your application and delivery it to the browser without shipping any JavaScript. And still, it works as expected."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bc3e1cf11414",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ba82fc3fc9820",
+            "_type": "span",
+            "marks": [],
+            "text": "Of course, one cannot expect great interactive features, but the bare-bones functionality is there."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3433d1016991",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cedfa05251ef0",
+            "_type": "span",
+            "marks": [],
+            "text": "So, you might be thinking: "
+          },
+          { "_key": "f524e206a718", "_type": "span", "marks": ["em", "highlight"], "text": "“" },
+          {
+            "_key": "2508ce9c806a",
+            "_type": "span",
+            "marks": ["em"],
+            "text": "If we can build and deliver without JavaScript, why do we need React in the first place.”"
+          },
+          { "_key": "20cadbbfce57", "_type": "span", "marks": [], "text": "." }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b145a450c81d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "83b3c915e2dc0",
+            "_type": "span",
+            "marks": [],
+            "text": "React is a battle-tested-market-validated solution for web development, enabling components and composition. This puts it in a unique position to offer developers solid abstraction capabilities."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "03bcde7e6abd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6cd990288d620",
+            "_type": "span",
+            "marks": [],
+            "text": "Let's take a look at an example. Assume this markup, which contains two links. Their markup and CSS classes are the same and they both open a new window upon click. So, we have an abstraction opportunity here."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "51a7d3f912e9",
+        "_type": "code",
+        "code": "<p>\n  Our site stats are public and can be accessed on Plausible.io:{' '}\n  <a href=\"https://plausible.io/remix-cookbook.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n    https://plausible.io/remix-cookbook.com\n  </a>\n</p>\n<h3 className=\"text-light-snow-storm3 border-b border-dark-polar-night2 pb-2\">\n  Social Media\n</h3>\n<p className=\"flex items-center\">\n  <FaTwitter className=\"mr-2 h-6 w-6\" /> Follow us on Twitter:{` `}\n  <a href=\"https://twitter.com/RemixCookbook\" target=\"_blank\" rel=\"noopener noreferrer\">\n    https://twitter.com/RemixCookbook\n  </a>\n</p>",
+        "highlightedLines": [12, 13, 14, 16, 3, 4, 5],
+        "language": "jsx"
+      },
+      {
+        "_key": "a7f7cfafabbb",
+        "_type": "image",
+        "alt": "First screenshot displaying regular links",
+        "asset": {
+          "_ref": "image-e15c632234a12934a8d05240e013d0f4811d443e-624x532-png",
+          "_type": "reference"
+        },
+        "caption": "Screenshot displaying regular links"
+      },
+      {
+        "_key": "feff6bd2afea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e63f1a2d285b0",
+            "_type": "span",
+            "marks": [],
+            "text": "We go ahead and create a Link component and include everything that is repeated from the code snippet above. We also include placeholders for the dynamic parts to be provided by the parent component, and then we have a single source of truth for external links."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6af906a604ad",
+        "_type": "code",
+        "code": "// ~/Components/Link/External.tsx\nexport function External({ children, href }) {\n  return (\n    <a\n      href={href}\n      target=\"_blank\"\n      rel=\"noopener noreferrer\"\n      className=\"flex items-center gap-2\"\n    >\n      {children}\n    </a>\n  );\n}",
+        "highlightedLines": [5, 10],
+        "language": "typescript"
+      },
+      {
+        "_key": "f0b1532c626f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e89ff9aee6220",
+            "_type": "span",
+            "marks": [],
+            "text": "Going back to the component in which we started, we import and use the new component."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5392c5a58d9e",
+        "_type": "code",
+        "code": "import { Link } from '~/Components/Link' \n\nexport defaut function() {\n  return (\n    <>\n      <p>\n        Our site stats are public and can be accessed on Plausible.io:{' '}\n        <Link.External href=\"https://plausible.io/remix-cookbook.com\">\n          https://plausible.io/remix-cookbook.com\n        </Link.External>\n      </p>\n      <Headings.Separator>Social Media</Headings.Separator>\n      <p className=\"flex items-center\">\n        <Icon icon={Icons.twitter} className=\"mr-2 h-6 w-6\" /> Follow us on Twitter:&nbsp;\n        <Link.External href=\"https://twitter.com/RemixCookbook\">\n          https://twitter.com/RemixCookbook\n        </Link.External>\n      </p>  \n    </>\n  )\n}\n",
+        "highlightedLines": [1, 15, 16, 17, 8, 9, 10],
+        "language": "jsx"
+      },
+      {
+        "_key": "20d8e7a2482a",
+        "_type": "image",
+        "alt": "First screenshot displaying regular links",
+        "asset": {
+          "_ref": "image-e15c632234a12934a8d05240e013d0f4811d443e-624x532-png",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "c2400e053bca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "216c4cef85be0",
+            "_type": "span",
+            "marks": [],
+            "text": "Note that, visually, nothing has changed. But now we have a single place to make improvements. Being a link that will take the user to an external location, it is a common practice to add a small icon on the right-hand side, making it clear a new window will open."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fcc8a58844b5",
+        "_type": "code",
+        "code": "export function External({ children, href, externalIndicator = true }) {\n  return (\n    <a\n      href={href}\n      target=\"_blank\"\n      rel=\"noopener noreferrer\"\n      className=\"flex items-center gap-2\"\n    >\n      {children}{' '}\n      {externalIndicator ? (\n        <span className=\"text-dark-polar-night1\">\n          <FaExternalLinkAlt />\n        </span>\n      ) : null}\n    </a>\n  );\n}",
+        "highlightedLines": [11, 12, 13, 14, 10],
+        "language": "typescript"
+      },
+      {
+        "_key": "f6931b804d9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7869e759281d0",
+            "_type": "span",
+            "marks": [],
+            "text": "Now both links contain said icon. Imagine we are working in a massive application with hundreds, if not thousands of links, spread throughout the application. One small change and all of them would be updated and ready to ship."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c1c94389c41d",
+        "_type": "image",
+        "alt": "Second screenshot displaying enhanced links",
+        "asset": {
+          "_ref": "image-a11169523a93ecd84b0a08018073b73e02d3c5af-657x548-png",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "b4c3affb8986",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b27fa9af560e0",
+            "_type": "span",
+            "marks": [],
+            "text": "The same is true for any other aspect of the element: colors, spacing, fonts. You name it."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8eaf99a8f9b9",
+        "_type": "block",
+        "children": [
+          { "_key": "eabb02ac1d041", "_type": "span", "marks": [], "text": "Conclusion" }
+        ],
+        "markDefs": [],
+        "style": "h4"
+      },
+      {
+        "_key": "9ee034ac9e82",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "998baa3fedf6",
+            "_type": "span",
+            "marks": [],
+            "text": "Without React, achieving these results would be very difficult. And because Remix builds everything server-side, you can be pretty confident that even the more expensive computations will not harm your application's performance. The server is a known territory, different from the “wild wild” browser."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "language": "en",
+    "slug": {
+      "_type": "slug",
+      "current": "if-remix-delivers-html-and-doesn-t-need-js-why-do-we-need-react-in-the-first-place"
+    },
+    "title": "If Remix delivers HTML and doesn't need JS, why do we need React in the first place?",
+    "type": "post"
+  },
+  {
+    "_createdAt": "2022-01-05T16:31:01Z",
+    "_id": "aed93a1f-39fb-4fec-98b3-dba326faa939",
+    "_rev": "LAcMV9aFr5nT7OvxOafoNs",
+    "_type": "post",
+    "_updatedAt": "2022-01-15T07:11:32Z",
+    "author": "Fabio Vedovelli",
+    "author_url": "github.com/vedovelli",
+    "content": [
+      {
+        "_key": "e535d2380cc8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "feaa19d7fbd8",
+            "_type": "span",
+            "marks": [],
+            "text": "⚠️ This article assumes you are building your app with Typescript"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "18b929b9421e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "66d30adf8a080",
+            "_type": "span",
+            "marks": [],
+            "text": "So we usually get data fetching started from our loader function, which is the very first piece of code that runs when a route is accessed."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1253e9ad8aa9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "78de109bcf7d0",
+            "_type": "span",
+            "marks": [],
+            "text": "At the time of this writing, Remix documentation depicts loader function examples that will not assign any return types for loader functions."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cc7fe386d413",
+        "_type": "code",
+        "code": "export const loader: LoaderFunction = async ({ params }) => {\n  const course = await AdminApi.getCourse(params.courseId!);\n\n  if (!course) {\n    throw new Response(\"Not found\", {\n      status: 404,\n    });\n  }\n\n  return { course };\n};",
+        "language": "typescript"
+      },
+      {
+        "_key": "da3cbc75c6c2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5c2ec2cd56400",
+            "_type": "span",
+            "marks": [],
+            "text": "It turns out that if you do not type the return of your loader function, you can't be sure what you're returning is in conformity with what will be accessed in the React component."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd61d4e1c823",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e781090867b10",
+            "_type": "span",
+            "marks": [],
+            "text": "Let's leverage Typescript to make our loader function safer:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "99c46d969a75",
+        "_type": "code",
+        "code": "// Could also be a local type or interface\nimport { Course } from \"@prisma/client\";\nimport { json } from 'remix';\n\ninterface LoaderData {\n  course: Course;\n}\n\nexport const loader: LoaderFunction = async ({\n  params,\n}) => {\n  const course = await AdminApi.getCourse(params.courseId!);\n\n  if (!course) {\n    throw new Response(\"Not found\", {\n      status: 404,\n    });\n  }\n\n  return json<LoaderData>({ course });\n};",
+        "highlightedLines": [2, 20, 3, 5, 6, 7],
+        "language": "typescript"
+      },
+      {
+        "_key": "0d60de54f1b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1f686f21fb04",
+            "_type": "span",
+            "marks": [],
+            "text": "What is going on there? First, we create an interface to type the response from the loader function. Then we execute the JSON method (provided by Remix), which is a utility to return a Response with JSON encoded data. By passing LoaderData as a type, we ensure only known properties and values could be returned by the loader function."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9db7cac7099f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f7096c5c7b6",
+            "_type": "span",
+            "marks": [],
+            "text": "The code above clearly states everything this method could return or do."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "02edcdd62420",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "defb162168d60",
+            "_type": "span",
+            "marks": [],
+            "text": "If you remove one of the properties from the returned object, Typescript will let you know immediately!"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "29b7011f0656",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "732f006b730b",
+            "_type": "span",
+            "marks": [],
+            "text": "Lastly we use the same LoaderData interface when retrieving loader provided data in the React component:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6ae2e21f9261",
+        "_type": "code",
+        "code": "export default function () {\n  // course will be of type Course\n  const { course } = useLoaderData<LoaderData>();\n  \n  return ...\n}",
+        "highlightedLines": [2, 3],
+        "language": "typescript"
+      },
+      {
+        "_key": "59b49550e48b",
+        "_type": "block",
+        "children": [{ "_key": "efed044261200", "_type": "span", "marks": [], "text": "" }],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "language": "en",
+    "slug": {
+      "_type": "slug",
+      "current": "ensure-loader-is-returning-expected-data-to-the-react-component"
+    },
+    "title": "Ensure loader is returning expected data to the React component",
+    "type": "post"
+  }
+]
