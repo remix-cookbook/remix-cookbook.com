@@ -31,7 +31,11 @@ export function ScrollToTop() {
       leaveTo="opacity-0"
       className="fixed visible w-16 h-16 bg-white rounded-tl-full shadow-md bg-opacity-40 -bottom-3 -right-3 lg:invisible"
     >
-      <a href="#" className="flex items-center justify-center w-full h-full">
+      <a
+        href="#"
+        className="flex items-center justify-center w-full h-full"
+        data-testid="scroll-to-top"
+      >
         <Icon icon={Icons.caretUp} />
       </a>
     </Transition>
