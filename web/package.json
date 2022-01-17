@@ -15,7 +15,10 @@
     "sitemap": "node ./lib/sitemap.js",
     "feed": "node ./lib/feed.js",
     "lint": "eslint app/**/**",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "test": "cypress open",
+    "test:run": "cypress run",
+    "ci": "start-server-and-test dev http://localhost:3000 test:run"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -30,6 +33,7 @@
     "autoprefixer": "^10.4.1",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
+    "cypress": "^9.2.1",
     "dotenv": "^12.0.3",
     "feed": "^4.2.2",
     "lodash": "^4.17.21",
@@ -62,12 +66,14 @@
     "eslint": "^8.6.0",
     "eslint-config-kentcdodds": "^20.0.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-tailwindcss": "^3.0.3",
     "prettier": "^2.5.1",
     "sitemap-generator": "^8.5.1",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.1.2"
   },
   "engines": {

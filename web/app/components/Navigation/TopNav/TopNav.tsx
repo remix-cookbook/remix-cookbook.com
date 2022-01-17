@@ -1,8 +1,9 @@
 import { route } from 'routes-gen';
-import { Link, Feed, Icon, Icons } from '~/components';
+import { Link, Feed } from '~/components';
+import { Github } from '~/components/Github/Github';
 export function TopNav() {
   return (
-    <ul className="flex items-center gap-4 pr-4">
+    <ul className="flex items-center gap-4 py-4">
       <li className="hidden md:inline-block">
         <Link.Internal
           className="underline underline-offset-4 decoration-dotted"
@@ -40,13 +41,7 @@ export function TopNav() {
         <Feed />
       </li>
       <li>
-        <Link.External
-          href="https://github.com/remix-cookbook"
-          externalIndicator={false}
-          title="Our organization on Github"
-        >
-          <Icon icon={Icons.github} className="w-6 h-6 mt-2 text-light-snow-storm3" />
-        </Link.External>
+        <Github />
       </li>
     </ul>
   );
