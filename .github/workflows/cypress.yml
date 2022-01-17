@@ -3,8 +3,6 @@ on: [push]
 defaults:
   run:
     working-directory: web
-  start:
-    working-directory: web
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
