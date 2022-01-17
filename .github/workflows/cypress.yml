@@ -1,5 +1,10 @@
 name: End-to-end tests
 on: [push]
+defaults:
+  run:
+    working-directory: web
+  start:
+    working-directory: web
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
@@ -7,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - run: npm install
-        working-directory: web
+      - name: Install Dependencies
+        run: npm install
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
