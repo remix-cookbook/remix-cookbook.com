@@ -9,9 +9,11 @@ jobs:
 
       - run: cd web/
 
+      - run: npm install
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           headless: true
-          start: yarn dev
+          start: npm run dev
