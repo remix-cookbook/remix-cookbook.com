@@ -1,6 +1,6 @@
-import { LinksFunction, LoaderFunction, MetaFunction, redirect, useLoaderData } from 'remix';
-import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
+import { json, LinksFunction, LoaderFunction, MetaFunction, redirect, useLoaderData } from 'remix';
 import { BlogApi, BlogTypes, Post } from '~/features/Blog';
+import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
 import highlighter from '~/styles/highlighter.css';
 import { postMeta } from '~/util/header/header';
 
@@ -32,7 +32,7 @@ export const loader: LoaderFunction = async ({
     return redirect('/');
   }
 
-  return { post, preview };
+  return json<LoaderData>({ post, preview });
 };
 
 export default function Index() {

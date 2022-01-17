@@ -1,8 +1,14 @@
 import { Cookies } from '~/cookies';
 import axios from 'axios';
 
-export function getGeoInformation({ cookie }: { cookie: Cookies }) {
-  const promise = new Promise(resolve => resolve({ data: { country: 'Germany' } }));
+export interface Cookie {
+  cookie: Cookies;
+}
+
+export function getGeoInformation({ cookie }: Cookie): Promise<{ data: { country: string } }> {
+  const promise = new Promise<{ data: { country: string } }>(resolve =>
+    resolve({ data: { country: 'Germany' } })
+  );
 
   try {
     if (cookie.language) {
