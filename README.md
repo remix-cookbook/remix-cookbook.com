@@ -18,3 +18,6 @@ Each of the folders contains its own README.md with installation instructions.
 ## Installation
 
 It is necessary to install each project separately. Please refer to each's projects README.md to understand what is required to properly run them.
+
+- `studio/` documentation: [/studio/README.md](/studio/README.md)
+- `web/` documentation: [/web/README.md](/web/README.md)
