@@ -1,26 +1,23 @@
-import { Headings, Link, Prose } from '~/components';
-import { Comments, Content } from '~/features/Blog';
-import { DateTimeUtils } from '~/util';
-import { Post } from '../../types';
 import m2r from 'minutes-to-read';
-import { ContentUtils } from '../Content';
-import pictures from '~/features/Blog/components/Posts/pictures-space.json';
-import shuffle from 'lodash/shuffle';
+import { Headings, Link, Prose } from '~/components';
+import { BlogTypes, Comments, Content } from '~/features/Blog';
+import { DateTimeUtils } from '~/util';
 import { Credits } from '../Card/Credits';
+import { ContentUtils } from '../Content';
 
 export interface PostProps {
-  post: Post;
+  post: BlogTypes.Post;
   preview: boolean;
+  picture: BlogTypes.Picture;
 }
 
-export function Post({ post, preview = false }: PostProps) {
+export function Post({ post, preview = false, picture }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
-  const [picture] = shuffle(pictures);
 
   return (
     <>
-      <div className="relative w-full h-48 md:h-72">
+      <div className="relative w-full h-48 md:h-80">
         <Credits user={picture.user} />
         <img
           src={picture.regular}

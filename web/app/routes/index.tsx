@@ -1,8 +1,7 @@
 import shuffle from 'lodash/shuffle';
 import { json, LinksFunction, LoaderFunction, useLoaderData } from 'remix';
 import { languageCookie, parseCookie } from '~/cookies';
-import { BlogApi, BlogTypes, Posts } from '~/features/Blog';
-import pictures from '~/features/Blog/components/Posts/pictures-space.json';
+import { BlogApi, BlogTypes, Posts, UnsplashApi } from '~/features/Blog';
 import card from '~/styles/card.css';
 
 export interface LoaderData {
@@ -15,10 +14,9 @@ export const links: LinksFunction = () => [{ rel: 'stylesheet', href: card }];
 export const loader: LoaderFunction = async ({ request }) => {
   const { language } = await parseCookie(request, languageCookie);
   const posts = (await BlogApi.getPosts({ language })) ?? [];
+  const pictures = shuffle(await UnsplashApi.getPictures({ quantity: 30 }));
 
-  // console.log(JSON.stringify(await UnsplashApi.getPictures()));
-
-  return json<LoaderData>({ posts, pictures: shuffle(pictures) });
+  return json<LoaderData>({ posts, pictures });
 };
 
 export default function Index() {
