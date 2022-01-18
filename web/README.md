@@ -1,5 +1,40 @@
 # Welcome to Remix!
 
+Before start using this project, please refer to `.env.example` to check the variables required by the project. The file contains links to the places in which you can get the values.
+
+After updating it, create a copy and name it `.env`. This file should never be committed to Git, as it contains sensitive data.
+
+## Working in the project
+
+Please refer to `package.json` script list to get in touch with everything that is possible to do.
+
+## Deployment
+
+Netlify supports both deployments triggered by the client ([Netlify CLI](https://docs.netlify.com/cli/get-started/)) or by a merge on main ([Github Repository](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)). In this project, I am using the CLI.
+
+The scripts found on `/web/scripts/` contain all the relevant NPM scripts required to a successful deployment.
+
+## Automated Tests
+
+This project is configured to use [Cypress](https://cypress.io) for integration tests. There are no unit tests with Jest and no plans to include them, as I believe Cypress is doing a good job at the moment.
+
+## Tools
+
+- [Remix.run](https://Remix.run)
+- [Tailwind CSS](https://tailwindcss.com) (with [Typography Plugin](https://tailwindcss.com/docs/typography-plugin))
+- [Headless UI](https://headlessui.dev/) and [HeroIcons](https://heroicons.com/)
+- [Netify](https://netlify.com)
+- [routes-gen](https://www.npmjs.com/package/routes-gen) - to bring type-safety to routes
+- [Plausible Analytics](https://plausible.io/)
+- [Unsplash](https://unsplash.com/developer) - for gorgeous images
+- [Nord Theme](https://nordtheme.com) - for color inspiration
+
+## Installation and running
+
+Please refer to the instructions below. Before running this application for the first time, you should build it with `yarn build` (or `npm run build`), otherwise you could get an error. This happens on the very first run only.
+
+## More about Remix.run
+
 - [Remix Docs](https://remix.run/docs)
 
 ## Netlify Setup
