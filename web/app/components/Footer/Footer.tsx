@@ -11,7 +11,7 @@ export const links = [
 
 export function Footer() {
   return (
-    <footer className="mt-8 mb-12 text-sm text-center text-gray-400 md:flex md:justify-center">
+    <footer className="mx-5 mt-8 mb-12 text-sm text-center text-gray-400 md:flex md:justify-center">
       <div className="mb-2 md:mr-4 md:mb-auto">Happily built with</div>
       <nav className="flex flex-wrap justify-center footer-nav">
         {links.map(({ title, href }) => (
