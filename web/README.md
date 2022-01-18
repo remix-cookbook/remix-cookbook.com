@@ -10,7 +10,7 @@ Please refer to `package.json` script list to get in touch with everything that 
 
 ## Deployment
 
-Netlify supports both deployments triggered by the client ([Netlify CLI](https://docs.netlify.com/cli/get-started/)) or by a merge on main (Github Repository). In this project, I am using the CLI.
+Netlify supports both deployments triggered by the client ([Netlify CLI](https://docs.netlify.com/cli/get-started/)) or by a merge on main ([Github Repository](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)). In this project, I am using the CLI.
 
 The scripts found on `/web/scripts/` contain all the relevant NPM scripts required to a successful deployment.
 
