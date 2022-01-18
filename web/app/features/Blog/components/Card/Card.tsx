@@ -24,7 +24,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
   const { slug, _createdAt, title } = post;
 
   return (
-    <div className="h-full border border-gray-700 shadow-lg bg-light-snow-storm3 bg-opacity-10 rounded-xl">
+    <div className="h-full border border-gray-800 shadow-lg bg-light-snow-storm3 bg-opacity-10 rounded-xl">
       <div
         className={classNames({
           'card-image-box': small,
