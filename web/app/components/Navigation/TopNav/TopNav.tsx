@@ -1,6 +1,6 @@
 import { route } from 'routes-gen';
-import { Link, Feed } from '~/components';
-import { Github } from '~/components/Github/Github';
+import { Link, Feed, Github } from '~/components';
+
 export function TopNav() {
   return (
     <ul className="flex items-center gap-4 py-4">
