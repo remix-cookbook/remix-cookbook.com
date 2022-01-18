@@ -26,7 +26,7 @@ This project is configured to use [Cypress](https://cypress.io) for integration 
 - [Netify](https://netlify.com)
 - [routes-gen](https://www.npmjs.com/package/routes-gen) - to bring type-safety to routes
 - [Plausible Analytics](https://plausible.io/)
-- [Unsplash](https://unsplash.com/developer) - for gorgeous images
+- [Unsplash](https://unsplash.com/developers) - for gorgeous images
 - [Nord Theme](https://nordtheme.com) - for color inspiration
 
 ## Installation and running

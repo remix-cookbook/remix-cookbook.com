@@ -51,7 +51,7 @@ pre[class*='language-'] {
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 1em;
-  border: rgba(255, 255, 255, 0.3) 1px solid;
+  border: rgba(255, 255, 255, 0.2) 1px solid;
 }
 
 :not(pre) > code[class*='language-'],
