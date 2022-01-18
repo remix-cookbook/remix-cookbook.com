@@ -12,11 +12,15 @@ export interface LoaderData {
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: card }];
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const { language } = await parseCookie(request, languageCookie);
-  const posts = (await BlogApi.getPosts({ language })) ?? [];
-  const pictures = shuffle(await UnsplashApi.getPictures({ quantity: 30 }));
+  try {
+    const { language } = await parseCookie(request, languageCookie);
+    const posts = (await BlogApi.getPosts({ language })) ?? [];
+    const pictures = shuffle(await UnsplashApi.getPictures({ quantity: 30 }));
 
-  return json<LoaderData>({ posts, pictures });
+    return json<LoaderData>({ posts, pictures });
+  } catch (error) {
+    throw new Response('Server error', { status: 500 });
+  }
 };
 
 export default function Index() {
