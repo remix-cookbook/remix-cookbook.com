@@ -25,6 +25,11 @@ This project is configured to use [Cypress](https://cypress.io) for integration 
 - [Headless UI](https://headlessui.dev/) and [HeroIcons](https://heroicons.com/)
 - [Netify](https://netlify.com)
 - [routes-gen](https://www.npmjs.com/package/routes-gen) - to bring type-safety to routes
+- [Plausible Analytics](https://plausible.io/)
+
+## Installation and running
+
+Please refer to the instructions below. Before running this application for the first time, you should build it with `yarn build` (or `npm run build`), otherwise you could get an error. This happens on the very first run only.
 
 ## More about Remix.run
 

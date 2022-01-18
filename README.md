@@ -14,3 +14,7 @@ This repository contains two separate projects:
 2. `web/` contains the Remix project with deploy configurations for [Netlify](https://netlify.com).
 
 Each of the folders contains its own README.md with installation instructions.
+
+## Installation
+
+It is necessary to install each project separately. Please refer to each's projects README.md to understand what is required to properly run them.
