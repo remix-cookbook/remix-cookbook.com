@@ -6,6 +6,6 @@ export interface ContentProps {
 
 export function Content({ children }: ContentProps) {
   return (
-    <h2 className="pb-3 border-b text-light-snow-storm1 border-dark-polar-night1">{children}</h2>
+    <h2 className="pb-6 border-b text-light-snow-storm1 border-dark-polar-night1">{children}</h2>
   );
 }

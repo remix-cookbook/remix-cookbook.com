@@ -29,7 +29,7 @@ export default function App() {
         {/* See /public/_redirects */}
         <script defer data-domain={domain} src="/js/analytics.js"></script>
       </head>
-      <body className=" bg-dark-polar-night4">
+      <body className="bg-slate-900">
         <div className="min-h-screen">
           <Header />
           <Outlet />

@@ -36,7 +36,7 @@ export function Post({ post, preview = false }: PostProps) {
             </div>
           ) : null}
           <Headings.Content>{post.title}</Headings.Content>
-          <div className="pb-5 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
+          <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
             <p>
               By <span className="font-semibold">{post.author}</span> -{' '}
               <Link.External href={`https://${post.author_url}`}>{post.author_url}</Link.External>
