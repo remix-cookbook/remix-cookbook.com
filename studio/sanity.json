@@ -2,7 +2,7 @@
   "root": true,
   "api": {
     "projectId": "4njl7vlm",
-    "dataset": "production"
+    "dataset": "blog-contents"
   },
   "project": {
     "name": "vedovelli.com.br-2021"

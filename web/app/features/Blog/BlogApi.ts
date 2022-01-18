@@ -10,9 +10,9 @@ export function getPosts({ language }: { language: string }): Promise<BlogTypes.
   return getClient().fetch(query);
 }
 
-export function getPost(slug?: string, preview?: boolean) {
+export function getPost(slug?: string) {
   const query = `*[_type == "post" && slug.current ==  $slug]`;
   const queryParams = { slug };
 
-  return getClient(preview).fetch(query, queryParams);
+  return getClient().fetch(query, queryParams);
 }
