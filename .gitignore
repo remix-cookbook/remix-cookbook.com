@@ -1,3 +1,4 @@
 .DS_Store
 studio/node_modules
 web/node_modules
+studio/yarn-error.log
