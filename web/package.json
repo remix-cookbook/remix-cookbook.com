@@ -48,6 +48,8 @@
     "react-refractor": "^2.1.5",
     "refractor": "^4.3.0",
     "remix": "^1.1.1",
+    "remix-auth": "^3.2.1",
+    "remix-auth-github": "^1.0.0",
     "remix-utils": "^2.4.0",
     "routes-gen": "^0.2.5",
     "tailwindcss": "^3.0.15",

@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { renderToString } from 'react-dom/server';
 import { RemixServer } from 'remix';
 import { languageCookie, parseCookie } from '~/cookies';
-import { getGeoInformation } from '~/service/geo';
+import { getGeoInformation } from '~/services';
 import { availableLanguages, portugueseSpeakingCountries } from './config';
 import type { EntryContext } from 'remix';
 
