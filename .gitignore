@@ -2,3 +2,4 @@
 studio/node_modules
 web/node_modules
 studio/yarn-error.log
+web/patches/@web-std+blob+3.0.1.patch
