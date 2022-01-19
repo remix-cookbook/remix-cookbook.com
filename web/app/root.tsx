@@ -8,25 +8,30 @@ import {
   ScrollRestoration,
   MetaFunction,
   LoaderFunction,
+  json,
 } from 'remix';
-import { Header, Footer, Glow, Login } from './components';
+import { Header, Footer, Glow, Authenticated } from './components';
 import { domain } from './config';
 import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
 import { authenticator } from './services';
 import { useLoaderData } from 'remix';
+import { User } from './models';
+
+export interface LoaderData {
+  user: User;
+}
 
 export const links: LinksFunction = globalLinks;
 
 export const meta: MetaFunction = globalMeta;
 
-export let loader: LoaderFunction = async ({ request }) => {
-  let user = await authenticator.isAuthenticated(request);
-  return { message: 'this is awesome 😎', user };
+export const loader: LoaderFunction = async ({ request }) => {
+  return json<LoaderData>({ user: (await authenticator.isAuthenticated(request))! });
 };
 
 export default function App() {
-  const auth = useLoaderData();
+  const { user } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -41,7 +46,7 @@ export default function App() {
       <body className="bg-slate-900">
         <div className="min-h-screen">
           <Header />
-          <Login auth={auth} />
+          <Authenticated user={user} />
           <Outlet />
           <Footer />
           <ScrollToTop />

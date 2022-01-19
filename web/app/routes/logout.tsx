@@ -1,14 +1,15 @@
 import { ActionFunction, json, LoaderFunction, redirect } from 'remix';
-import { destroySession, getSession } from '~/services/session.server';
+import { destroySession, getSession } from '~/services';
 
-export let action: ActionFunction = async ({ request }) => {
+export const action: ActionFunction = async ({ request }) => {
+  const cookie = request.headers.get('Cookie');
   return redirect('/', {
     headers: {
-      'Set-Cookie': await destroySession(await getSession(request)),
+      'Set-Cookie': await destroySession(await getSession(cookie)),
     },
   });
 };
 
-export let loader: LoaderFunction = () => {
+export const loader: LoaderFunction = () => {
   throw json({}, { status: 404 });
 };
