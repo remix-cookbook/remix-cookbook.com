@@ -1,13 +1,8 @@
-import { ActionFunction, json, LoaderFunction, redirect } from 'remix';
-import { destroySession, getSession } from '~/services';
+import { ActionFunction, json, LoaderFunction } from 'remix';
+import { auth } from '../services/auth.server';
 
 export const action: ActionFunction = async ({ request }) => {
-  const cookie = request.headers.get('Cookie');
-  return redirect('/', {
-    headers: {
-      'Set-Cookie': await destroySession(await getSession(cookie)),
-    },
-  });
+  await auth.logout(request, { redirectTo: '/' });
 };
 
 export const loader: LoaderFunction = () => {

@@ -1,8 +1,10 @@
-import { ActionFunction, LoaderFunction, redirect } from 'remix';
-import { authenticator } from '~/services/auth.server';
-
-export const loader: LoaderFunction = () => redirect('/login');
+import type { ActionFunction } from 'remix';
+import { route } from 'routes-gen';
+import { auth } from '~/services/auth.server';
 
 export const action: ActionFunction = async ({ request }) => {
-  return await authenticator.authenticate('github', request);
+  return await auth.authenticate('github', request, {
+    successRedirect: route('/'),
+    failureRedirect: route('/'),
+  });
 };

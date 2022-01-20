@@ -1,29 +1,46 @@
+import { createCookieSessionStorage } from 'remix';
 import { Authenticator } from 'remix-auth';
+import type { GitHubProfile } from 'remix-auth-github';
 import { GitHubStrategy } from 'remix-auth-github';
-import { login, User } from '~/models/user';
-import { sessionStorage } from '~/services/session.server';
-
-export const authenticator = new Authenticator<User>(sessionStorage);
 
 if (!process.env.GITHUB_APP_CLIENT_ID) {
-  throw new Error('Missing GITHUB_APP_CLIENT_ID env');
+  throw new Error('GITHUB_APP_CLIENT_ID is required');
 }
 
 if (!process.env.GITHUB_APP_CLIENT_SECRET) {
-  throw new Error('Missing GITHUB_APP_CLIENT_SECRET env');
+  throw new Error('GITHUB_APP_CLIENT_SECRET is required');
 }
 
-if (!process.env.HOST) {
-  throw new Error('Missing HOST env');
+if (!process.env.BASE_URL) {
+  throw new Error('BASE_URL is required');
 }
 
-authenticator.use(
+const BASE_URL = process.env.BASE_URL;
+
+export const sessionStorage = createCookieSessionStorage({
+  cookie: {
+    name: '_session',
+    sameSite: 'lax',
+    path: '/',
+    httpOnly: true,
+    secrets: [process.env.SECRET_KEY!],
+    secure: process.env.NODE_ENV === 'production',
+  },
+});
+
+export const auth = new Authenticator<{
+  profile: GitHubProfile;
+}>(sessionStorage);
+console.log(new URL('/auth/github/callback', BASE_URL).toString());
+auth.use(
   new GitHubStrategy(
     {
-      clientID: process.env.GITHUB_APP_CLIENT_ID,
-      clientSecret: process.env.GITHUB_APP_CLIENT_SECRET,
-      callbackURL: `http://${process.env.HOST}/auth/github/callback`,
+      clientID: process.env.GITHUB_APP_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_APP_CLIENT_SECRET!,
+      callbackURL: new URL('/auth/github/callback', BASE_URL).toString(),
     },
-    async response => login(response.profile.emails[0].value)
+    async ({ profile }) => {
+      return { profile };
+    }
   )
 );

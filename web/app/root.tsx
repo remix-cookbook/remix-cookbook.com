@@ -9,29 +9,29 @@ import {
   MetaFunction,
   LoaderFunction,
   json,
+  useLoaderData,
 } from 'remix';
 import { Header, Footer, Glow, Authenticated } from './components';
 import { domain } from './config';
 import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
-import { authenticator } from './services';
-import { useLoaderData } from 'remix';
-import { User } from './models';
-
-export interface LoaderData {
-  user: User;
-}
+import { auth } from './services';
+import { GitHubProfile } from 'remix-auth-github';
 
 export const links: LinksFunction = globalLinks;
 
 export const meta: MetaFunction = globalMeta;
 
+export interface LoaderData {
+  profile?: GitHubProfile;
+}
+
 export const loader: LoaderFunction = async ({ request }) => {
-  return json<LoaderData>({ user: (await authenticator.isAuthenticated(request))! });
+  return json<LoaderData>({ profile: (await auth.isAuthenticated(request))?.profile });
 };
 
 export default function App() {
-  const { user } = useLoaderData<LoaderData>();
+  const { profile } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -46,7 +46,7 @@ export default function App() {
       <body className="bg-slate-900">
         <div className="min-h-screen">
           <Header />
-          <Authenticated user={user} />
+          <Authenticated profile={profile} />
           <Outlet />
           <Footer />
           <ScrollToTop />
