@@ -6,9 +6,10 @@ import { route } from 'routes-gen';
 
 export interface BookmarkProps {
   post: BlogTypes.Post;
+  isBookmarked: boolean;
 }
 
-export function Bookmark({ post }: BookmarkProps) {
+export function Bookmark({ post, isBookmarked }: BookmarkProps) {
   const [open, setOpen] = useState(false);
   const { profile } = useProfile();
 
@@ -21,7 +22,11 @@ export function Bookmark({ post }: BookmarkProps) {
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
         {profile ? (
           <button type="submit" title="Bookmark this post">
-            <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
+            {isBookmarked ? (
+              <Icon icon={Icons.bookmark} className="w-8 h-8 text-yellow-500" />
+            ) : (
+              <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
+            )}
           </button>
         ) : (
           <a href="#" title="Bookmark this post" onClick={() => setOpen(true)}>
