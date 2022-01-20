@@ -1,9 +1,13 @@
-declare module 'routes-gen' {
+declare module "routes-gen" {
   export type RouteParams = {
-    '/resources': {};
-    '/:slug': { slug: string };
-    '/about': {};
-    '/': {};
+    "/auth/github/callback": {};
+    "/auth/github": {};
+    "/bookmarks": {};
+    "/resources": {};
+    "/logout": {};
+    "/:slug": { slug: string };
+    "/about": {};
+    "/": {};
   };
 
   export function route<
@@ -13,7 +17,7 @@ declare module 'routes-gen' {
       | ["/bookmarks"]
       | ["/resources"]
       | ["/logout"]
-      | ['/:slug', RouteParams['/:slug']]
+      | ["/:slug", RouteParams["/:slug"]]
       | ["/about"]
       | ["/"]
   >(...args: T): typeof args[0];
