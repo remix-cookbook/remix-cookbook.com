@@ -9,3 +9,4 @@ node_modules
 /public/rss.xml
 /public/atom.xml
 /public/feed.json
+/prisma/dev.db
