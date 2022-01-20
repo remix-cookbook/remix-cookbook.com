@@ -11,12 +11,13 @@ import {
   json,
   useLoaderData,
 } from 'remix';
-import { Header, Footer, Glow, Authenticated } from './components';
+import { Header, Footer, Glow } from './components';
 import { domain } from './config';
 import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
 import { auth } from './services';
 import { GitHubProfile } from 'remix-auth-github';
+import { createContext } from 'react';
 
 export const links: LinksFunction = globalLinks;
 
@@ -30,8 +31,10 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json<LoaderData>({ profile: (await auth.isAuthenticated(request))?.profile });
 };
 
+export const AuthenticationContext = createContext<LoaderData>({ profile: undefined });
+
 export default function App() {
-  // const { profile } = useLoaderData<LoaderData>();
+  const { profile } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -45,10 +48,11 @@ export default function App() {
       </head>
       <body className="bg-slate-900">
         <div className="min-h-screen">
-          <Header />
-          {/* <Authenticated profile={profile} /> */}
-          <Outlet />
-          <Footer />
+          <AuthenticationContext.Provider value={{ profile }}>
+            <Header />
+            <Outlet />
+            <Footer />
+          </AuthenticationContext.Provider>
           <ScrollToTop />
         </div>
         <Glow />

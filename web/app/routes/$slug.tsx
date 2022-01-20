@@ -21,7 +21,6 @@ export interface LoaderData {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
-  profile?: GitHubProfile;
 }
 
 export const loader: LoaderFunction = async ({
@@ -32,24 +31,16 @@ export const loader: LoaderFunction = async ({
   const preview = requestUrl?.searchParams?.get('preview') === process.env.SANITY_PREVIEW_SECRET;
   const post = await BlogApi.getPost(params.slug);
   const [picture] = await UnsplashApi.getPictures({ quantity: 1 });
-  const profile = (await auth.isAuthenticated(request))?.profile;
 
   if (!post || post.length === 0) {
     return redirect('/');
   }
 
-  return json<LoaderData>({ post, preview, picture, profile });
+  return json<LoaderData>({ post, preview, picture });
 };
 
 export default function Index() {
-  const { post, preview, picture, profile } = useLoaderData<LoaderData>();
+  const { post, preview, picture } = useLoaderData<LoaderData>();
 
-  return (
-    <Post
-      post={filterDataToSingleItem(post, preview)}
-      preview={preview}
-      picture={picture}
-      profile={profile}
-    />
-  );
+  return <Post post={filterDataToSingleItem(post, preview)} preview={preview} picture={picture} />;
 }

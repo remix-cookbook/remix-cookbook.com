@@ -1,7 +1,10 @@
 import { route } from 'routes-gen';
-import { Link, Feed, Github } from '~/components';
+import { Link, Feed, Github, Signout } from '~/components';
+import { useProfile } from '~/hooks';
 
 export function TopNav() {
+  const { profile } = useProfile();
+
   return (
     <ul className="flex items-center gap-4 py-4">
       <li className="hidden md:inline-block">
@@ -37,6 +40,7 @@ export function TopNav() {
           Newsletter
         </Link.External>
       </li>
+      {profile ? <Signout /> : null}
       <li>
         <Feed />
       </li>

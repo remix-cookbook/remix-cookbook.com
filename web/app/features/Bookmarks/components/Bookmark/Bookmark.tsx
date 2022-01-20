@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { GitHubProfile } from 'remix-auth-github';
 import { Authentication, Icon, Icons } from '~/components';
+import { useProfile } from '~/hooks';
 
-export interface BookmarkProps {
-  profile?: GitHubProfile;
-}
-
-export function Bookmark({ profile }: BookmarkProps) {
-  const [open, setOpen] = useState(true);
+export function Bookmark() {
+  const [open, setOpen] = useState(false);
+  const { profile } = useProfile();
 
   return (
     <>
