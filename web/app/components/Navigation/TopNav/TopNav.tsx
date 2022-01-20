@@ -6,7 +6,7 @@ export function TopNav() {
   const { profile } = useProfile();
 
   return (
-    <ul className="flex items-center gap-4 py-4">
+    <ul className="flex flex-wrap items-center gap-4 py-4 justify-evenly">
       <li className="hidden md:inline-block">
         <Link.Internal
           className="underline underline-offset-4 decoration-dotted"
