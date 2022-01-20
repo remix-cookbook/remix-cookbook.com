@@ -3,6 +3,7 @@ declare module "routes-gen" {
     T extends
       | ["/auth/github/callback"]
       | ["/auth/github"]
+      | ["/bookmarks"]
       | ["/resources"]
       | ["/logout"]
       | ["/:slug", { slug: string }]

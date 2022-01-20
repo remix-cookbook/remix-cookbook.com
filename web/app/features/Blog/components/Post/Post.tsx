@@ -1,5 +1,4 @@
 import m2r from 'minutes-to-read';
-import { GitHubProfile } from 'remix-auth-github';
 import { Headings, Link, Prose } from '~/components';
 import { BlogTypes, Comments, Content } from '~/features/Blog';
 import { Bookmark } from '~/features/Bookmarks';
@@ -39,7 +38,7 @@ export function Post({ post, preview = false, picture }: PostProps) {
           <Headings.Content>
             <div className="flex items-start justify-between gap-3">
               {post.title}
-              <Bookmark />
+              <Bookmark post={post} />
             </div>
           </Headings.Content>
           <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">

@@ -32,6 +32,14 @@ export function TopNav() {
         </Link.Internal>
       </li>
       <li>
+        <Link.Internal
+          className="underline underline-offset-4 decoration-dotted"
+          href={route('/bookmarks')}
+        >
+          Bookmarks
+        </Link.Internal>
+      </li>
+      <li>
         <Link.External
           className="underline underline-offset-4 decoration-dotted"
           href="https://skilled-builder-1623.ck.page/60595207f8"

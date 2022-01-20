@@ -34,3 +34,11 @@ export interface UnplashApiResponse {
   };
   user: UnsplashUser;
 }
+
+export interface Bookmark {
+  id: string;
+  userId: string;
+  postTitle: string;
+  postSlug: string;
+  createdAt: string;
+}
