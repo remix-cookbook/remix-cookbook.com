@@ -31,7 +31,7 @@ export const sessionStorage = createCookieSessionStorage({
 export const auth = new Authenticator<{
   profile: GitHubProfile;
 }>(sessionStorage);
-console.log(new URL('/auth/github/callback', BASE_URL).toString());
+
 auth.use(
   new GitHubStrategy(
     {
