@@ -35,7 +35,13 @@ export async function createBookmark(
   }
 }
 
-export function deleteBookmark(id: string) {}
+export async function deleteBookmark(id: string) {
+  await db.bookmark.delete({
+    where: {
+      id,
+    },
+  });
+}
 
 export async function bookmarkQuantity(profile: GitHubProfile): Promise<number> {
   return db.bookmark.count({

@@ -21,11 +21,19 @@ export const loader: LoaderFunction = async ({ request }) => {
 export const action: ActionFunction = async ({ request }) => {
   const params = Object.fromEntries(await request.formData());
 
-  await BookmarksApi.createBookmark({
-    postTitle: params.postTitle as string,
-    postSlug: params.postSlug as string,
-    userId: params.userId as string,
-  });
+  if (params.bookmarkId) {
+    await BookmarksApi.deleteBookmark(params.bookmarkId as string);
+  } else {
+    await BookmarksApi.createBookmark({
+      postTitle: params.postTitle as string,
+      postSlug: params.postSlug as string,
+      userId: params.userId as string,
+    });
+  }
+
+  if (params.bookmarkId) {
+    return redirect(route('/bookmarks'));
+  }
 
   return redirect(route('/:slug', { slug: params.postSlug as string }));
 };
