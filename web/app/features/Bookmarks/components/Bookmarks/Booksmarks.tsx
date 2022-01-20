@@ -5,7 +5,7 @@ import { DateTimeUtils } from '~/util';
 import { Headings } from '../../../../components/Headings/Headings';
 
 export interface BookmarksProps {
-  bookmarks: BlogTypes.Bookmark[];
+  bookmarks: Bookmark[];
 }
 
 export function Bookmarks({ bookmarks }: BookmarksProps) {

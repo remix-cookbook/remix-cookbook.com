@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Favorite {
+model Bookmark {
   id              String   @id @default(uuid())
   createdAt       DateTime @default(now())
   userId          String

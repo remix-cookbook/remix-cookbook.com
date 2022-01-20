@@ -24,9 +24,9 @@ export function Bookmark({ post }: BookmarkProps) {
             <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
           </button>
         ) : (
-          <button type="button" title="Bookmark this post" onClick={() => setOpen(true)}>
+          <a href="#" title="Bookmark this post" onClick={() => setOpen(true)}>
             <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
-          </button>
+          </a>
         )}
       </form>
     </>

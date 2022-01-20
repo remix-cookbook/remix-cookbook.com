@@ -5,7 +5,6 @@ import { Bookmark } from '~/features/Bookmarks';
 import { DateTimeUtils } from '~/util';
 import { Credits } from '../Card/Credits';
 import { ContentUtils } from '../Content';
-import { useProfile } from '../../../../hooks/useProfile';
 
 export interface PostProps {
   post: BlogTypes.Post;
@@ -16,7 +15,6 @@ export interface PostProps {
 export function Post({ post, preview = false, picture }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
-  const { profile } = useProfile();
 
   return (
     <>
