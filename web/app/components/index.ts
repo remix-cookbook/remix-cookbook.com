@@ -9,3 +9,4 @@ export * from './Navigation';
 export * from './Prose';
 export * from './Github';
 export * from './Authenticated';
+export * from './Authentication';

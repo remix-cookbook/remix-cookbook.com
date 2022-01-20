@@ -31,7 +31,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function App() {
-  const { profile } = useLoaderData<LoaderData>();
+  // const { profile } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -46,7 +46,7 @@ export default function App() {
       <body className="bg-slate-900">
         <div className="min-h-screen">
           <Header />
-          <Authenticated profile={profile} />
+          {/* <Authenticated profile={profile} /> */}
           <Outlet />
           <Footer />
           <ScrollToTop />
