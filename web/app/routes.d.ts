@@ -1,4 +1,11 @@
-declare module "routes-gen" {
+declare module 'routes-gen' {
+  export type RouteParams = {
+    '/resources': {};
+    '/:slug': { slug: string };
+    '/about': {};
+    '/': {};
+  };
+
   export function route<
     T extends
       | ["/auth/github/callback"]
@@ -6,7 +13,7 @@ declare module "routes-gen" {
       | ["/bookmarks"]
       | ["/resources"]
       | ["/logout"]
-      | ["/:slug", { slug: string }]
+      | ['/:slug', RouteParams['/:slug']]
       | ["/about"]
       | ["/"]
   >(...args: T): typeof args[0];
