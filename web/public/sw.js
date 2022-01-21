@@ -1,5 +1,7 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox-sw.js');
 
+workbox.setConfig({ debug: false });
+
 // Cache images
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|svg)$/,

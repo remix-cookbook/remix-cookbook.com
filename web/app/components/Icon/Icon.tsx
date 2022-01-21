@@ -1,11 +1,12 @@
 import { FaTwitter, FaGithub, FaAngleDoubleUp } from 'react-icons/fa';
-import { RssIcon } from '@heroicons/react/solid';
+import { RssIcon, BookmarkIcon } from '@heroicons/react/solid';
 
 export enum Icons {
   twitter,
   github,
   feed,
   caretUp,
+  bookmark,
 }
 
 export interface IconProps {
@@ -18,6 +19,7 @@ const IconsMap = (className?: string) => ({
   [Icons.twitter]: <FaTwitter className={className} />,
   [Icons.feed]: <RssIcon className={className} />,
   [Icons.caretUp]: <FaAngleDoubleUp className={className} />,
+  [Icons.bookmark]: <BookmarkIcon className={className} />,
 });
 
 export function Icon({ icon, className }: IconProps) {

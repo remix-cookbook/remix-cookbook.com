@@ -1,6 +1,8 @@
+import { Bookmark as BookmarkType } from '@prisma/client';
 import m2r from 'minutes-to-read';
 import { Headings, Link, Prose } from '~/components';
 import { BlogTypes, Comments, Content } from '~/features/Blog';
+import { Bookmark } from '~/features/Bookmarks';
 import { DateTimeUtils } from '~/util';
 import { Credits } from '../Card/Credits';
 import { ContentUtils } from '../Content';
@@ -9,9 +11,10 @@ export interface PostProps {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
+  bookmark: BookmarkType;
 }
 
-export function Post({ post, preview = false, picture }: PostProps) {
+export function Post({ post, preview = false, picture, bookmark }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
 
@@ -32,7 +35,12 @@ export function Post({ post, preview = false, picture }: PostProps) {
               Preview Mode Enabled
             </div>
           ) : null}
-          <Headings.Content>{post.title}</Headings.Content>
+          <Headings.Content>
+            <div className="flex items-start justify-between gap-3">
+              {post.title}
+              <Bookmark post={post} bookmark={bookmark} />
+            </div>
+          </Headings.Content>
           <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
             <p>
               By <span className="font-semibold">{post.author}</span> -{' '}

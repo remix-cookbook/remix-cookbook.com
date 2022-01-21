@@ -1,9 +1,13 @@
 import { route } from 'routes-gen';
-import { Link, Feed, Github } from '~/components';
+import { Link, Feed, Github, Signout } from '~/components';
+import { useBookmarksContext, useProfile } from '~/hooks';
 
 export function TopNav() {
+  const { profile } = useProfile();
+  const { hasBookmarks } = useBookmarksContext();
+
   return (
-    <ul className="flex items-center gap-4 py-4">
+    <ul className="flex flex-wrap items-center gap-4 py-4 justify-evenly">
       <li className="hidden md:inline-block">
         <Link.Internal
           className="underline underline-offset-4 decoration-dotted"
@@ -28,6 +32,16 @@ export function TopNav() {
           About
         </Link.Internal>
       </li>
+      {hasBookmarks ? (
+        <li>
+          <Link.Internal
+            className="underline underline-offset-4 decoration-dotted"
+            href={route('/bookmarks')}
+          >
+            Bookmarks
+          </Link.Internal>
+        </li>
+      ) : null}
       <li>
         <Link.External
           className="underline underline-offset-4 decoration-dotted"
@@ -37,10 +51,9 @@ export function TopNav() {
           Newsletter
         </Link.External>
       </li>
-      <li>
+      {profile ? <Signout /> : null}
+      <li className="flex gap-4">
         <Feed />
-      </li>
-      <li>
         <Github />
       </li>
     </ul>

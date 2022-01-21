@@ -7,17 +7,40 @@ import {
   Scripts,
   ScrollRestoration,
   MetaFunction,
+  LoaderFunction,
+  json,
+  useLoaderData,
 } from 'remix';
 import { Header, Footer, Glow } from './components';
 import { domain } from './config';
 import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
+import { auth } from './services';
+import { GitHubProfile } from 'remix-auth-github';
+import { createContext } from 'react';
+import { BookmarksApi } from './features/Bookmarks';
 
 export const links: LinksFunction = globalLinks;
 
 export const meta: MetaFunction = globalMeta;
 
+export interface LoaderData {
+  profile?: GitHubProfile;
+  hasBookmarks: boolean;
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const profile = (await auth.isAuthenticated(request))?.profile;
+  const hasBookmarks = (await BookmarksApi.bookmarkQuantity(profile!)) > 0;
+
+  return json<LoaderData>({ profile, hasBookmarks });
+};
+
+export const AuthenticationContext = createContext({});
+export const BookmarksContext = createContext({});
+
 export default function App() {
+  const { profile, hasBookmarks } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -31,9 +54,13 @@ export default function App() {
       </head>
       <body className="bg-slate-900">
         <div className="min-h-screen">
-          <Header />
-          <Outlet />
-          <Footer />
+          <AuthenticationContext.Provider value={{ profile }}>
+            <BookmarksContext.Provider value={{ hasBookmarks }}>
+              <Header />
+              <Outlet />
+              <Footer />
+            </BookmarksContext.Provider>
+          </AuthenticationContext.Provider>
           <ScrollToTop />
         </div>
         <Glow />

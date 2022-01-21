@@ -8,7 +8,7 @@ export function ScrollToTop() {
 
   useEffect(() => {
     function onScroll() {
-      let currentPosition = window.pageYOffset;
+      const currentPosition = window.pageYOffset;
       if (currentPosition > threshold) {
         setdisplayScrollToTop(true);
       } else {
