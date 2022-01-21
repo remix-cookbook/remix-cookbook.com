@@ -1,6 +1,10 @@
-import type { ActionFunction } from 'remix';
+import { ActionFunction, json, LoaderFunction } from 'remix';
 import { auth } from '~/services/auth.server';
 import { signinRedirectCookie } from '../cookies';
+
+export const loader: LoaderFunction = () => {
+  throw json({}, { status: 404 });
+};
 
 export const action: ActionFunction = async ({ request }) => {
   const data = Object.fromEntries(await request.formData());
