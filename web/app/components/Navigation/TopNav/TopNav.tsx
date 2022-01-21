@@ -52,10 +52,8 @@ export function TopNav() {
         </Link.External>
       </li>
       {profile ? <Signout /> : null}
-      <li>
+      <li className="flex gap-4">
         <Feed />
-      </li>
-      <li>
         <Github />
       </li>
     </ul>
