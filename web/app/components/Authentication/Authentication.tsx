@@ -2,13 +2,15 @@ import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Icon, Icons } from '~/components';
 import { route } from 'routes-gen';
+import { BlogTypes } from '~/features/Blog';
 
 export interface AuthenticationProps {
   open: boolean;
   onClose: () => void;
+  post: BlogTypes.Post;
 }
 
-export function Authentication({ open, onClose }: AuthenticationProps) {
+export function Authentication({ open, onClose, post }: AuthenticationProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>
@@ -43,6 +45,7 @@ export function Authentication({ open, onClose }: AuthenticationProps) {
                 </div>
               </div>
               <form action={route('/auth/github')} method="post" className="mt-5 sm:mt-6">
+                <input type="hidden" name="slug" value={post.slug.current} />
                 <button
                   type="submit"
                   className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-slate-600 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-500 sm:text-sm"

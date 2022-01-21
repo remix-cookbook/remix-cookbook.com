@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Authentication, Icon, Icons } from '~/components';
 import { useProfile } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
@@ -13,15 +13,23 @@ export interface BookmarkProps {
 export function Bookmark({ post, bookmark }: BookmarkProps) {
   const [open, setOpen] = useState(false);
   const { profile } = useProfile();
+  const [originator, setOriginator] = useState<string>('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOriginator(window.location.pathname);
+    }
+  }, [setOriginator]);
 
   return (
     <>
-      <Authentication open={open} onClose={() => setOpen(false)} />
+      <Authentication open={open} onClose={() => setOpen(false)} post={post} />
       <form method="post" action={route('/bookmarks')}>
         <input type="hidden" name="postTitle" value={post.title} />
         <input type="hidden" name="postSlug" value={post.slug.current} />
         <input type="hidden" name="bookmarkId" value={bookmark?.id} />
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
+        <input type="hidden" name="originator" value={originator} />
         {profile ? (
           <button type="submit" title="Bookmark this post">
             {bookmark ? (

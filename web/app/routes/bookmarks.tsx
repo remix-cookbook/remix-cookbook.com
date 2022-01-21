@@ -31,8 +31,8 @@ export const action: ActionFunction = async ({ request }) => {
     });
   }
 
-  if (params.bookmarkId) {
-    return redirect(route('/bookmarks'));
+  if (!!params.bookmarkId) {
+    return redirect(String(params.originator));
   }
 
   return redirect(route('/:slug', { slug: params.postSlug as string }));
