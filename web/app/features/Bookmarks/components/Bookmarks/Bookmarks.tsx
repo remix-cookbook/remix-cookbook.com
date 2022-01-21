@@ -4,6 +4,9 @@ import { Prose, Link } from '~/components';
 import { DateTimeUtils } from '~/util';
 import { Headings } from '~/components';
 import { useEffect, useState } from 'react';
+import { Form } from 'remix';
+import classNames from 'classnames';
+import { useLoading } from '~/hooks';
 
 export interface BookmarksProps {
   bookmarks: Bookmark[];
@@ -11,6 +14,7 @@ export interface BookmarksProps {
 
 export function Bookmarks({ bookmarks }: BookmarksProps) {
   const [originator, setOriginator] = useState<string>('');
+  const loading = useLoading();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -31,13 +35,19 @@ export function Bookmarks({ bookmarks }: BookmarksProps) {
             </dt>
             <dd>
               Bookmarked on {DateTimeUtils.date(bookmark.createdAt)}
-              <form action={route('/bookmarks')} method="post">
-                <input type="hidden" name="bookmarkId" value={bookmark.id} />
+              <Form action={route('/bookmarks')} method="post">
+                <input type="hidden" name="bookmarkId" value={bookmark.id ?? ''} />
                 <input type="hidden" name="originator" value={originator} />
-                <button type="submit" className="text-sm text-red-500">
+                <button
+                  type="submit"
+                  className={classNames('text-sm text-red-500', {
+                    'opacity-50': loading,
+                  })}
+                  disabled={loading}
+                >
                   [delete]
                 </button>
-              </form>
+              </Form>
             </dd>
           </dl>
         ))}

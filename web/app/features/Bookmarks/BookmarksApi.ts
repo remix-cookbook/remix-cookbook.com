@@ -2,8 +2,8 @@ import { Bookmark } from '@prisma/client';
 import { GitHubProfile } from 'remix-auth-github';
 import { db } from '~/util/db/db.server';
 
-export function getBookmarks(profile: GitHubProfile): Promise<Bookmark[]> {
-  return db.bookmark.findMany({
+export async function getBookmarks(profile: GitHubProfile) {
+  return await db.bookmark.findMany({
     where: {
       userId: `${profile?.provider}-${profile?.id}`,
     },
@@ -43,7 +43,7 @@ export async function deleteBookmark(id: string) {
   });
 }
 
-export async function bookmarkQuantity(profile: GitHubProfile): Promise<number> {
+export async function bookmarkQuantity(profile: GitHubProfile) {
   return db.bookmark.count({
     where: {
       userId: `${profile?.provider}-${profile?.id}`,
