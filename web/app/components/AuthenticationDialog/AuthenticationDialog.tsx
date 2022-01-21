@@ -10,7 +10,7 @@ export interface AuthenticationProps {
   post: BlogTypes.Post;
 }
 
-export function Authentication({ open, onClose, post }: AuthenticationProps) {
+export function AuthenticationDialog({ open, onClose, post }: AuthenticationProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Authentication, Icon, Icons } from '~/components';
+import { AuthenticationDialog, Icon, Icons } from '~/components';
 import { useLoading, useProfile } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
 import { route } from 'routes-gen';
@@ -26,7 +26,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
 
   return (
     <>
-      <Authentication open={open} onClose={() => setOpen(false)} post={post} />
+      <AuthenticationDialog open={open} onClose={() => setOpen(false)} post={post} />
       <Form method="post" action={route('/bookmarks')}>
         <input type="hidden" name="postTitle" value={post.title} />
         <input type="hidden" name="postSlug" value={post.slug.current} />
