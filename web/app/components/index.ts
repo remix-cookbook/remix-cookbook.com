@@ -10,3 +10,4 @@ export * from './Prose';
 export * from './Github';
 export * from './AuthenticationDialog';
 export * from './Signout';
+export * from './ScrollToTop';

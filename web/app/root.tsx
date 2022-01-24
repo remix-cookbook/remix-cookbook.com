@@ -11,9 +11,8 @@ import {
   json,
   useLoaderData,
 } from 'remix';
-import { Header, Footer, Glow } from './components';
+import { Header, Footer, Glow, ScrollToTop } from './components';
 import { domain } from './config';
-import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
 import { auth, sessionStorage } from './services';
 import { GitHubProfile } from 'remix-auth-github';
