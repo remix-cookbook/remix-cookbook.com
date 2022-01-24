@@ -11,7 +11,7 @@ export interface PostProps {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
-  bookmark: BookmarkType;
+  bookmark: BookmarkType | null;
 }
 
 export function Post({ post, preview = false, picture, bookmark }: PostProps) {

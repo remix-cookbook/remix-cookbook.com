@@ -22,7 +22,7 @@ export interface LoaderData {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
-  bookmark: Bookmark;
+  bookmark: Bookmark | null;
 }
 
 export const loader: LoaderFunction = async ({

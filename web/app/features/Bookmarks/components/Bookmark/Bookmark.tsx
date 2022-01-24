@@ -9,7 +9,7 @@ import classNames from 'classnames';
 
 export interface BookmarkProps {
   post: BlogTypes.Post;
-  bookmark: Bookmark;
+  bookmark: Bookmark | null;
 }
 
 export function Bookmark({ post, bookmark }: BookmarkProps) {
