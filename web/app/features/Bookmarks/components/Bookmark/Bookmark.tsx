@@ -37,6 +37,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
           <button type="submit" title="Bookmark this post" disabled={loading}>
             {bookmark ? (
               <Icon
+                data-testid="bookmark-icon"
                 icon={Icons.bookmark}
                 className={classNames('w-8 h-8 text-yellow-500', {
                   'text-inherit opacity-40': loading,
@@ -44,6 +45,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
               />
             ) : (
               <Icon
+                data-testid="bookmark-icon"
                 icon={Icons.bookmark}
                 className={classNames('w-8 h-8 opacity-40', {
                   'text-yellow-500 opacity-100': loading,
@@ -53,7 +55,11 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
           </button>
         ) : (
           <a href="#" title="Bookmark this post" onClick={() => setOpen(true)}>
-            <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
+            <Icon
+              data-testid="bookmark-icon"
+              icon={Icons.bookmark}
+              className="w-8 h-8 opacity-40"
+            />
           </a>
         )}
       </Form>

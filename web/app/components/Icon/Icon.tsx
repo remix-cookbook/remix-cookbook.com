@@ -10,18 +10,20 @@ export enum Icons {
 }
 
 export interface IconProps {
-  icon: Icons;
-  className?: string;
+  'icon': Icons;
+  'className'?: string;
+  'data-testid'?: string;
 }
 
-const IconsMap = (className?: string) => ({
-  [Icons.github]: <FaGithub className={className} />,
-  [Icons.twitter]: <FaTwitter className={className} />,
-  [Icons.feed]: <RssIcon className={className} />,
-  [Icons.caretUp]: <FaAngleDoubleUp className={className} />,
-  [Icons.bookmark]: <BookmarkIcon className={className} />,
+const IconsMap = (props: Omit<IconProps, 'icon'>) => ({
+  [Icons.github]: <FaGithub {...props} />,
+  [Icons.twitter]: <FaTwitter {...props} />,
+  [Icons.feed]: <RssIcon {...props} />,
+  [Icons.caretUp]: <FaAngleDoubleUp {...props} />,
+  [Icons.bookmark]: <BookmarkIcon {...props} />,
 });
 
-export function Icon({ icon, className }: IconProps) {
-  return IconsMap(className)[icon] ?? null;
+export function Icon(props: IconProps) {
+  const { icon, ...rest } = props;
+  return IconsMap(rest)[icon] ?? null;
 }
