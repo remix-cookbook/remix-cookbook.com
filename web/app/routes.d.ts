@@ -8,6 +8,7 @@ declare module "routes-gen" {
     "/:slug": { slug: string };
     "/about": {};
     "/": {};
+    "/likes": {};
   };
 
   export function route<
@@ -20,5 +21,6 @@ declare module "routes-gen" {
       | ["/:slug", RouteParams["/:slug"]]
       | ["/about"]
       | ["/"]
+      | ["/likes"]
   >(...args: T): typeof args[0];
 }

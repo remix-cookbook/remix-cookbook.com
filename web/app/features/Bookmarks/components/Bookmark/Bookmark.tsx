@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AuthenticationDialog, Icon, Icons } from '~/components';
-import { useLoading, useProfile } from '~/hooks';
+import { useProfile } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
 import { route } from 'routes-gen';
 import { Bookmark } from '@prisma/client';
 import { Form } from 'remix';
 import classNames from 'classnames';
+import { useDisabled } from '~/hooks/useDisabled';
 
 export interface BookmarkProps {
   post: BlogTypes.Post;
@@ -16,7 +17,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
   const [open, setOpen] = useState(false);
   const { profile } = useProfile();
   const [referrer, setReferrer] = useState<string>('');
-  const loading = useLoading();
+  const disabled = useDisabled('bookmarkId', bookmark?.id ?? '');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -34,13 +35,13 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
         <input type="hidden" name="referrer" value={referrer} />
         {profile ? (
-          <button type="submit" title="Bookmark this post" disabled={loading}>
+          <button type="submit" title="Bookmark this post" disabled={disabled}>
             {bookmark ? (
               <Icon
                 data-testid="bookmark-icon"
                 icon={Icons.bookmark}
                 className={classNames('w-8 h-8 text-yellow-500', {
-                  'text-inherit opacity-40': loading,
+                  'text-inherit opacity-40': disabled,
                 })}
               />
             ) : (
@@ -48,7 +49,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
                 data-testid="bookmark-icon"
                 icon={Icons.bookmark}
                 className={classNames('w-8 h-8 opacity-40', {
-                  'text-yellow-500 opacity-100': loading,
+                  'text-yellow-500 opacity-100': disabled,
                 })}
               />
             )}

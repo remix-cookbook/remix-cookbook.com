@@ -18,3 +18,11 @@ model Bookmark {
   postTitle       String
   postSlug        String
 }
+
+model Like {
+  id              String   @id @default(uuid())
+  createdAt       DateTime @default(now())
+  userId          String
+  postTitle       String
+  postSlug        String
+}

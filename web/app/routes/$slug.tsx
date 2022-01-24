@@ -1,7 +1,8 @@
-import { Bookmark } from '@prisma/client';
+import { Bookmark, Like } from '@prisma/client';
 import { json, LinksFunction, LoaderFunction, MetaFunction, redirect, useLoaderData } from 'remix';
 import { BlogApi, BlogTypes, Post, UnsplashApi } from '~/features/Blog';
 import { BookmarksApi } from '~/features/Bookmarks';
+import { LikesApi } from '~/features/Likes';
 import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
 import { auth } from '~/services';
 import highlighter from '~/styles/highlighter.css';
@@ -23,6 +24,7 @@ export interface LoaderData {
   preview: boolean;
   picture: BlogTypes.Picture;
   bookmark: Bookmark | null;
+  like: Like | null;
 }
 
 export const loader: LoaderFunction = async ({
@@ -45,11 +47,16 @@ export const loader: LoaderFunction = async ({
     postSlug: params.slug!,
   });
 
-  return json<LoaderData>({ post, preview, picture, bookmark });
+  const like = await LikesApi.getLike({
+    userId: `${profile?.provider}-${profile?.id}`,
+    postSlug: params.slug!,
+  });
+
+  return json<LoaderData>({ post, preview, picture, bookmark, like });
 };
 
 export default function Index() {
-  const { post, preview, picture, bookmark } = useLoaderData<LoaderData>();
+  const { post, preview, picture, bookmark, like } = useLoaderData<LoaderData>();
 
   return (
     <Post
@@ -57,6 +64,7 @@ export default function Index() {
       preview={preview}
       picture={picture}
       bookmark={bookmark}
+      like={like}
     />
   );
 }

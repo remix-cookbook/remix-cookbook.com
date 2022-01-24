@@ -1,4 +1,4 @@
-import { Bookmark as BookmarkType } from '@prisma/client';
+import { Bookmark as BookmarkType, Like } from '@prisma/client';
 import m2r from 'minutes-to-read';
 import { Headings, Link, Prose } from '~/components';
 import { BlogTypes, Comments, Content } from '~/features/Blog';
@@ -13,9 +13,10 @@ export interface PostProps {
   preview: boolean;
   picture: BlogTypes.Picture;
   bookmark: BookmarkType | null;
+  like: Like | null;
 }
 
-export function Post({ post, preview = false, picture, bookmark }: PostProps) {
+export function Post({ post, preview = false, picture, bookmark, like }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
 
@@ -41,7 +42,7 @@ export function Post({ post, preview = false, picture, bookmark }: PostProps) {
               {post.title}
               <div className="flex flex-col">
                 <Bookmark post={post} bookmark={bookmark} />
-                <LikeButton post={post} bookmark={bookmark} />
+                <LikeButton post={post} like={like} />
               </div>
             </div>
           </Headings.Content>
