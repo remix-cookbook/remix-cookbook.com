@@ -32,7 +32,7 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   if (!!params.bookmarkId) {
-    return redirect(String(params.originator));
+    return redirect(String(params.referrer));
   }
 
   return redirect(route('/:slug', { slug: params.postSlug as string }));

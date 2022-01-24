@@ -15,14 +15,14 @@ export interface BookmarkProps {
 export function Bookmark({ post, bookmark }: BookmarkProps) {
   const [open, setOpen] = useState(false);
   const { profile } = useProfile();
-  const [originator, setOriginator] = useState<string>('');
+  const [referrer, setReferrer] = useState<string>('');
   const loading = useLoading();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setOriginator(window.location.pathname);
+      setReferrer(window.location.pathname);
     }
-  }, [setOriginator]);
+  }, [setReferrer]);
 
   return (
     <>
@@ -32,7 +32,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
         <input type="hidden" name="postSlug" value={post.slug.current} />
         <input type="hidden" name="bookmarkId" value={bookmark?.id ?? ''} />
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
-        <input type="hidden" name="originator" value={originator} />
+        <input type="hidden" name="referrer" value={referrer} />
         {profile ? (
           <button type="submit" title="Bookmark this post" disabled={loading}>
             {bookmark ? (

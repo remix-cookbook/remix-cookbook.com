@@ -13,13 +13,13 @@ export interface BookmarksProps {
 }
 
 export function Bookmarks({ bookmarks }: BookmarksProps) {
-  const [originator, setOriginator] = useState<string>('');
+  const [referrer, setReferrer] = useState<string>('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setOriginator(window.location.pathname);
+      setReferrer(window.location.pathname);
     }
-  }, [setOriginator]);
+  }, [setReferrer]);
 
   return (
     <Prose>
@@ -39,7 +39,7 @@ export function Bookmarks({ bookmarks }: BookmarksProps) {
                 Bookmarked on {DateTimeUtils.date(bookmark.createdAt)}
                 <Form action={route('/bookmarks')} method="post">
                   <input type="hidden" name="bookmarkId" value={bookmark.id ?? ''} />
-                  <input type="hidden" name="originator" value={originator} />
+                  <input type="hidden" name="referrer" value={referrer} />
                   <button
                     type="submit"
                     className={classNames('text-sm text-red-500', {
