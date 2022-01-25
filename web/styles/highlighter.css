@@ -7,7 +7,7 @@
 
 .syntax-highlighter {
   /* To break out of the prose container, giving it more room to display code */
-  @apply lg:-ml-24 lg:-mr-24 lg:my-12 relative;
+  @apply relative lg:my-12 lg:-ml-24 lg:-mr-24;
 }
 
 .syntax-highlighter::before {
@@ -22,7 +22,7 @@
 }
 
 .refractor-marker {
-  @apply bg-light-snow-storm1 bg-opacity-10  min-w-full;
+  @apply min-w-full bg-light-snow-storm1  bg-opacity-10;
 }
 
 code[class*='language-'],

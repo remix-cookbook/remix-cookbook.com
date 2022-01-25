@@ -11,10 +11,10 @@ export function Feed() {
         <Menu.Button
           title="RSS"
           data-testid="feed-icon"
-          className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+          className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
         >
           <span className="sr-only">Open user menu</span>
-          <Icon icon={Icons.feed} className="w-6 h-6 text-light-snow-storm4" />
+          <Icon icon={Icons.feed} className="text-light-snow-storm4 h-6 w-6" />
         </Menu.Button>
       </div>
       <Transition
@@ -28,7 +28,7 @@ export function Feed() {
       >
         <Menu.Items
           data-testid="feed-overlay"
-          className="absolute right-0 z-20 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
           <Menu.Item>
             {({ active }) => (

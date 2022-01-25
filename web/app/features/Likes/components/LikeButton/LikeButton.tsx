@@ -48,7 +48,7 @@ export function LikeButton({ post, userLike, likeQuantity }: LikeButtonProps) {
               <Icon
                 data-testid="like-icon"
                 icon={Icons.thumbsUp}
-                className={classNames('w-6 h-6 text-yellow-500', {
+                className={classNames('h-6 w-6 text-yellow-500', {
                   'text-inherit opacity-40': disabled,
                 })}
               />
@@ -56,7 +56,7 @@ export function LikeButton({ post, userLike, likeQuantity }: LikeButtonProps) {
               <Icon
                 data-testid="like-icon"
                 icon={Icons.thumbsUp}
-                className={classNames('w-6 h-6 opacity-40', {
+                className={classNames('h-6 w-6 opacity-40', {
                   'text-yellow-500 opacity-100': disabled,
                 })}
               />
@@ -64,7 +64,7 @@ export function LikeButton({ post, userLike, likeQuantity }: LikeButtonProps) {
           </button>
         ) : (
           <a href="#" title="Like this post" onClick={() => setOpen(true)}>
-            <Icon data-testid="like-icon" icon={Icons.thumbsUp} className="w-6 h-6 opacity-40" />
+            <Icon data-testid="like-icon" icon={Icons.thumbsUp} className="h-6 w-6 opacity-40" />
           </a>
         )}
         <span>

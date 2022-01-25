@@ -6,7 +6,7 @@ export default function () {
       <>
         <Headings.Content>Remix Resources</Headings.Content>
         <div className="not-prose">
-          <ul className="text-sm text-gray-400 list-none md:flex md:gap-4 md:items-center">
+          <ul className="list-none text-sm text-gray-400 md:flex md:items-center md:gap-4">
             <li className="mb-2 md:mb-auto">💿 &nbsp;officially maintained resource</li>
             <li>💻 &nbsp;community maintained resource</li>
           </ul>
