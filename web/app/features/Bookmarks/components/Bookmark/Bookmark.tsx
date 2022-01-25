@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { AuthenticationDialog, Icon, Icons } from '~/components';
-import { useProfile } from '~/hooks';
+import { Icon, Icons } from '~/components';
+import { useProfile, useAuthenticationDialog } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
 import { route } from 'routes-gen';
 import { Bookmark } from '@prisma/client';
@@ -14,10 +14,10 @@ export interface BookmarkProps {
 }
 
 export function Bookmark({ post, bookmark }: BookmarkProps) {
-  const [open, setOpen] = useState(false);
   const { profile } = useProfile();
   const [referrer, setReferrer] = useState<string>('');
   const disabled = useDisabled('bookmarkId', bookmark?.id ?? '');
+  const { dialog: AuthenticationDialog, setOpen } = useAuthenticationDialog({ post });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -27,7 +27,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
 
   return (
     <>
-      <AuthenticationDialog open={open} onClose={() => setOpen(false)} post={post} />
+      <AuthenticationDialog />
       <Form method="post" action={route('/bookmarks')}>
         <input type="hidden" name="postTitle" value={post.title} />
         <input type="hidden" name="postSlug" value={post.slug.current} />
