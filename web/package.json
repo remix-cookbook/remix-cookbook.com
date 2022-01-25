@@ -19,6 +19,7 @@
     "test": "cypress open",
     "test:run": "cypress run",
     "db:sync": "npx prisma db push",
+    "prisma:generate": "npx prisma generate",
     "ci": "start-server-and-test dev http://localhost:3000 test:run"
   },
   "dependencies": {

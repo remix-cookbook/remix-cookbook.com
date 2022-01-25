@@ -1,49 +1,69 @@
 import { useEffect, useState } from 'react';
-import { Authentication, Icon, Icons } from '~/components';
-import { useProfile } from '~/hooks';
+import { Icon, Icons } from '~/components';
+import { useProfile, useAuthenticationDialog } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
 import { route } from 'routes-gen';
 import { Bookmark } from '@prisma/client';
+import { Form } from 'remix';
+import classNames from 'classnames';
+import { useDisabled } from '~/hooks/useDisabled';
 
 export interface BookmarkProps {
   post: BlogTypes.Post;
-  bookmark: Bookmark;
+  bookmark: Bookmark | null;
 }
 
 export function Bookmark({ post, bookmark }: BookmarkProps) {
-  const [open, setOpen] = useState(false);
   const { profile } = useProfile();
-  const [originator, setOriginator] = useState<string>('');
+  const [referrer, setReferrer] = useState<string>('');
+  const disabled = useDisabled('bookmarkId', bookmark?.id ?? '');
+  const { dialog: AuthenticationDialog, setOpen } = useAuthenticationDialog({ post });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setOriginator(window.location.pathname);
+      setReferrer(window.location.pathname);
     }
-  }, [setOriginator]);
+  }, [setReferrer]);
 
   return (
     <>
-      <Authentication open={open} onClose={() => setOpen(false)} post={post} />
-      <form method="post" action={route('/bookmarks')}>
+      <AuthenticationDialog />
+      <Form method="post" action={route('/bookmarks')}>
         <input type="hidden" name="postTitle" value={post.title} />
         <input type="hidden" name="postSlug" value={post.slug.current} />
-        <input type="hidden" name="bookmarkId" value={bookmark?.id} />
+        <input type="hidden" name="bookmarkId" value={bookmark?.id ?? ''} />
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
-        <input type="hidden" name="originator" value={originator} />
+        <input type="hidden" name="referrer" value={referrer} />
         {profile ? (
-          <button type="submit" title="Bookmark this post">
+          <button type="submit" title="Bookmark this post" disabled={disabled}>
             {bookmark ? (
-              <Icon icon={Icons.bookmark} className="w-8 h-8 text-yellow-500" />
+              <Icon
+                data-testid="bookmark-icon"
+                icon={Icons.bookmark}
+                className={classNames('w-8 h-8 text-yellow-500', {
+                  'text-inherit opacity-40': disabled,
+                })}
+              />
             ) : (
-              <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
+              <Icon
+                data-testid="bookmark-icon"
+                icon={Icons.bookmark}
+                className={classNames('w-8 h-8 opacity-40', {
+                  'text-yellow-500 opacity-100': disabled,
+                })}
+              />
             )}
           </button>
         ) : (
           <a href="#" title="Bookmark this post" onClick={() => setOpen(true)}>
-            <Icon icon={Icons.bookmark} className="w-8 h-8 opacity-40" />
+            <Icon
+              data-testid="bookmark-icon"
+              icon={Icons.bookmark}
+              className="w-8 h-8 opacity-40"
+            />
           </a>
         )}
-      </form>
+      </Form>
     </>
   );
 }

@@ -1,8 +1,9 @@
-import { Bookmark as BookmarkType } from '@prisma/client';
+import { Bookmark as BookmarkType, Like } from '@prisma/client';
 import m2r from 'minutes-to-read';
 import { Headings, Link, Prose } from '~/components';
 import { BlogTypes, Comments, Content } from '~/features/Blog';
 import { Bookmark } from '~/features/Bookmarks';
+import { LikeButton } from '~/features/Likes/components/LikeButton';
 import { DateTimeUtils } from '~/util';
 import { Credits } from '../Card/Credits';
 import { ContentUtils } from '../Content';
@@ -11,10 +12,19 @@ export interface PostProps {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
-  bookmark: BookmarkType;
+  bookmark: BookmarkType | null;
+  userLike: Like | null;
+  likeQuantity: number;
 }
 
-export function Post({ post, preview = false, picture, bookmark }: PostProps) {
+export function Post({
+  post,
+  preview = false,
+  picture,
+  bookmark,
+  userLike,
+  likeQuantity,
+}: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
 
@@ -36,10 +46,15 @@ export function Post({ post, preview = false, picture, bookmark }: PostProps) {
             </div>
           ) : null}
           <Headings.Content>
-            <div className="flex items-start justify-between gap-3">
-              {post.title}
-              <Bookmark post={post} bookmark={bookmark} />
-            </div>
+            <>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                {post.title}
+                <div className="flex flex-col">
+                  <Bookmark post={post} bookmark={bookmark} />
+                </div>
+              </div>
+              <LikeButton post={post} userLike={userLike} likeQuantity={likeQuantity} />
+            </>
           </Headings.Content>
           <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
             <p>

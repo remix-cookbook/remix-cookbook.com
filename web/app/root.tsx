@@ -11,11 +11,10 @@ import {
   json,
   useLoaderData,
 } from 'remix';
-import { Header, Footer, Glow } from './components';
+import { Header, Footer, Glow, ScrollToTop } from './components';
 import { domain } from './config';
-import { ScrollToTop } from './features/Blog';
 import { globalMeta, globalLinks } from './util/header/header';
-import { auth } from './services';
+import { auth, sessionStorage } from './services';
 import { GitHubProfile } from 'remix-auth-github';
 import { createContext } from 'react';
 import { BookmarksApi } from './features/Bookmarks';
@@ -36,8 +35,10 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json<LoaderData>({ profile, hasBookmarks });
 };
 
-export const AuthenticationContext = createContext({});
-export const BookmarksContext = createContext({});
+export const AuthenticationContext = createContext<Pick<LoaderData, 'profile'>>({});
+export const BookmarksContext = createContext<Pick<LoaderData, 'hasBookmarks'>>({
+  hasBookmarks: false,
+});
 
 export default function App() {
   const { profile, hasBookmarks } = useLoaderData<LoaderData>();

@@ -1,7 +1,8 @@
-import { Bookmark } from '@prisma/client';
+import { Bookmark, Like } from '@prisma/client';
 import { json, LinksFunction, LoaderFunction, MetaFunction, redirect, useLoaderData } from 'remix';
 import { BlogApi, BlogTypes, Post, UnsplashApi } from '~/features/Blog';
 import { BookmarksApi } from '~/features/Bookmarks';
+import { LikesApi } from '~/features/Likes';
 import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
 import { auth } from '~/services';
 import highlighter from '~/styles/highlighter.css';
@@ -22,14 +23,16 @@ export interface LoaderData {
   post: BlogTypes.Post;
   preview: boolean;
   picture: BlogTypes.Picture;
-  bookmark: Bookmark;
+  bookmark: Bookmark | null;
+  userLike: Like | null;
+  likeQuantity?: number;
 }
 
 export const loader: LoaderFunction = async ({
   request,
   params,
 }): Promise<LoaderData | Response> => {
-  const post = await BlogApi.getPost(params.slug);
+  let post = await BlogApi.getPost(params.slug);
 
   if (!post || post.length === 0) {
     return redirect('/');
@@ -37,6 +40,7 @@ export const loader: LoaderFunction = async ({
 
   const requestUrl = new URL(request?.url);
   const preview = requestUrl?.searchParams?.get('preview') === process.env.SANITY_PREVIEW_SECRET;
+  post = filterDataToSingleItem(post, preview);
   const [picture] = await UnsplashApi.getPictures({ quantity: 1 });
   const profile = (await auth.isAuthenticated(request))?.profile;
 
@@ -45,18 +49,34 @@ export const loader: LoaderFunction = async ({
     postSlug: params.slug!,
   });
 
-  return json<LoaderData>({ post, preview, picture, bookmark });
+  const userLike = await LikesApi.getLike({
+    userId: `${profile?.provider}-${profile?.id}`,
+    postId: post._id!,
+  });
+
+  const likeQuantity = await LikesApi.likeQuantity({ postId: post._id });
+
+  return json<LoaderData>({ post, preview, picture, bookmark, userLike, likeQuantity });
 };
 
 export default function Index() {
-  const { post, preview, picture, bookmark } = useLoaderData<LoaderData>();
+  const {
+    post,
+    preview,
+    picture,
+    bookmark,
+    userLike,
+    likeQuantity = 0,
+  } = useLoaderData<LoaderData>();
 
   return (
     <Post
-      post={filterDataToSingleItem(post, preview)}
+      post={post}
       preview={preview}
       picture={picture}
       bookmark={bookmark}
+      userLike={userLike}
+      likeQuantity={likeQuantity}
     />
   );
 }

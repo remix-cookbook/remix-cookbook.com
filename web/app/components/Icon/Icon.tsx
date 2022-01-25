@@ -1,5 +1,5 @@
 import { FaTwitter, FaGithub, FaAngleDoubleUp } from 'react-icons/fa';
-import { RssIcon, BookmarkIcon } from '@heroicons/react/solid';
+import { RssIcon, BookmarkIcon, ThumbUpIcon } from '@heroicons/react/solid';
 
 export enum Icons {
   twitter,
@@ -7,21 +7,25 @@ export enum Icons {
   feed,
   caretUp,
   bookmark,
+  thumbsUp,
 }
 
 export interface IconProps {
-  icon: Icons;
-  className?: string;
+  'icon': Icons;
+  'className'?: string;
+  'data-testid'?: string;
 }
 
-const IconsMap = (className?: string) => ({
-  [Icons.github]: <FaGithub className={className} />,
-  [Icons.twitter]: <FaTwitter className={className} />,
-  [Icons.feed]: <RssIcon className={className} />,
-  [Icons.caretUp]: <FaAngleDoubleUp className={className} />,
-  [Icons.bookmark]: <BookmarkIcon className={className} />,
+const IconsMap = (props: Omit<IconProps, 'icon'>) => ({
+  [Icons.github]: <FaGithub {...props} />,
+  [Icons.twitter]: <FaTwitter {...props} />,
+  [Icons.feed]: <RssIcon {...props} />,
+  [Icons.caretUp]: <FaAngleDoubleUp {...props} />,
+  [Icons.bookmark]: <BookmarkIcon {...props} />,
+  [Icons.thumbsUp]: <ThumbUpIcon {...props} />,
 });
 
-export function Icon({ icon, className }: IconProps) {
-  return IconsMap(className)[icon] ?? null;
+export function Icon(props: IconProps) {
+  const { icon, ...rest } = props;
+  return IconsMap(rest)[icon] ?? null;
 }

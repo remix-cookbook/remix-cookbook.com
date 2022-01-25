@@ -127,9 +127,26 @@ describe('Home', () => {
 
   describe('Post page', () => {
     it('should display comment box', () => {
-      cy.contains('Does Remix impose a project').click();
+      cy.visitPost();
       cy.get('.utterances-frame');
     });
+
+    it('should display the bookmark icon', () => {
+      cy.visitPost();
+      cy.byTestId('bookmark-icon');
+    });
+
+    it('should display authentication dialog on bookmark icon click', () => {
+      cy.visitPost();
+      cy.byTestId('bookmark-icon').click();
+      cy.byTestId('authentication-dialog').should('exist');
+    });
+
+    // TODO waiting for the session issue to be fixed
+    // it.only('should authenticate user', () => {
+    //   cy.authenticatedVisit();
+    //   cy.contains('Sign out').should('exist');
+    // });
   });
 
   describe('Top navigation', () => {

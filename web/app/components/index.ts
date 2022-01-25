@@ -8,5 +8,6 @@ export * from './Links';
 export * from './Navigation';
 export * from './Prose';
 export * from './Github';
-export * from './Authentication';
+export * from './AuthenticationDialog';
 export * from './Signout';
+export * from './ScrollToTop';
