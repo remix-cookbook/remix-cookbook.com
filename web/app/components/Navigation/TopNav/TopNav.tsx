@@ -7,10 +7,10 @@ export function TopNav() {
   const { hasBookmarks } = useBookmarksContext();
 
   return (
-    <ul className="flex flex-wrap items-center gap-4 py-4 justify-evenly">
+    <ul className="flex flex-wrap items-center justify-evenly gap-4 py-4">
       <li className="hidden md:inline-block">
         <Link.Internal
-          className="underline underline-offset-4 decoration-dotted"
+          className="underline decoration-dotted underline-offset-4"
           href={route('/resources')}
         >
           Remix Resources
@@ -18,7 +18,7 @@ export function TopNav() {
       </li>
       <li className="md:hidden">
         <Link.Internal
-          className="underline underline-offset-4 decoration-dotted"
+          className="underline decoration-dotted underline-offset-4"
           href={route('/resources')}
         >
           Resources
@@ -26,7 +26,7 @@ export function TopNav() {
       </li>
       <li>
         <Link.Internal
-          className="underline underline-offset-4 decoration-dotted"
+          className="underline decoration-dotted underline-offset-4"
           href={route('/about')}
         >
           About
@@ -35,7 +35,7 @@ export function TopNav() {
       {hasBookmarks ? (
         <li>
           <Link.Internal
-            className="underline underline-offset-4 decoration-dotted"
+            className="underline decoration-dotted underline-offset-4"
             href={route('/bookmarks')}
           >
             Bookmarks
@@ -44,7 +44,7 @@ export function TopNav() {
       ) : null}
       <li>
         <Link.External
-          className="underline underline-offset-4 decoration-dotted"
+          className="underline decoration-dotted underline-offset-4"
           href="https://skilled-builder-1623.ck.page/60595207f8"
           title="Sign up to our newsletter"
         >

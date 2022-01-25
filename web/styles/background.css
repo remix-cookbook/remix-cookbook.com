@@ -8,7 +8,7 @@
 }
 
 .glow.glow-tr {
-  @apply md:-top-36 md:-right-28 md:opacity-100 opacity-70 -top-48 -right-48;
+  @apply -top-48 -right-48 opacity-70 md:-top-36 md:-right-28 md:opacity-100;
   box-shadow: -70px 80px 400px 300px rgba(56, 189, 248, 0.2);
 }
 

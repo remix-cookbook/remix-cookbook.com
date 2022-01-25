@@ -40,7 +40,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
               <Icon
                 data-testid="bookmark-icon"
                 icon={Icons.bookmark}
-                className={classNames('w-8 h-8 text-yellow-500', {
+                className={classNames('h-8 w-8 text-yellow-500', {
                   'text-inherit opacity-40': disabled,
                 })}
               />
@@ -48,7 +48,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
               <Icon
                 data-testid="bookmark-icon"
                 icon={Icons.bookmark}
-                className={classNames('w-8 h-8 opacity-40', {
+                className={classNames('h-8 w-8 opacity-40', {
                   'text-yellow-500 opacity-100': disabled,
                 })}
               />
@@ -59,7 +59,7 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
             <Icon
               data-testid="bookmark-icon"
               icon={Icons.bookmark}
-              className="w-8 h-8 opacity-40"
+              className="h-8 w-8 opacity-40"
             />
           </a>
         )}

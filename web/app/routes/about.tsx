@@ -27,14 +27,14 @@ export default function () {
         </p>
         <Headings.Separator>Social Media</Headings.Separator>
         <p className="md:flex md:items-center">
-          <Icon icon={Icons.twitter} className="w-6 h-6 mb-2 mr-2 md:mb-auto" />
+          <Icon icon={Icons.twitter} className="mb-2 mr-2 h-6 w-6 md:mb-auto" />
           Follow us on Twitter:&nbsp;
           <Link.External href="https://twitter.com/RemixCookbook">
             twitter.com/RemixCookbook
           </Link.External>
         </p>
         <p className="md:flex md:items-center">
-          <Icon icon={Icons.github} className="w-6 h-6 mb-2 mr-2 md:mb-auto" />
+          <Icon icon={Icons.github} className="mb-2 mr-2 h-6 w-6 md:mb-auto" />
           Github:&nbsp;
           <Link.External href="https://github.com/remix-cookbook">
             github.com/remix-cookbook
