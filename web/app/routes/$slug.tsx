@@ -25,6 +25,7 @@ export interface LoaderData {
   picture: BlogTypes.Picture;
   bookmark: Bookmark | null;
   like: Like | null;
+  likeQuantity?: number;
 }
 
 export const loader: LoaderFunction = async ({
@@ -52,11 +53,13 @@ export const loader: LoaderFunction = async ({
     postSlug: params.slug!,
   });
 
-  return json<LoaderData>({ post, preview, picture, bookmark, like });
+  const likeQuantity = await LikesApi.likeQuantity({ slug: params.slug! });
+
+  return json<LoaderData>({ post, preview, picture, bookmark, like, likeQuantity });
 };
 
 export default function Index() {
-  const { post, preview, picture, bookmark, like } = useLoaderData<LoaderData>();
+  const { post, preview, picture, bookmark, like, likeQuantity } = useLoaderData<LoaderData>();
 
   return (
     <Post
@@ -65,6 +68,7 @@ export default function Index() {
       picture={picture}
       bookmark={bookmark}
       like={like}
+      likeQuantity={likeQuantity}
     />
   );
 }

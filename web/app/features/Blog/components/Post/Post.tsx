@@ -14,9 +14,10 @@ export interface PostProps {
   picture: BlogTypes.Picture;
   bookmark: BookmarkType | null;
   like: Like | null;
+  likeQuantity: number;
 }
 
-export function Post({ post, preview = false, picture, bookmark, like }: PostProps) {
+export function Post({ post, preview = false, picture, bookmark, like, likeQuantity }: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
 
@@ -38,13 +39,15 @@ export function Post({ post, preview = false, picture, bookmark, like }: PostPro
             </div>
           ) : null}
           <Headings.Content>
-            <div className="flex items-start justify-between gap-3">
-              {post.title}
-              <div className="flex flex-col">
-                <Bookmark post={post} bookmark={bookmark} />
-                <LikeButton post={post} like={like} />
+            <>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                {post.title}
+                <div className="flex flex-col">
+                  <Bookmark post={post} bookmark={bookmark} />
+                </div>
               </div>
-            </div>
+              <LikeButton post={post} like={like} likeQuantity={likeQuantity} />
+            </>
           </Headings.Content>
           <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
             <p>
