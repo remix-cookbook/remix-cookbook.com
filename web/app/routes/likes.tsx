@@ -12,21 +12,16 @@ export const loader: LoaderFunction = async () => {
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  const params = Object.fromEntries(await request.formData());
+  const payload = Object.fromEntries(await request.formData());
 
-  if (params.likeId) {
-    await LikesApi.deleteLike(params.likeId as string);
+  if (payload.likeId) {
+    await LikesApi.deleteLike(payload.likeId as string);
   } else {
     await LikesApi.createLike({
-      postTitle: params.postTitle as string,
-      postSlug: params.postSlug as string,
-      userId: params.userId as string,
+      postId: payload.postId as string,
+      userId: payload.userId as string,
     });
   }
 
-  if (!!params.likeId) {
-    return redirect(String(params.referrer));
-  }
-
-  return redirect(route('/:slug', { slug: params.postSlug as string }));
+  return redirect(String(payload.referrer));
 };

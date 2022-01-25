@@ -39,8 +39,7 @@ export function LikeButton({ post, like, likeQuantity }: LikeButtonProps) {
     <>
       <AuthenticationDialog open={open} onClose={() => setOpen(false)} post={post} />
       <Form method="post" action={route('/likes')} className="flex items-center gap-2 text-sm">
-        <input type="hidden" name="postTitle" value={post.title} />
-        <input type="hidden" name="postSlug" value={post.slug.current} />
+        <input type="hidden" name="postId" value={post._id} />
         <input type="hidden" name="likeId" value={like?.id ?? ''} />
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
         <input type="hidden" name="referrer" value={referrer} />

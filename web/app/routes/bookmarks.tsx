@@ -19,23 +19,23 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  const params = Object.fromEntries(await request.formData());
+  const payload = Object.fromEntries(await request.formData());
 
-  if (params.bookmarkId) {
-    await BookmarksApi.deleteBookmark(params.bookmarkId as string);
+  if (payload.bookmarkId) {
+    await BookmarksApi.deleteBookmark(payload.bookmarkId as string);
   } else {
     await BookmarksApi.createBookmark({
-      postTitle: params.postTitle as string,
-      postSlug: params.postSlug as string,
-      userId: params.userId as string,
+      postTitle: payload.postTitle as string,
+      postSlug: payload.postSlug as string,
+      userId: payload.userId as string,
     });
   }
 
-  if (!!params.bookmarkId) {
-    return redirect(String(params.referrer));
+  if (!!payload.bookmarkId) {
+    return redirect(String(payload.referrer));
   }
 
-  return redirect(route('/:slug', { slug: params.postSlug as string }));
+  return redirect(route('/:slug', { slug: payload.postSlug as string }));
 };
 
 export default function () {

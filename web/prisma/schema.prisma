@@ -23,6 +23,5 @@ model Like {
   id              String   @id @default(uuid())
   createdAt       DateTime @default(now())
   userId          String
-  postTitle       String
-  postSlug        String
+  postId          String
 }
