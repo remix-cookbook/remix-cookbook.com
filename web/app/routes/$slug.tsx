@@ -24,7 +24,7 @@ export interface LoaderData {
   preview: boolean;
   picture: BlogTypes.Picture;
   bookmark: Bookmark | null;
-  like: Like | null;
+  userLike: Like | null;
   likeQuantity?: number;
 }
 
@@ -49,18 +49,25 @@ export const loader: LoaderFunction = async ({
     postSlug: params.slug!,
   });
 
-  const like = await LikesApi.getLike({
+  const userLike = await LikesApi.getLike({
     userId: `${profile?.provider}-${profile?.id}`,
     postId: post._id!,
   });
 
   const likeQuantity = await LikesApi.likeQuantity({ postId: post._id });
 
-  return json<LoaderData>({ post, preview, picture, bookmark, like, likeQuantity });
+  return json<LoaderData>({ post, preview, picture, bookmark, userLike, likeQuantity });
 };
 
 export default function Index() {
-  const { post, preview, picture, bookmark, like, likeQuantity = 0 } = useLoaderData<LoaderData>();
+  const {
+    post,
+    preview,
+    picture,
+    bookmark,
+    userLike,
+    likeQuantity = 0,
+  } = useLoaderData<LoaderData>();
 
   return (
     <Post
@@ -68,7 +75,7 @@ export default function Index() {
       preview={preview}
       picture={picture}
       bookmark={bookmark}
-      like={like}
+      userLike={userLike}
       likeQuantity={likeQuantity}
     />
   );

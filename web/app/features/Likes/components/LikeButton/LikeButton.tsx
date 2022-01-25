@@ -10,16 +10,16 @@ import { useDisabled } from '~/hooks/useDisabled';
 
 export interface LikeButtonProps {
   post: BlogTypes.Post;
-  like: Like | null;
+  userLike: Like | null;
   likeQuantity: number;
 }
 
-export function LikeButton({ post, like, likeQuantity }: LikeButtonProps) {
+export function LikeButton({ post, userLike, likeQuantity }: LikeButtonProps) {
   const [likeLabel, setLikeLabel] = useState<string>('likes');
   const { dialog: AuthenticationDialog, setOpen } = useAuthenticationDialog({ post });
   const { profile } = useProfile();
   const [referrer, setReferrer] = useState<string>('');
-  const disabled = useDisabled('likeId', like?.id ?? '');
+  const disabled = useDisabled('likeId', userLike?.id ?? '');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -39,12 +39,12 @@ export function LikeButton({ post, like, likeQuantity }: LikeButtonProps) {
       <AuthenticationDialog />
       <Form method="post" action={route('/likes')} className="flex items-center gap-2 text-sm">
         <input type="hidden" name="postId" value={post._id} />
-        <input type="hidden" name="likeId" value={like?.id ?? ''} />
+        <input type="hidden" name="likeId" value={userLike?.id ?? ''} />
         <input type="hidden" name="userId" value={`${profile?.provider}-${profile?.id}`} />
         <input type="hidden" name="referrer" value={referrer} />
         {profile ? (
           <button type="submit" title="Like this post" disabled={disabled}>
-            {like ? (
+            {userLike ? (
               <Icon
                 data-testid="like-icon"
                 icon={Icons.thumbsUp}

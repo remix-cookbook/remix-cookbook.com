@@ -13,11 +13,18 @@ export interface PostProps {
   preview: boolean;
   picture: BlogTypes.Picture;
   bookmark: BookmarkType | null;
-  like: Like | null;
+  userLike: Like | null;
   likeQuantity: number;
 }
 
-export function Post({ post, preview = false, picture, bookmark, like, likeQuantity }: PostProps) {
+export function Post({
+  post,
+  preview = false,
+  picture,
+  bookmark,
+  userLike,
+  likeQuantity,
+}: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
 
@@ -46,7 +53,7 @@ export function Post({ post, preview = false, picture, bookmark, like, likeQuant
                   <Bookmark post={post} bookmark={bookmark} />
                 </div>
               </div>
-              <LikeButton post={post} like={like} likeQuantity={likeQuantity} />
+              <LikeButton post={post} userLike={userLike} likeQuantity={likeQuantity} />
             </>
           </Headings.Content>
           <div className="pb-6 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
