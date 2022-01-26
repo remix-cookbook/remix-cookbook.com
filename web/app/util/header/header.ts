@@ -2,7 +2,6 @@ import { truncate } from 'lodash';
 import { BlogTypes, ContentUtils } from '~/features/Blog';
 import tailwindcss from '~/styles/tailwind.css';
 import background from '~/styles/background.css';
-import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
 import { domain, siteFullName } from '~/config';
 
 export function description(content: string): string {
@@ -60,18 +59,17 @@ export function globalLinks() {
 }
 
 export function postMeta(data: { post: BlogTypes.Post; preview: boolean }) {
-  const post = filterDataToSingleItem(data.post, data.preview);
-  const content = ContentUtils.blocksToText(post.content);
+  const content = ContentUtils.blocksToText(data.post.content);
   const desc = description(content.join(' '));
 
   return {
-    'title': `${siteFullName} - ${post.title}`,
+    'title': `${siteFullName} - ${data.post.title}`,
     'description': desc,
-    'og:title': `${siteFullName} - ${post.title}`,
+    'og:title': `${siteFullName} - ${data.post.title}`,
     'og:description': desc,
-    'og:url': `https://${domain}/${post.slug.current}`,
+    'og:url': `https://${domain}/${data.post.slug.current}`,
     'twitter:description': desc,
-    'og:image': `https://${domain}/img/${post.slug.current}.jpeg`,
-    'twitter:image': `https://${domain}/img/${post.slug.current}.jpeg`,
+    'og:image': `https://${domain}/img/${data.post.slug.current}.jpeg`,
+    'twitter:image': `https://${domain}/img/${data.post.slug.current}.jpeg`,
   };
 }

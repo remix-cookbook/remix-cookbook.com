@@ -32,14 +32,14 @@ export const loader: LoaderFunction = async ({
   request,
   params,
 }): Promise<LoaderData | Response> => {
-  let post = await BlogApi.getPost(params.slug);
+  const requestUrl = new URL(request?.url);
+  const preview = requestUrl?.searchParams?.get('preview') === process.env.SANITY_PREVIEW_SECRET;
+  let post = await BlogApi.getPost(params.slug, preview);
 
   if (!post || post.length === 0) {
     return redirect('/');
   }
 
-  const requestUrl = new URL(request?.url);
-  const preview = requestUrl?.searchParams?.get('preview') === process.env.SANITY_PREVIEW_SECRET;
   post = filterDataToSingleItem(post, preview);
   const [picture] = await UnsplashApi.getPictures({ quantity: 1 });
   const profile = (await auth.isAuthenticated(request))?.profile;
