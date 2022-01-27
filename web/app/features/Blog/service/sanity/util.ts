@@ -1,4 +1,8 @@
-export function filterDataToSingleItem(data = [], preview = false) {
+interface BlockContentItem {
+  _id: string;
+}
+
+export function filterDataToSingleItem(data: BlockContentItem[] = [], preview = false) {
   if (preview) {
     return data.find(item => item._id.startsWith(`drafts.`)) || data[0];
   }

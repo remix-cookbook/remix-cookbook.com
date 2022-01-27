@@ -3,7 +3,7 @@ import { json, LinksFunction, LoaderFunction, MetaFunction, redirect, useLoaderD
 import { BlogApi, BlogTypes, Post, UnsplashApi } from '~/features/Blog';
 import { BookmarksApi } from '~/features/Bookmarks';
 import { LikesApi } from '~/features/Likes';
-import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
+import { filterDataToSingleItem } from '~/features/Blog/service/sanity';
 import { auth } from '~/services';
 import highlighter from '~/styles/highlighter.css';
 import { postMeta } from '~/util/header/header';

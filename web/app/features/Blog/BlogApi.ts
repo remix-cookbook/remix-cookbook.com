@@ -1,5 +1,5 @@
 import { defaultLanguage } from '~/config';
-import { getClient } from '~/lib/sanity/getClient';
+import { getClient } from '~/features/Blog/service/sanity';
 import { BlogTypes } from '.';
 
 export function getPosts({ language }: { language: string }): Promise<BlogTypes.Post[]> {
