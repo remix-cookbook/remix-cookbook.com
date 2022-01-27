@@ -41,22 +41,31 @@ export const loader: LoaderFunction = async ({
   }
 
   post = filterDataToSingleItem(post, preview);
-  const [picture] = await UnsplashApi.getPictures({ quantity: 1 });
+
   const profile = (await auth.isAuthenticated(request))?.profile;
 
-  const bookmark = await BookmarksApi.getBookmark({
+  const picturePromise = UnsplashApi.getPictures({ quantity: 1 });
+
+  const likeQuantityPromise = LikesApi.likeQuantity({ postId: post._id });
+
+  const bookmarkPromise = BookmarksApi.getBookmark({
     userId: `${profile?.provider}-${profile?.id}`,
     postSlug: params.slug!,
   });
 
-  const userLike = await LikesApi.getLike({
+  const likePromise = LikesApi.getLike({
     userId: `${profile?.provider}-${profile?.id}`,
     postId: post._id!,
   });
 
-  const likeQuantity = await LikesApi.likeQuantity({ postId: post._id });
+  const [picture, bookmark, userLike, likeQuantity] = await Promise.all([
+    picturePromise,
+    bookmarkPromise,
+    likePromise,
+    likeQuantityPromise,
+  ]);
 
-  return json<LoaderData>({ post, preview, picture, bookmark, userLike, likeQuantity });
+  return json<LoaderData>({ post, preview, picture: picture[0], bookmark, userLike, likeQuantity });
 };
 
 export default function Index() {
