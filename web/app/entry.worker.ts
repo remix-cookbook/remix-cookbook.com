@@ -13,7 +13,7 @@ function debug(...messages: any[]) {
   }
 }
 
-let STATIC_ASSETS = ['/build/', '/icons/'];
+const STATIC_ASSETS = ['/build/', '/icons/'];
 
 const ASSET_CACHE = 'asset-cache';
 const DATA_CACHE = 'data-cache';
@@ -28,13 +28,13 @@ async function handleActivate(event: ExtendableEvent) {
 }
 
 async function handleMessage(event: ExtendableMessageEvent) {
-  let cachePromises: Map<string, Promise<void>> = new Map();
+  const cachePromises: Map<string, Promise<void>> = new Map();
 
   if (event.data.type === 'REMIX_NAVIGATION') {
-    let { isMount, location, matches, manifest } = event.data;
-    let documentUrl = location.pathname + location.search + location.hash;
+    const { isMount, location, matches, manifest } = event.data;
+    const documentUrl = location.pathname + location.search + location.hash;
 
-    let [dataCache, documentCache, existingDocument] = await Promise.all([
+    const [dataCache, documentCache, existingDocument] = await Promise.all([
       caches.open(DATA_CACHE),
       caches.open(DOCUMENT_CACHE),
       caches.match(documentUrl),
@@ -51,13 +51,13 @@ async function handleMessage(event: ExtendableMessageEvent) {
     }
 
     if (isMount) {
-      for (let match of matches) {
+      for (const match of matches) {
         if (manifest.routes[match.id].hasLoader) {
-          let params = new URLSearchParams(location.search);
+          const params = new URLSearchParams(location.search);
           params.set('_data', match.id);
           let search = params.toString();
           search = search ? `?${search}` : '';
-          let url = location.pathname + search + location.hash;
+          const url = location.pathname + search + location.hash;
           if (!cachePromises.has(url)) {
             debug('Caching data for', url);
             cachePromises.set(
@@ -76,9 +76,9 @@ async function handleMessage(event: ExtendableMessageEvent) {
 }
 
 async function handleFetch(event: FetchEvent): Promise<Response> {
-  let url = new URL(event.request.url);
+  const url = new URL(event.request.url);
   if (isAssetRequest(event.request)) {
-    let cached = await caches.match(event.request, {
+    const cached = await caches.match(event.request, {
       cacheName: ASSET_CACHE,
       ignoreVary: true,
       ignoreSearch: true,
@@ -89,9 +89,9 @@ async function handleFetch(event: FetchEvent): Promise<Response> {
     }
 
     debug('Serving asset from network', url.pathname);
-    let response = await fetch(event.request);
+    const response = await fetch(event.request);
     if (response.status === 200) {
-      let cache = await caches.open(ASSET_CACHE);
+      const cache = await caches.open(ASSET_CACHE);
       await cache.put(event.request, response.clone());
     }
     return response;
@@ -100,13 +100,13 @@ async function handleFetch(event: FetchEvent): Promise<Response> {
   if (isDataRequest(event.request)) {
     try {
       debug('Serving data from network', url.pathname + url.search);
-      let response = await fetch(event.request);
-      let cache = await caches.open(DATA_CACHE);
+      const response = await fetch(event.request);
+      const cache = await caches.open(DATA_CACHE);
       await cache.put(event.request, response.clone());
       return response;
     } catch (error) {
       debug('Serving data from network failed, falling back to cache', url.pathname + url.search);
-      let response = await caches.match(event.request);
+      const response = await caches.match(event.request);
       if (response) {
         return response;
       }
@@ -121,13 +121,13 @@ async function handleFetch(event: FetchEvent): Promise<Response> {
   if (isDocumentRequest(event.request)) {
     try {
       debug('Serving document from network', url.pathname);
-      let response = await fetch(event.request);
-      let cache = await caches.open(DOCUMENT_CACHE);
+      const response = await fetch(event.request);
+      const cache = await caches.open(DOCUMENT_CACHE);
       await cache.put(event.request, response.clone());
       return response;
     } catch (error) {
       debug('Serving document from network failed, falling back to cache', url.pathname);
-      let response = await caches.match(event.request);
+      const response = await caches.match(event.request);
       if (response) {
         return response;
       }
@@ -150,7 +150,7 @@ function isAssetRequest(request: Request) {
 }
 
 function isDataRequest(request: Request) {
-  let url = new URL(request.url);
+  const url = new URL(request.url);
   return isMethod(request, ['get']) && url.searchParams.get('_data');
 }
 
