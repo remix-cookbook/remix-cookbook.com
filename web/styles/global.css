@@ -1,0 +1,3 @@
+em {
+  @apply my-1 inline-block rounded-md bg-blue-200 px-2 text-base not-italic text-dark-polar-night4;
+}
