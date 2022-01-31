@@ -18,5 +18,12 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'tailwindcss', 'cypress'],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'any',
+        ignoreReadBeforeAssign: false,
+      },
+    ],
   },
 };

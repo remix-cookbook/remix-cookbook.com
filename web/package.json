@@ -4,9 +4,11 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "yarn build:css && remix build",
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn routes:generate\" \"yarn dev:css\" \"netlify dev\"",
+    "build": "yarn build:css && yarn build:worker && remix build",
+    "build:worker": "esbuild ./app/entry.worker.ts --outfile=./public/entry.worker.js --minify --bundle --format=esm --define:process.env.NODE_ENV='\"production\"'",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn routes:generate\" \"yarn dev:worker\" \"yarn dev:css\" \"netlify dev\"",
     "dev:css": "postcss ./styles/ --base --dir ./app/styles -w",
+    "dev:worker": "esbuild ./app/entry.worker.ts --outfile=./public/entry.worker.js --bundle --format=esm --define:process.env.NODE_ENV='\"development\"' --watch",
     "routes:generate": "yarn routes-gen -d @routes-gen/remix",
     "build:css": "postcss ./styles/ --base --dir ./app/styles",
     "postinstall": "remix setup node",
