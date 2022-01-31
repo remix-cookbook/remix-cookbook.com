@@ -4,7 +4,6 @@
 
 import { json } from '@remix-run/server-runtime';
 
-export type {};
 declare const self: ServiceWorkerGlobalScope;
 
 function debug(...messages: any[]) {
