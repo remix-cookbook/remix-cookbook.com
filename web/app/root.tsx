@@ -14,10 +14,11 @@ import {
 import { Header, Footer, Glow, ScrollToTop } from './components';
 import { domain } from './config';
 import { globalMeta, globalLinks } from './util/header/header';
-import { auth, sessionStorage } from './services';
+import { auth } from './services';
 import { GitHubProfile } from 'remix-auth-github';
 import { createContext } from 'react';
 import { BookmarksApi } from './features/Bookmarks';
+import { useBuildServiceWorker } from './hooks/useBuildServiceWorker';
 
 export const links: LinksFunction = globalLinks;
 
@@ -41,6 +42,8 @@ export const BookmarksContext = createContext<Pick<LoaderData, 'hasBookmarks'>>(
 });
 
 export default function App() {
+  useBuildServiceWorker();
+
   const { profile, hasBookmarks } = useLoaderData<LoaderData>();
   return (
     <html lang="en" className="scroll-smooth">
