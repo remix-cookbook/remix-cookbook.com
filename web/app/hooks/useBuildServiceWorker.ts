@@ -20,7 +20,7 @@ export function useBuildServiceWorker() {
           manifest: window.__remixManifest,
         });
       } else {
-        let listener = async () => {
+        const listener = async () => {
           await navigator.serviceWorker.ready;
           navigator.serviceWorker.controller?.postMessage({
             type: 'REMIX_NAVIGATION',
