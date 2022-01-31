@@ -2,6 +2,7 @@ import { truncate } from 'lodash';
 import { BlogTypes, ContentUtils } from '~/features/Blog';
 import tailwindcss from '~/styles/tailwind.css';
 import background from '~/styles/background.css';
+import global from '~/styles/global.css';
 import { domain, siteFullName } from '~/config';
 
 export function description(content: string): string {
@@ -32,6 +33,7 @@ export function globalLinks() {
   return [
     { rel: 'manifest', href: '/manifest.json' },
     { rel: 'stylesheet', href: tailwindcss },
+    { rel: 'stylesheet', href: global },
     { rel: 'stylesheet', href: background },
     { rel: 'apple-touch-icon', href: '/img/apple-touch-icon.png', sizes: '180x180' },
     { rel: 'icon', href: '/img/favicon-32x32.png', type: 'image/png' },
