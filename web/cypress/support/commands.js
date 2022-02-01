@@ -22,5 +22,5 @@ Cypress.Commands.add('byTestId', testId => {
 });
 
 Cypress.Commands.add('visitPost', () => {
-  cy.contains('Does Remix impose a project').click();
+  cy.byTestId('post-link').first().click();
 });
