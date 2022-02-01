@@ -42,19 +42,19 @@ export function globalLinks() {
     {
       rel: 'alternate',
       type: 'application/rss+xml',
-      href: `${domain}/rss.xml`,
+      href: `https://${domain}/rss.xml`,
       title: `${siteFullName}'s XML Feed`,
     },
     {
       rel: 'alternate',
       type: 'application/atom+xml',
-      href: `${domain}/atom.xml`,
+      href: `https://${domain}/atom.xml`,
       title: `${siteFullName}'s Atom Feed`,
     },
     {
       rel: 'alternate',
       type: 'application/feed+json',
-      href: `${domain}/feed.json`,
+      href: `https://${domain}/feed.json`,
       title: `${siteFullName}'s JSON Feed`,
     },
   ];
