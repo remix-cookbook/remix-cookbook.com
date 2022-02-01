@@ -24,7 +24,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
   const { slug, _createdAt, title } = post;
 
   return (
-    <div className="h-full rounded-xl border border-gray-800 bg-light-snow-storm3 bg-opacity-10 shadow-lg">
+    <div className="h-full border border-gray-800 shadow-lg rounded-xl bg-light-snow-storm3 bg-opacity-10">
       <div
         className={classNames({
           'card-image-box': small,
@@ -34,7 +34,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
         <Credits user={user} />
         <img
           src={small ? pictureSM : pictureRG}
-          className="h-full w-full rounded-t-xl object-cover"
+          className="object-cover w-full h-full rounded-t-xl"
           alt={alt_description}
         />
       </div>
@@ -43,10 +43,11 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
           href={route('/:slug', {
             slug: slug.current,
           })}
+          data-testid="post-link"
         >
           <p className="mb-1 text-sm text-gray-300">{DateTimeUtils.date(_createdAt)}</p>
-          <p className="shadowed-text mb-3 text-xl font-semibold antialiased">{title}</p>
-          {excerpt ? <p className="shadowed-text hidden text-base md:block">{excerpt}</p> : null}
+          <p className="mb-3 text-xl antialiased font-semibold shadowed-text">{title}</p>
+          {excerpt ? <p className="hidden text-base shadowed-text md:block">{excerpt}</p> : null}
         </Link.Internal>
       </div>
     </div>

@@ -11,7 +11,7 @@ import {
   json,
   useLoaderData,
 } from 'remix';
-import { Header, Footer, Glow, ScrollToTop } from './components';
+import { Header, Footer, Glow, MobileNavigationItem } from './components';
 import { domain } from './config';
 import { globalMeta, globalLinks } from './util/header/header';
 import { auth } from './services';
@@ -65,7 +65,8 @@ export default function App() {
               <Footer />
             </BookmarksContext.Provider>
           </AuthenticationContext.Provider>
-          <ScrollToTop />
+          <MobileNavigationItem variant={MobileNavigationItem.variant.ScrollToTop} />
+          <MobileNavigationItem variant={MobileNavigationItem.variant.Home} />
         </div>
         <Glow />
         <ScrollRestoration />

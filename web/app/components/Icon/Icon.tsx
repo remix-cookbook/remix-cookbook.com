@@ -1,5 +1,5 @@
 import { FaTwitter, FaGithub, FaAngleDoubleUp } from 'react-icons/fa';
-import { RssIcon, BookmarkIcon, ThumbUpIcon } from '@heroicons/react/solid';
+import { RssIcon, BookmarkIcon, ThumbUpIcon, HomeIcon } from '@heroicons/react/solid';
 
 export enum Icons {
   twitter,
@@ -8,6 +8,7 @@ export enum Icons {
   caretUp,
   bookmark,
   thumbsUp,
+  home,
 }
 
 export interface IconProps {
@@ -23,6 +24,7 @@ const IconsMap = (props: Omit<IconProps, 'icon'>) => ({
   [Icons.caretUp]: <FaAngleDoubleUp {...props} />,
   [Icons.bookmark]: <BookmarkIcon {...props} />,
   [Icons.thumbsUp]: <ThumbUpIcon {...props} />,
+  [Icons.home]: <HomeIcon {...props} />,
 });
 
 export function Icon(props: IconProps) {
