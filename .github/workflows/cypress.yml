@@ -27,3 +27,8 @@ jobs:
           CYPRESS_SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
           CYPRESS_SANITY_PREVIEW_SECRET: ${{ secrets.SANITY_PREVIEW_SECRET }}
           CYPRESS_SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
+          CYPRESS_BASE_URL: ${{ secrets.BASE_URL }}
+          CYPRESS_SESSION_VALUE: ${{ secrets.CYPRESS_SESSION_VALUE }}
+          CYPRESS_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          CYPRESS_GH_APP_CLIENT_ID: ${{ secrets.GH_APP_CLIENT_ID }}
+          CYPRESS_GH_APP_CLIENT_SECRET: ${{ secrets.GH_APP_CLIENT_SECRET }}
