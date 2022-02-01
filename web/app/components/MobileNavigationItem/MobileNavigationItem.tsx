@@ -2,6 +2,7 @@ import { Icon, Icons, Link } from '~/components';
 import { useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import classNames from 'classnames';
+import { useLocation } from 'remix';
 
 enum Variant {
   ScrollToTop,
@@ -15,6 +16,7 @@ export interface MobileNavigationItemProps {
 export function MobileNavigationItem({ variant }: MobileNavigationItemProps) {
   const [visible, setvisible] = useState<boolean>(false);
   const threshold = 800;
+  const location = useLocation();
 
   useEffect(() => {
     function onScroll() {
@@ -44,6 +46,7 @@ export function MobileNavigationItem({ variant }: MobileNavigationItemProps) {
         {
           '-bottom-3 -right-3 rounded-tl-full': variant === Variant.ScrollToTop,
           '-bottom-3 -left-3 rounded-tr-full': variant === Variant.Home,
+          'invisible': variant === Variant.Home && location.pathname === '/',
         }
       )}
     >
