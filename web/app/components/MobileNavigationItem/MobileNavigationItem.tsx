@@ -17,7 +17,7 @@ export function MobileNavigationItem({ variant }: MobileNavigationItemProps) {
   const [visible, setvisible] = useState(false);
   const threshold = 800;
   const location = useLocation();
-  const isHomePage = variant === Variant.Home && location.pathname === '/';
+  const hideHomeButton = variant === Variant.Home && location.pathname === '/';
 
   useEffect(() => {
     function onScroll() {
@@ -47,7 +47,7 @@ export function MobileNavigationItem({ variant }: MobileNavigationItemProps) {
         {
           '-bottom-3 -right-3 rounded-tl-full': variant === Variant.ScrollToTop,
           '-bottom-3 -left-3 rounded-tr-full': variant === Variant.Home,
-          'invisible': isHomePage,
+          'invisible': hideHomeButton,
         }
       )}
     >
