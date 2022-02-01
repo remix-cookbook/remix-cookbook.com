@@ -7,7 +7,7 @@ export function Content({ blocks }) {
       blocks={blocks}
       serializers={serializers}
       projectId="4njl7vlm"
-      dataset="production"
+      dataset="blog-contents"
     />
   );
 }

@@ -2,7 +2,7 @@ import { truncate } from 'lodash';
 import { BlogTypes, ContentUtils } from '~/features/Blog';
 import tailwindcss from '~/styles/tailwind.css';
 import background from '~/styles/background.css';
-import { filterDataToSingleItem } from '~/lib/sanity/filterDataToSingleItem';
+import global from '~/styles/global.css';
 import { domain, siteFullName } from '~/config';
 
 export function description(content: string): string {
@@ -33,6 +33,7 @@ export function globalLinks() {
   return [
     { rel: 'manifest', href: '/manifest.json' },
     { rel: 'stylesheet', href: tailwindcss },
+    { rel: 'stylesheet', href: global },
     { rel: 'stylesheet', href: background },
     { rel: 'apple-touch-icon', href: '/img/apple-touch-icon.png', sizes: '180x180' },
     { rel: 'icon', href: '/img/favicon-32x32.png', type: 'image/png' },
@@ -41,37 +42,36 @@ export function globalLinks() {
     {
       rel: 'alternate',
       type: 'application/rss+xml',
-      href: `${domain}/rss.xml`,
+      href: `https://${domain}/rss.xml`,
       title: `${siteFullName}'s XML Feed`,
     },
     {
       rel: 'alternate',
       type: 'application/atom+xml',
-      href: `${domain}/atom.xml`,
+      href: `https://${domain}/atom.xml`,
       title: `${siteFullName}'s Atom Feed`,
     },
     {
       rel: 'alternate',
       type: 'application/feed+json',
-      href: `${domain}/feed.json`,
+      href: `https://${domain}/feed.json`,
       title: `${siteFullName}'s JSON Feed`,
     },
   ];
 }
 
 export function postMeta(data: { post: BlogTypes.Post; preview: boolean }) {
-  const post = filterDataToSingleItem(data.post, data.preview);
-  const content = ContentUtils.blocksToText(post.content);
+  const content = ContentUtils.blocksToText(data.post.content);
   const desc = description(content.join(' '));
 
   return {
-    'title': `${siteFullName} - ${post.title}`,
+    'title': `${siteFullName} - ${data.post.title}`,
     'description': desc,
-    'og:title': `${siteFullName} - ${post.title}`,
+    'og:title': `${siteFullName} - ${data.post.title}`,
     'og:description': desc,
-    'og:url': `https://${domain}/${post.slug.current}`,
+    'og:url': `https://${domain}/${data.post.slug.current}`,
     'twitter:description': desc,
-    'og:image': `https://${domain}/img/${post.slug.current}.jpeg`,
-    'twitter:image': `https://${domain}/img/${post.slug.current}.jpeg`,
+    'og:image': `https://${domain}/img/${data.post.slug.current}.jpeg`,
+    'twitter:image': `https://${domain}/img/${data.post.slug.current}.jpeg`,
   };
 }

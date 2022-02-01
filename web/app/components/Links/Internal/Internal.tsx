@@ -7,9 +7,9 @@ export interface InternalProps {
   className?: string;
 }
 
-export function Internal({ href, children, className }: InternalProps) {
+export function Internal({ href, children, className, ...props }: InternalProps) {
   return (
-    <Link prefetch="intent" to={href} className={className}>
+    <Link prefetch="intent" to={href} className={className} {...props}>
       {children}
     </Link>
   );

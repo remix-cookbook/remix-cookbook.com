@@ -1,8 +1,8 @@
 import shuffle from 'lodash/shuffle';
 import { json, LinksFunction, LoaderFunction, useLoaderData } from 'remix';
+import { ErrorBoundary as GeneralErrorBoundary } from '~/components';
 import { languageCookie, parseCookie } from '~/cookies';
-import { BlogApi, BlogTypes, Posts } from '~/features/Blog';
-import pictures from '~/features/Blog/components/Posts/pictures-space.json';
+import { BlogApi, BlogTypes, Posts, UnsplashApi } from '~/features/Blog';
 import card from '~/styles/card.css';
 
 export interface LoaderData {
@@ -13,12 +13,15 @@ export interface LoaderData {
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: card }];
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const { language } = await parseCookie(request, languageCookie);
-  const posts = (await BlogApi.getPosts({ language })) ?? [];
+  try {
+    const { language } = await parseCookie(request, languageCookie);
+    const posts = (await BlogApi.getPosts({ language })) ?? [];
+    const pictures = shuffle(await UnsplashApi.getPictures({ quantity: 30 }));
 
-  // console.log(JSON.stringify(await UnsplashApi.getPictures()));
-
-  return json<LoaderData>({ posts, pictures: shuffle(pictures) });
+    return json<LoaderData>({ posts, pictures });
+  } catch (error) {
+    throw new Response('Server error', { status: 500 });
+  }
 };
 
 export default function Index() {
@@ -26,3 +29,9 @@ export default function Index() {
 
   return <Posts posts={posts} pictures={pictures} />;
 }
+
+export const ErrorBoundary = () => (
+  <GeneralErrorBoundary>
+    We could not load the list of posts. Please try again.
+  </GeneralErrorBoundary>
+);

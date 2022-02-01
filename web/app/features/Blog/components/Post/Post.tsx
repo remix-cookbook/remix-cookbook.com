@@ -1,42 +1,62 @@
-import { Headings, Link, Prose } from '~/components';
-import { Comments, Content } from '~/features/Blog';
-import { DateTimeUtils } from '~/util';
-import { Post } from '../../types';
+import { Bookmark as BookmarkType, Like } from '@prisma/client';
 import m2r from 'minutes-to-read';
-import { ContentUtils } from '../Content';
-import pictures from '~/features/Blog/components/Posts/pictures-space.json';
-import shuffle from 'lodash/shuffle';
+import { Headings, Link, Prose } from '~/components';
+import { BlogTypes, Comments, Content } from '~/features/Blog';
+import { Bookmark } from '~/features/Bookmarks';
+import { LikeButton } from '~/features/Likes/components/LikeButton';
+import { DateTimeUtils } from '~/util';
 import { Credits } from '../Card/Credits';
+import { ContentUtils } from '../Content';
 
 export interface PostProps {
-  post: Post;
+  post: BlogTypes.Post;
   preview: boolean;
+  picture: BlogTypes.Picture;
+  bookmark: BookmarkType | null;
+  userLike: Like | null;
+  likeQuantity: number;
 }
 
-export function Post({ post, preview = false }: PostProps) {
+export function Post({
+  post,
+  preview = false,
+  picture,
+  bookmark,
+  userLike,
+  likeQuantity,
+}: PostProps) {
   const content = ContentUtils.blocksToText(post.content).join(' ');
   const minutesToRead = m2r(content);
-  const [picture] = shuffle(pictures);
 
   return (
     <>
-      <div className="relative w-full h-48 md:h-72">
+      <div className="relative h-48 w-full md:h-80">
         <Credits user={picture.user} />
         <img
           src={picture.regular}
-          className="object-cover w-full h-full"
+          className="h-full w-full object-cover"
           alt={`${post.title} - Cover image`}
         />
       </div>
       <Prose>
         <>
           {preview ? (
-            <div className="p-2 antialiased font-semibold text-center bg-opacity-70 text-normal bg-light-snow-storm1 text-dark-polar-night3">
+            <div className="text-normal bg-light-snow-storm1 bg-opacity-70 p-2 text-center font-semibold text-dark-polar-night3 antialiased">
               Preview Mode Enabled
             </div>
           ) : null}
-          <Headings.Content>{post.title}</Headings.Content>
-          <div className="pb-5 text-sm border-b text-light-snow-storm3 border-dark-polar-night1">
+          <Headings.Content>
+            <>
+              <div className="mb-3 flex items-start justify-between gap-3">
+                {post.title}
+                <div className="flex flex-col">
+                  <Bookmark post={post} bookmark={bookmark} />
+                </div>
+              </div>
+              <LikeButton post={post} userLike={userLike} likeQuantity={likeQuantity} />
+            </>
+          </Headings.Content>
+          <div className="border-b border-dark-polar-night1 pb-6 text-sm text-light-snow-storm3">
             <p>
               By <span className="font-semibold">{post.author}</span> -{' '}
               <Link.External href={`https://${post.author_url}`}>{post.author_url}</Link.External>
@@ -48,7 +68,7 @@ export function Post({ post, preview = false }: PostProps) {
               <dd>Last update: {DateTimeUtils.date(post._updatedAt)}</dd>
             </dl>
             <dl>
-              <dd className="inline-block mt-6 text-base">
+              <dd className="mt-6 inline-block text-base">
                 ⏳ &nbsp;&nbsp;{minutesToRead}, not taking into consideration the code examples.
               </dd>
             </dl>

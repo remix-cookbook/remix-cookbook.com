@@ -26,6 +26,31 @@ describe('Home', () => {
       cy.window().its('scrollY').should('eq', 0);
     });
 
+    it('should NOT display mobile-only button Home when visiting home', () => {
+      cy.visit('/');
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.byTestId('navigate-home').should('not.be.visible');
+    });
+
+    it('should display mobile-only button Home when visiting a post', () => {
+      cy.visitPost();
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.byTestId('navigate-home').should('be.visible');
+    });
+
+    it('should return Home when mobile-only home item is clicked', () => {
+      cy.viewport(400, 800);
+      cy.visitPost();
+      cy.wait(500);
+      cy.scrollTo(0, 2000);
+      cy.byTestId('navigate-home').click();
+      cy.location().should(location => {
+        expect(location.pathname).to.eq('/');
+      });
+    });
+
     it('should display main heading with image and link', () => {
       cy.get('h1[data-testid="site-name"]').within(() => {
         cy.contains('Remix.run Cookbook');
@@ -127,9 +152,26 @@ describe('Home', () => {
 
   describe('Post page', () => {
     it('should display comment box', () => {
-      cy.contains('Does Remix impose a project').click();
+      cy.visitPost();
       cy.get('.utterances-frame');
     });
+
+    it('should display the bookmark icon', () => {
+      cy.visitPost();
+      cy.byTestId('bookmark-icon');
+    });
+
+    it('should display authentication dialog on bookmark icon click', () => {
+      cy.visitPost();
+      cy.byTestId('bookmark-icon').click();
+      cy.byTestId('authentication-dialog').should('exist');
+    });
+
+    // TODO waiting for the session issue to be fixed
+    // it.only('should authenticate user', () => {
+    //   cy.authenticatedVisit();
+    //   cy.contains('Sign out').should('exist');
+    // });
   });
 
   describe('Top navigation', () => {

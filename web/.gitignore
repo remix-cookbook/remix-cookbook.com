@@ -2,6 +2,8 @@ node_modules
 /.cache
 /netlify/functions/server/build
 /public/build
+/build
+/public/entry.worker.js
 /.netlify
 /app/styles
 .env
@@ -9,3 +11,4 @@ node_modules
 /public/rss.xml
 /public/atom.xml
 /public/feed.json
+/prisma/dev.db

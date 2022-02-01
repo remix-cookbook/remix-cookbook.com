@@ -1,6 +1,7 @@
 import { Cookie, createCookie } from 'remix';
 
 export const languageCookie = createCookie('language');
+export const signinRedirectCookie = createCookie('signinRedirect');
 
 export interface Cookies {
   language: string;

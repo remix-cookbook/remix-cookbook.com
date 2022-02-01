@@ -13,7 +13,7 @@ export function Posts({ posts, pictures }: PostsProps) {
   const [excerpt] = ContentUtils.blocksToText(firstPost.content);
 
   return (
-    <div className="max-w-6xl px-4 mx-auto mt-6">
+    <div className="mx-auto mt-6 max-w-6xl px-4">
       <div className="mb-6">
         <Card post={firstPost} excerpt={excerpt} picture={firstPicture} />
       </div>

@@ -24,7 +24,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
   const { slug, _createdAt, title } = post;
 
   return (
-    <div className="h-full border border-gray-700 shadow-lg bg-light-snow-storm3 bg-opacity-10 rounded-xl">
+    <div className="h-full border border-gray-800 shadow-lg rounded-xl bg-light-snow-storm3 bg-opacity-10">
       <div
         className={classNames({
           'card-image-box': small,
@@ -43,6 +43,7 @@ export function Card({ post, excerpt, picture, small = false }: CardProps) {
           href={route('/:slug', {
             slug: slug.current,
           })}
+          data-testid="post-link"
         >
           <p className="mb-1 text-sm text-gray-300">{DateTimeUtils.date(_createdAt)}</p>
           <p className="mb-3 text-xl antialiased font-semibold shadowed-text">{title}</p>
