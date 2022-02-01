@@ -26,6 +26,31 @@ describe('Home', () => {
       cy.window().its('scrollY').should('eq', 0);
     });
 
+    it('should NOT display mobile-only button Home when visiting home', () => {
+      cy.visit('/');
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.byTestId('navigate-home').should('not.be.visible');
+    });
+
+    it('should display mobile-only button Home when visiting a post', () => {
+      cy.visitPost();
+      cy.viewport(400, 800);
+      cy.scrollTo(0, 1000);
+      cy.byTestId('navigate-home').should('be.visible');
+    });
+
+    it('should return Home when mobile-only home item is clicked', () => {
+      cy.viewport(400, 800);
+      cy.visitPost();
+      cy.wait(500);
+      cy.scrollTo(0, 2000);
+      cy.byTestId('navigate-home').click();
+      cy.location().should(location => {
+        expect(location.pathname).to.eq('/');
+      });
+    });
+
     it('should display main heading with image and link', () => {
       cy.get('h1[data-testid="site-name"]').within(() => {
         cy.contains('Remix.run Cookbook');

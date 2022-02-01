@@ -60,7 +60,11 @@ export function MobileNavigationItem({ variant }: MobileNavigationItemProps) {
         </a>
       ) : null}
       {variant === Variant.Home ? (
-        <Link.Internal href="/" className="flex items-center justify-center w-full h-full">
+        <Link.Internal
+          href="/"
+          className="flex items-center justify-center w-full h-full"
+          data-testid="navigate-home"
+        >
           <Icon icon={Icons.home} className="w-6 h-6" />
         </Link.Internal>
       ) : null}
