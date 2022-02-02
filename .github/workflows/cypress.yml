@@ -41,5 +41,5 @@ jobs:
           CYPRESS_BASE_URL: ${{ secrets.BASE_URL }}
           CYPRESS_SESSION_VALUE: ${{ secrets.CYPRESS_SESSION_VALUE }}
           CYPRESS_DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          CYPRESS_GH_APP_CLIENT_ID: ${{ secrets.GH_APP_CLIENT_ID }}
-          CYPRESS_GH_APP_CLIENT_SECRET: ${{ secrets.GH_APP_CLIENT_SECRET }}
+          CYPRESS_GITHUB_APP_CLIENT_ID: ${{ secrets.GH_APP_CLIENT_ID }}
+          CYPRESS_GITHUB_APP_CLIENT_SECRET: ${{ secrets.GH_APP_CLIENT_SECRET }}
