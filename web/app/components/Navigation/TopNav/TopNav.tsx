@@ -7,7 +7,7 @@ export function TopNav() {
   const { hasBookmarks } = useBookmarksContext();
 
   return (
-    <ul className="flex flex-wrap items-center justify-evenly gap-4 py-4">
+    <ul className="flex flex-wrap items-center gap-4 py-4 justify-evenly">
       <li className="hidden md:inline-block">
         <Link.Internal
           className="underline decoration-dotted underline-offset-4"
