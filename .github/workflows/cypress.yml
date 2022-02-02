@@ -56,3 +56,15 @@ jobs:
           CYPRESS_DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CYPRESS_GH_APP_CLIENT_ID: ${{ secrets.GH_APP_CLIENT_ID }}
           CYPRESS_GH_APP_CLIENT_SECRET: ${{ secrets.GH_APP_CLIENT_SECRET }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          SANITY_USE_CDN: ${{ secrets.SANITY_USE_CDN }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
+          SANITY_PREVIEW_SECRET: ${{ secrets.SANITY_PREVIEW_SECRET }}
+          SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          SESSION_VALUE: ${{ secrets.CYPRESS_SESSION_VALUE }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GH_APP_CLIENT_ID: ${{ secrets.GH_APP_CLIENT_ID }}
+          GH_APP_CLIENT_SECRET: ${{ secrets.GH_APP_CLIENT_SECRET }}
