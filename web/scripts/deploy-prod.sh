@@ -5,6 +5,8 @@ rm -Rf './netlify/functions/server/build/'
 rm -Rf './.cache'
 rm -Rf './public/build/'
 
+yarn lint
+
 yarn routes:generate
 
 yarn build
