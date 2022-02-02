@@ -30,24 +30,24 @@ export function Post({
 
   return (
     <>
-      <div className="relative h-48 w-full md:h-80">
+      <div className="relative w-full h-48 md:h-80">
         <Credits user={picture.user} />
         <img
           src={picture.regular}
-          className="h-full w-full object-cover"
-          alt={`${post.title} - Cover image`}
+          className="object-cover w-full h-full"
+          alt={`${post.title} - Cover`}
         />
       </div>
       <Prose>
         <>
           {preview ? (
-            <div className="text-normal bg-light-snow-storm1 bg-opacity-70 p-2 text-center font-semibold text-dark-polar-night3 antialiased">
+            <div className="p-2 antialiased font-semibold text-center text-normal bg-light-snow-storm1 bg-opacity-70 text-dark-polar-night3">
               Preview Mode Enabled
             </div>
           ) : null}
           <Headings.Content>
             <>
-              <div className="mb-3 flex items-start justify-between gap-3">
+              <div className="flex items-start justify-between gap-3 mb-3">
                 {post.title}
                 <div className="flex flex-col">
                   <Bookmark post={post} bookmark={bookmark} />
@@ -56,7 +56,7 @@ export function Post({
               <LikeButton post={post} userLike={userLike} likeQuantity={likeQuantity} />
             </>
           </Headings.Content>
-          <div className="border-b border-dark-polar-night1 pb-6 text-sm text-light-snow-storm3">
+          <div className="pb-6 text-sm border-b border-dark-polar-night1 text-light-snow-storm3">
             <p>
               By <span className="font-semibold">{post.author}</span> -{' '}
               <Link.External href={`https://${post.author_url}`}>{post.author_url}</Link.External>
@@ -68,7 +68,7 @@ export function Post({
               <dd>Last update: {DateTimeUtils.date(post._updatedAt)}</dd>
             </dl>
             <dl>
-              <dd className="mt-6 inline-block text-base">
+              <dd className="inline-block mt-6 text-base">
                 ⏳ &nbsp;&nbsp;{minutesToRead}, not taking into consideration the code examples.
               </dd>
             </dl>

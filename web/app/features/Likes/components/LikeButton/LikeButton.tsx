@@ -63,9 +63,9 @@ export function LikeButton({ post, userLike, likeQuantity }: LikeButtonProps) {
             )}
           </button>
         ) : (
-          <a href="#" title="Like this post" onClick={() => setOpen(true)}>
-            <Icon data-testid="like-icon" icon={Icons.thumbsUp} className="h-6 w-6 opacity-40" />
-          </a>
+          <button title="Like this post" onClick={() => setOpen(true)}>
+            <Icon data-testid="like-icon" icon={Icons.thumbsUp} className="w-6 h-6 opacity-40" />
+          </button>
         )}
         <span>
           {likeQuantity} {likeLabel}

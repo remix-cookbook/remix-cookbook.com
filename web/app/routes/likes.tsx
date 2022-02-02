@@ -1,6 +1,5 @@
 import { Like } from '@prisma/client';
 import { ActionFunction, LoaderFunction, redirect } from 'remix';
-import { route } from 'routes-gen';
 import { LikesApi } from '~/features/Likes';
 
 export interface LoaderData {
