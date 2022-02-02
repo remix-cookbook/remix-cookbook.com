@@ -1,10 +1,10 @@
-name: Integration tests
+name: Pull request
 on: [push]
 defaults:
   run:
     working-directory: web
 jobs:
-  pull-request-checks:
+  run-all:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
