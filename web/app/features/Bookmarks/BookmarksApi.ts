@@ -44,6 +44,8 @@ export async function deleteBookmark(id: string) {
 }
 
 export async function bookmarkQuantity(profile: GitHubProfile) {
+  if (!profile) return false;
+
   return db.bookmark.count({
     where: {
       userId: `${profile?.provider}-${profile?.id}`,
