@@ -3,14 +3,14 @@ import { Icon, Icons } from '~/components';
 import { useProfile, useAuthenticationDialog } from '~/hooks';
 import { BlogTypes } from '~/features/Blog';
 import { route } from 'routes-gen';
-import { Bookmark } from '@prisma/client';
+import { Bookmark as BookmarkType } from '@prisma/client';
 import { Form } from 'remix';
 import classNames from 'classnames';
 import { useDisabled } from '~/hooks/useDisabled';
 
 export interface BookmarkProps {
   post: BlogTypes.Post;
-  bookmark: Bookmark | null;
+  bookmark: BookmarkType | null;
 }
 
 export function Bookmark({ post, bookmark }: BookmarkProps) {
@@ -55,13 +55,13 @@ export function Bookmark({ post, bookmark }: BookmarkProps) {
             )}
           </button>
         ) : (
-          <a href="#" title="Bookmark this post" onClick={() => setOpen(true)}>
+          <button title="Bookmark this post" onClick={() => setOpen(true)}>
             <Icon
               data-testid="bookmark-icon"
               icon={Icons.bookmark}
-              className="h-8 w-8 opacity-40"
+              className="w-8 h-8 opacity-40"
             />
-          </a>
+          </button>
         )}
       </Form>
     </>

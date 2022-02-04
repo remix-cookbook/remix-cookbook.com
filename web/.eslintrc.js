@@ -6,7 +6,7 @@ module.exports = {
     'es2021': true,
     'cypress/globals': true,
   },
-  extends: ['eslint-config-kentcdodds', 'plugin:prettier/recommended'],
+  extends: ['@remix-run/eslint-config'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -15,7 +15,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'tailwindcss', 'cypress'],
+  plugins: ['react', '@typescript-eslint', 'cypress'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'prefer-const': [

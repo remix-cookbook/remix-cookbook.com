@@ -31,7 +31,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
   }
 
-  if (!!payload.bookmarkId) {
+  if (payload.bookmarkId) {
     return redirect(String(payload.referrer));
   }
 

@@ -8,7 +8,7 @@ export function useBuildServiceWorker() {
   const location = useLocation();
 
   useEffect(() => {
-    let mounted = isMount;
+    const mounted = isMount;
     isMount = false;
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -36,5 +36,5 @@ export function useBuildServiceWorker() {
         };
       }
     }
-  }, [location]);
+  }, [location, matches]);
 }
