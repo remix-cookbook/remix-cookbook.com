@@ -6,9 +6,12 @@ contact_links:
   - name: 💬 Remix Discord Channel
     url: https://rmx.as/discord
     about: Interact with other people using Remix 📀
-  - name: 💬 New Updates (Twitter)
+  - name: 💬 New Updates (Twitter @remix_run)
     url: https://twitter.com/remix_run
-    about: Stay up to date with Remix news on twitter
+    about: Stay up to date with official news announcements from the Remix framework creators.
+  - name: 💬 New Updates (Twitter @remixcookbook)
+    url: https://twitter.com/remixcookbook
+    about: Stay up to date with the Remix community by checking our community code recipes for the Remix framework
   - name: 🍿 Remix YouTube Channel
     url: https://rmx.as/youtube
     about: Are you a techlead or wanting to learn more about Remix in depth? Checkout the Remix YouTube Channel

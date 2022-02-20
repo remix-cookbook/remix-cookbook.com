@@ -12,7 +12,7 @@ body:
 
         Before submitting a new bug/issue, please check the links below to see if there is a solution or question posted there already:
          - `remix-cookbook.com` Issues tab: https://github.com/remix-cookbook/remix-cookbook.com/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc
-         - `remix-cookbook.com` closed issues tab: https://github.com/remix-cookbook/remix-cookbook.com/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed
+         - `remix-cookbook.com` Closed issues tab: https://github.com/remix-cookbook/remix-cookbook.com/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed
          - `remix-cookbook.com` Discussions tab: https://github.com/remix-cookbook/remix-cookbook.com/discussions
 
         The more information you fill in, the better the community can help you.
@@ -28,13 +28,12 @@ body:
     attributes:
       label: Your Example Website or App
       description: |
-        Which website or app were you using when the bug happened?
         Note:
-        - Your bug will may get fixed much faster if we can run your code and it doesn't have dependencies other than the `remix-cookbook.com` npm package.
-        - To create a shareable code example you can use Stackblitz (https://stackblitz.com/). Please no localhost URLs.
+        - Your bug will may get fixed much faster if we can run your code.
+        - To create a shareable code example you can use Stackblitz (https://stackblitz.com/) or share your Github repository. Please no localhost URLs.
         - Please read these tips for providing a minimal example: https://stackoverflow.com/help/mcve.
       placeholder: |
-        e.g. https://stackblitz.com/edit/...... OR Github Repo
+        e.g. https://stackblitz.com/edit/...... OR your Github Repository
     validations:
       required: true
   - type: textarea
